@@ -1,0 +1,38 @@
+[
+  {
+    "category": "african",
+    "image": "images/test.jpg",
+    "name": "Jollof Rice",
+    "description": "Classic smoky jollof with grilled chicken and fried plantain."
+  },
+  {
+    "category": "african",
+    "image": "images/test.jpg",
+    "name": "Pepper Soup",
+    "description": "Hot, spicy, and rich broth made with tender goat meat."
+  },
+  {
+    "category": "african",
+    "image": "images/test.jpg",
+    "name": "Fried Yam & Stew",
+    "description": "Golden fried yam with our signature spicy pepper sauce."
+  },
+  {
+    "category": "asian",
+    "image": "images/asian-dish.jpg",
+    "name": "Pad Thai",
+    "description": "Stir-fried rice noodles with shrimp, tofu, peanuts, and lime."
+  },
+  {
+    "category": "american",
+    "image": "images/burger.jpg",
+    "name": "Classic Smash Burger",
+    "description": "Double patty with cheese, onions, pickles, and special sauce."
+  },
+  {
+    "category": "european",
+    "image": "images/pasta.jpg",
+    "name": "Carbonara",
+    "description": "Classic Italian pasta with egg, pecorino cheese, and guanciale."
+  }
+]

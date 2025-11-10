@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - Jesse's Cuisines</title>
+    
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/headshot.jpg" type="image/jpeg">
+</head>
+<body>
+
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <header>
+      <nav id="navbar">
+        <div class="nav-container">
+          <h1 class="logo"><a href="index.html">Jesse's Cuisines</a></h1>
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="catering.html">Catering</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="page-header section">
+        <h1>Place Your Order</h1>
+        <p>We're excited to cook for you. Please fill out the form below.</p>
+    </section>
+
+    <main class="section form-section">
+        <div class="form-wrapper">
+            
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqX7XEgl6e9MSWDVrJVfLTvgGsw193flHzNuQPttMokVljfA/viewform?usp=sf_link" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+        </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
+    </footer>
+
+    <script>
+      // --- Navbar shrink and animation ---
+      window.addEventListener("scroll", function() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // --- Mobile menu toggle ---
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+    </script>
+
+    <script>
+      const preloader = document.getElementById('preloader');
+      window.addEventListener('load', () => {
+        preloader.classList.add('loaded');
+      });
+    </script>
+
+</body>
+</html>
