@@ -2,37 +2,55 @@
   {
     "category": "african",
     "image": "images/test.jpg",
+    "image_large": "images/test-large.jpg",
     "name": "Jollof Rice",
-    "description": "Classic smoky jollof with grilled chicken and fried plantain."
+    "description": "Classic smoky jollof with grilled chicken and fried plantain.",
+    "price": "$18.99 / Tray" ,
+    "details": "Contains: Poultry. Gluten-free option available upon request."
   },
   {
     "category": "african",
     "image": "images/test.jpg",
+    "image_large": "images/test-large.jpg",
     "name": "Pepper Soup",
-    "description": "Hot, spicy, and rich broth made with tender goat meat."
+    "description": "Hot, spicy, and rich broth made with tender goat meat.",
+    "price": "$16.99 / Tray" ,
+    "details": "Spicy. Contains: Meat. Dairy-free."
   },
   {
     "category": "african",
     "image": "images/test.jpg",
+    "image_large": "images/test-large.jpg",
     "name": "Fried Yam & Stew",
-    "description": "Golden fried yam with our signature spicy pepper sauce."
+    "description": "Golden fried yam with our signature spicy pepper sauce.",
+    "price": "$15.99 / Tray",
+    "details": "Vegan option available (without stew). Spicy."
   },
   {
     "category": "asian",
     "image": "images/asian-dish.jpg",
+    "image_large": "images/asian-dish-large.jpg",
     "name": "Pad Thai",
-    "description": "Stir-fried rice noodles with shrimp, tofu, peanuts, and lime."
+    "description": "Stir-fried rice noodles with shrimp, tofu, peanuts, and lime.",
+    "price": "$17.99 / Tray",
+    "details": "Contains: Shellfish, Peanuts, Soy, Egg."
   },
   {
     "category": "american",
     "image": "images/burger.jpg",
+    "image_large": "images/burger-large.jpg",
     "name": "Classic Smash Burger",
-    "description": "Double patty with cheese, onions, pickles, and special sauce."
+    "description": "Double patty with cheese, onions, pickles, and special sauce.",
+    "price": "$14.99 / Tray",
+    "details": "Contains: Dairy, Gluten. Served with fries."
   },
   {
     "category": "european",
     "image": "images/pasta.jpg",
+    "image_large": "images/pasta-large.jpg",
     "name": "Carbonara",
-    "description": "Classic Italian pasta with egg, pecorino cheese, and guanciale."
+    "description": "Classic Italian pasta with egg, pecorino cheese, and guanciale.",
+    "price": "$19.99 / Tray",
+    "details": "Contains: Egg, Dairy, Gluten."
   }
 ]

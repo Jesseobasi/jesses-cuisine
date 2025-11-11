@@ -69,6 +69,65 @@
       </div>
     </main>
 
+    <section id="tray-pricing" class="section">
+      <h2>Price Per Tray</h2>
+      <p class="social-subtitle">Perfect for parties, office events, and family gatherings.</p>
+      
+      <div class="tray-pricing-container">
+        
+        <div class="tray-item reveal-item">
+          <h3>Jollof Rice</h3>
+          <div class="tray-prices">
+            <span class="price-size">Half Tray (13"x9", Serves 8-10)</span>
+            <span class="price-amount">$60</span>
+          </div>
+          <div class="tray-prices">
+            <span class="price-size">Full Tray (Serves 15-20)</span>
+            <span class="price-amount">$110</span>
+          </div>
+        </div>
+
+        <div class="tray-item reveal-item">
+          <h3>Grilled Chicken</h3>
+          <div class="tray-prices">
+            <span class="price-size">Half Tray (13"x9", 25 pcs)</span>
+            <span class="price-amount">$75</span>
+          </div>
+          <div class="tray-prices">
+            <span class="price-size">Full Tray (50 pcs)</span>
+            <span class="price-amount">$140</span>
+          </div>
+        </div>
+
+        <div class="tray-item reveal-item">
+          <h3>Pepper Soup (Goat)</h3>
+          <div class="tray-prices">
+            <span class="price-size">Half Tray (13"x9", Serves 8-10)</span>
+            <span class="price-amount">$80</span>
+          </div>
+          <div class="tray-prices">
+            <span class="price-size">Full Tray (Serves 15-20)</span>
+            <span class="price-amount">$150</span>
+          </div>
+        </div>
+
+        <div class="tray-item reveal-item">
+          <h3>Fried Plantain</h3>
+          <div class="tray-prices">
+            <span class="price-size">Half Tray (13"x9")</span>
+            <span class="price-amount">$45</span>
+          </div>
+          <div class="tray-prices">
+            <span class="price-size">Full Tray</span>
+            <span class="price-amount">$80</span>
+          </div>
+        </div>
+
+        </div>
+      
+      <a href="catering.html" class="btn ripple" style="margin-top: 40px;">Inquire About Catering</a>
+    </section>
+
     <div id="menu-modal" class="modal-overlay">
       <div class="modal-content">
         <button id="modal-close" class="modal-close-btn">&times;</button>
@@ -129,7 +188,6 @@
       // --- Menu Loading Logic ---
       document.addEventListener("DOMContentLoaded", () => {
         loadMenu();
-        // Setup the modal listeners *after* the DOM is loaded
         setupModal();
       });
 
@@ -151,7 +209,6 @@
           }
 
           menuData.forEach(item => {
-            // **UPDATED HTML TEMPLATE with data-* attributes**
             const foodCardHTML = `
               <div class="food-card" 
                    data-name="${item.name || ''}" 
@@ -208,30 +265,26 @@
       // --- NEW MODAL LOGIC ---
       function setupModal() {
         const modal = document.getElementById('menu-modal');
-        if (!modal) return; // Exit if modal not on page
+        if (!modal) return; 
 
         const modalOverlay = document.querySelector('.modal-overlay');
         const modalCloseBtn = document.getElementById('modal-close');
         const menuContainer = document.querySelector('.menu-container');
 
-        // Modal content elements
         const modalImage = document.getElementById('modal-image');
         const modalTitle = document.getElementById('modal-title');
         const modalPrice = document.getElementById('modal-price');
         const modalDescription = document.getElementById('modal-description');
         const modalDetails = document.getElementById('modal-details');
 
-        // Open modal (using event delegation)
         menuContainer.addEventListener('click', function(e) {
           const card = e.target.closest('.food-card');
-          if (!card) return; // Exit if click was not on a food card
+          if (!card) return; 
 
-          // Populate modal with data from the card's data attributes
           modalImage.src = card.dataset.image;
           modalTitle.textContent = card.dataset.name;
           modalDescription.textContent = card.dataset.description;
 
-          // Only show price and details if they exist
           const price = card.dataset.price;
           const details = card.dataset.details;
           
@@ -241,25 +294,48 @@
           modalPrice.style.display = price ? 'block' : 'none';
           modalDetails.style.display = details ? 'block' : 'none';
 
-          // Show the modal
           modalOverlay.classList.add('modal-open');
         });
 
-        // Close modal function
         function closeModal() {
           modalOverlay.classList.remove('modal-open');
         }
 
-        // Close modal by clicking close button
         modalCloseBtn.addEventListener('click', closeModal);
 
-        // Close modal by clicking on the background overlay
         modalOverlay.addEventListener('click', function(e) {
           if (e.target === modalOverlay) {
             closeModal();
           }
         });
       }
+    </script>
+    
+    <script>
+      window.addEventListener("scroll", () => {
+        const reveals = document.querySelectorAll(".reveal-item");
+        const windowHeight = window.innerHeight;
+        const revealPoint = 100;
+        
+        let delays = {};
+
+        reveals.forEach((el) => {
+          const revealTop = el.getBoundingClientRect().top;
+          const parentSection = el.closest('section').id || 'default-reveal';
+
+          if (!delays[parentSection]) {
+              delays[parentSection] = 0;
+          }
+          
+          if (revealTop < windowHeight - revealPoint) {
+            if (!el.classList.contains("active")) {
+              el.style.transitionDelay = delays[parentSection] + "ms";
+              el.classList.add("active");
+              delays[parentSection] += 150; 
+            }
+          }
+        });
+      });
     </script>
 
     <script>
