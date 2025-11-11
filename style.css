@@ -525,6 +525,10 @@ footer {
     grid-template-columns: 1fr; /* Stack on mobile */
     text-align: center;
   }
+
+  .section-heading-left {
+    text-align: center;
+  }
 }
 
 @media (min-width: 769px) {
@@ -923,7 +927,7 @@ footer {
   }
 }
 
-/* 17. MENU ITEM MODAL (NEW) */
+/* 17. MENU ITEM MODAL */
 
 .modal-overlay {
   position: fixed;
@@ -1034,28 +1038,7 @@ footer {
   margin-top: 1.5rem;
 }
 
-/* Responsive modal for mobile */
-@media (max-width: 768px) {
-  .modal-content {
-    flex-direction: column; /* Stack image on top of text */
-    width: 90%;
-    max-height: 85vh;
-  }
-  .modal-image {
-    width: 100%;
-    height: 250px; /* Fixed height for image */
-    border-radius: 12px 12px 0 0; /* Rounded top corners */
-  }
-  .modal-info {
-    width: 100%;
-    padding: 2rem;
-  }
-  .modal-info h2 {
-    font-size: 1.8rem;
-  }
-}
 /* 18. SOCIAL FEED SECTION */
-/* (Add this to the end of your style.css) */
 
 #social-feed {
   text-align: center;
@@ -1080,4 +1063,58 @@ footer {
   border-radius: 12px;
   padding: 1rem;
   min-height: 200px;
+}
+
+/* 19. MEAL OF THE WEEK SECTION (NEW) */
+
+#meal-of-week {
+  background-color: var(--color-bg-dark); 
+}
+
+/* New style for the "Meal of the Week" text */
+.eyebrow-text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* A special h2 override to be left-aligned */
+.section-heading-left {
+  text-align: left;
+  /* Resets the global h2 style */
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-headings);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive modal for mobile */
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column; /* Stack image on top of text */
+    width: 90%;
+    max-height: 85vh;
+  }
+  .modal-image {
+    width: 100%;
+    height: 250px; /* Fixed height for image */
+    border-radius: 12px 12px 0 0; /* Rounded top corners */
+  }
+  .modal-info {
+    width: 100%;
+    padding: 2rem;
+  }
+  .modal-info h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-heading-left {
+    text-align: center;
+  }
 }
