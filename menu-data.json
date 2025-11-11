@@ -1,56 +1,293 @@
 [
   {
-    "category": "african",
-    "image": "images/test.jpg",
-    "image_large": "images/test-large.jpg",
+    "category": "proteins",
+    "image": "images/wings.jpg",
+    "image_large": "images/wings-large.jpg",
+    "name": "Chicken Wings",
+    "description": "Crispy fried wings tossed in your choice of sauce (BBQ, Hot, Jerk).",
+    "price": "$14.99",
+    "details": "Contains: Poultry."
+  },
+  {
+    "category": "proteins",
+    "image": "images/drumsticks.jpg",
+    "name": "Chicken Drumsticks",
+    "description": "Slow-roasted and glazed, perfect for starting a meal.",
+    "price": "$12.99",
+    "details": ""
+  },
+  {
+    "category": "appetizers",
+    "image": "images/suya.jpg",
+    "name": "Suya",
+    "description": "Spicy grilled beef skewers, a classic Nigerian street food.",
+    "price": "$17.99",
+    "details": "Spicy. Contains: Peanuts."
+  },
+  {
+    "category": "appetizers",
+    "image": "images/shrimp.jpg",
+    "name": "Fried Shrimp",
+    "description": "Golden crispy shrimp served with a sweet chili dipping sauce.",
+    "price": "$16.99",
+    "details": "Contains: Shellfish."
+  },
+  {
+    "category": "appetizers",
+    "image": "images/sliders.jpg",
+    "name": "Sliders",
+    "description": "Mini burgers with cheese, pickles, and our special sauce.",
+    "price": "$15.99",
+    "details": "Contains: Gluten, Dairy."
+  },
+  {
+    "category": "appetizers",
+    "image": "images/garlic-bread.jpg",
+    "name": "Garlic Bread/Rolls",
+    "description": "Toasted and buttered with garlic and herbs.",
+    "price": "$8.99",
+    "details": "Contains: Gluten, Dairy."
+  },
+  {
+    "category": "appetizers",
+    "image": "images/meatballs.jpg",
+    "name": "Meatballs",
+    "description": "*NEW* A perfect party starter. Tender meatballs in a tangy glaze.",
+    "price": "$13.99",
+    "details": ""
+  },
+  {
+    "category": "proteins",
+    "image": "images/stew-chicken.jpg",
+    "name": "Stew Chicken",
+    "description": "Fall-off-the-bone chicken stewed in a rich, savory tomato broth.",
+    "price": "$21.99",
+    "details": ""
+  },
+  {
+    "category": "proteins",
+    "image": "images/jerk-chicken.jpg",
+    "name": "Jerk Chicken",
+    "description": "Authentic, spicy, and smoky grilled jerk chicken.",
+    "price": "$22.99",
+    "details": "Spicy."
+  },
+  {
+    "category": "proteins",
+    "image": "images/shawarma.jpg",
+    "name": "Shawarma (Chicken)",
+    "description": "Thinly sliced, marinated chicken. (Wraps or as a platter).",
+    "price": "$19.99",
+    "details": ""
+  },
+  {
+    "category": "proteins",
+    "image": "images/salmon.jpg",
+    "name": "Salmon (Grilled or Blackened)",
+    "description": "A full salmon fillet, grilled to perfection or blackened with spices.",
+    "price": "$25.99",
+    "details": "Contains: Fish."
+  },
+  {
+    "category": "proteins",
+    "image": "images/steak.jpg",
+    "name": "Steak Tips",
+    "description": "Tender beef steak tips in a savory mushroom and onion gravy.",
+    "price": "$27.99",
+    "details": ""
+  },
+  {
+    "category": "proteins",
+    "image": "images/oxtail.jpg",
+    "name": "Braised Oxtail",
+    "description": "*NEW* Rich, tender oxtail slow-cooked in a deep gravy.",
+    "price": "$29.99",
+    "details": ""
+  },
+  {
+    "category": "pasta",
+    "image": "images/jollof.jpg",
     "name": "Jollof Rice",
-    "description": "Classic smoky jollof with grilled chicken and fried plantain.",
-    "price": "$18.99 / Tray" ,
-    "details": "Contains: Poultry. Gluten-free option available upon request."
+    "description": "Classic smoky West African jollof rice. A crowd favorite.",
+    "price": "$17.99",
+    "details": ""
   },
   {
-    "category": "african",
-    "image": "images/test.jpg",
-    "image_large": "images/test-large.jpg",
-    "name": "Pepper Soup",
-    "description": "Hot, spicy, and rich broth made with tender goat meat.",
-    "price": "$16.99 / Tray" ,
-    "details": "Spicy. Contains: Meat. Dairy-free."
+    "category": "pasta",
+    "image": "images/fried-rice.jpg",
+    "name": "Fried Rice",
+    "description": "Classic fried rice with mixed vegetables, egg, and your choice of protein.",
+    "price": "$16.99",
+    "details": "Contains: Egg, Soy."
   },
   {
-    "category": "african",
-    "image": "images/test.jpg",
-    "image_large": "images/test-large.jpg",
-    "name": "Fried Yam & Stew",
-    "description": "Golden fried yam with our signature spicy pepper sauce.",
-    "price": "$15.99 / Tray",
-    "details": "Vegan option available (without stew). Spicy."
+    "category": "pasta",
+    "image": "images/rice-peas.jpg",
+    "name": "Rice & Peas",
+    "description": "Traditional Caribbean rice and peas cooked with coconut milk.",
+    "price": "$16.99",
+    "details": "Vegan."
   },
   {
-    "category": "asian",
-    "image": "images/asian-dish.jpg",
-    "image_large": "images/asian-dish-large.jpg",
-    "name": "Pad Thai",
-    "description": "Stir-fried rice noodles with shrimp, tofu, peanuts, and lime.",
-    "price": "$17.99 / Tray",
-    "details": "Contains: Shellfish, Peanuts, Soy, Egg."
+    "category": "pasta",
+    "image": "images/rasta-pasta.jpg",
+    "name": "Rasta Pasta",
+    "description": "Creamy pasta with bell peppers and jerk spices. Add chicken or shrimp.",
+    "price": "$19.99",
+    "details": "Spicy. Contains: Dairy, Gluten."
   },
   {
-    "category": "american",
-    "image": "images/burger.jpg",
-    "image_large": "images/burger-large.jpg",
-    "name": "Classic Smash Burger",
-    "description": "Double patty with cheese, onions, pickles, and special sauce.",
-    "price": "$14.99 / Tray",
-    "details": "Contains: Dairy, Gluten. Served with fries."
+    "category": "pasta",
+    "image": "images/cajun-pasta.jpg",
+    "name": "Cajun Pasta",
+    "description": "A creamy, spicy pasta with sausage, shrimp, and Cajun seasoning.",
+    "price": "$22.99",
+    "details": "Spicy. Contains: Shellfish, Dairy, Gluten."
   },
   {
-    "category": "european",
-    "image": "images/pasta.jpg",
-    "image_large": "images/pasta-large.jpg",
-    "name": "Carbonara",
-    "description": "Classic Italian pasta with egg, pecorino cheese, and guanciale.",
-    "price": "$19.99 / Tray",
-    "details": "Contains: Egg, Dairy, Gluten."
+    "category": "pasta",
+    "image": "images/alfredo.jpg",
+    "name": "Alfredo Pasta",
+    "description": "Rich and creamy parmesan and garlic sauce. Add chicken or shrimp.",
+    "price": "$18.99",
+    "details": "Contains: Dairy, Gluten."
+  },
+  {
+    "category": "pasta",
+    "image": "images/spaghetti.jpg",
+    "name": "Spaghetti (with Meat Sauce)",
+    "description": "Classic spaghetti with a rich, slow-cooked beef meat sauce.",
+    "price": "$17.99",
+    "details": "Contains: Gluten."
+  },
+  {
+    "category": "pasta",
+    "image": "images/baked-ziti.jpg",
+    "name": "Baked Ziti",
+    "description": "Ziti pasta baked with marinara, ricotta, and mozzarella cheese.",
+    "price": "$18.99",
+    "details": "Contains: Dairy, Gluten."
+  },
+  {
+    "category": "pasta",
+    "image": "images/lasagna.jpg",
+    "name": "Lasagna",
+    "description": "Layers of pasta, beef, and cheese, baked to perfection.",
+    "price": "$20.99",
+    "details": "Contains: Dairy, Gluten."
+  },
+  {
+    "category": "pasta",
+    "image": "images/pesto-pasta.jpg",
+    "image_large": "images/pesto-pasta-large.jpg",
+    "name": "Pesto Pasta",
+    "description": "A fresh, vibrant pasta with basil pesto. Add chicken for an extra charge.",
+    "price": "$18.99",
+    "details": "Contains: Gluten, Dairy, Pine Nuts."
+  },
+  {
+    "category": "sides",
+    "image": "images/mac.jpg",
+    "name": "Mac and Cheese",
+    "description": "Our famous baked mac and cheese, creamy and delicious.",
+    "price": "$10.99",
+    "details": "Contains: Dairy, Gluten."
+  },
+  {
+    "category": "sides",
+    "image": "images/yams.jpg",
+    "name": "Sweet Yams",
+    "description": "Candied sweet yams, a sweet and savory delight.",
+    "price": "$9.99",
+    "details": "Vegan."
+  },
+  {
+    "category": "sides",
+    "image": "images/plantains.jpg",
+    "name": "Plantains",
+    "description": "Sweet, fried plantains, perfectly caramelized.",
+    "price": "$8.99",
+    "details": "Vegan."
+  },
+  {
+    "category": "sides",
+    "image": "images/coleslaw.jpg",
+    "name": "Coleslaw",
+    "description": "Creamy, crunchy, and cool coleslaw.",
+    "price": "$7.99",
+    "details": "Contains: Egg, Dairy."
+  },
+  {
+    "category": "sides",
+    "image": "images/cabbage.jpg",
+    "name": "Steamed Cabbage",
+    "description": "Tender steamed cabbage with carrots and onions.",
+    "price": "$8.99",
+    "details": "Vegan."
+  },
+  {
+    "category": "sides",
+    "image": "images/mashed.jpg",
+    "name": "Mashed Potatoes",
+    "description": "Creamy, buttery garlic mashed potatoes.",
+    "price": "$9.99",
+    "details": "Contains: Dairy."
+  },
+  {
+    "category": "sides",
+    "image": "images/fruit-tray.jpg",
+    "name": "Fruit Tray",
+    "description": "A fresh assortment of seasonal fruits.",
+    "price": "$12.99",
+    "details": "Vegan."
+  },
+  {
+    "category": "sides",
+    "image": "images/collards.jpg",
+    "name": "Collard Greens",
+    "description": "*NEW* Slow-cooked, savory collard greens (with or without turkey).",
+    "price": "$10.99",
+    "details": ""
+  },
+  {
+    "category": "sides",
+    "image": "images/cornbread.jpg",
+    "image_large": "images/cornbread-large.jpg",
+    "name": "Cornbread",
+    "description": "Sweet and savory, baked fresh. Served by the piece or half-pan.",
+    "price": "$7.99",
+    "details": "Contains: Gluten, Dairy, Egg."
+  },
+  {
+    "category": "desserts",
+    "image": "images/banana-pudding.jpg",
+    "name": "Banana Pudding",
+    "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
+    "price": "$9.99",
+    "details": "Contains: Dairy, Egg, Gluten."
+  },
+  {
+    "category": "desserts",
+    "image": "images/cookies.jpg",
+    "name": "Levain Chocolate Chip Cookies",
+    "description": "Thick, gooey, and loaded with chocolate chips.",
+    "price": "$5.99",
+    "details": "Contains: Dairy, Egg, Gluten."
+  },
+  {
+    "category": "desserts",
+    "image": "images/cake.jpg",
+    "name": "Cake",
+    "description": "Ask about our cake of the day (e.g., Red Velvet, Chocolate).",
+    "price": "$7.99",
+    "details": "Contains: Dairy, Egg, Gluten."
+  },
+  {
+    "category": "desserts",
+    "image": "images/brownies.jpg",
+    "name": "Brownies",
+    "description": "N/A",
+    "price": "$7.99",
+    "details": "Contains: Dairy, Egg, Gluten."
   }
 ]

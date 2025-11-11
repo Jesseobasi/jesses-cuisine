@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="./style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/headshot.jpg" type="image/jpeg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F59E0B">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Jesse's Cuisines">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
 </head>
 <body>
 
@@ -44,25 +50,30 @@
           </div>
   
           <nav class="tab-nav">
-              <button class="tab-link active" data-tab="african">African</button>
-              <button class="tab-link" data-tab="asian">Asian</button>
-              <button class="tab-link" data-tab="european">European</button>
-              <button class="tab-link" data-tab="american">American</button>
+              <button class="tab-link active" data-tab="appetizers">Appetizers</button>
+              <button class="tab-link" data-tab="proteins">Proteins</button>
+              <button class="tab-link" data-tab="pasta">Rice & Pasta</button>
+              <button class="tab-link" data-tab="sides">Sides</button>
+              <button class="tab-link" data-tab="desserts">Desserts</button>
           </nav>
   
-          <div id="african" class="tab-content active">
+          <div id="appetizers" class="tab-content active">
               <div class="menu-grid"></div>
           </div>
   
-          <div id="asian" class="tab-content">
+          <div id="proteins" class="tab-content">
               <div class="menu-grid"></div>
           </div>
   
-          <div id="european" class="tab-content">
+          <div id="pasta" class="tab-content">
               <div class="menu-grid"></div>
           </div>
   
-          <div id="american" class="tab-content">
+          <div id="sides" class="tab-content">
+              <div class="menu-grid"></div>
+          </div>
+          
+          <div id="desserts" class="tab-content">
               <div class="menu-grid"></div>
           </div>
   
@@ -136,7 +147,7 @@
           <h2 id="modal-title"></h2>
           <span id="modal-price" class="modal-price"></span>
           <p id="modal-description"></p>
-          <p id="modal-details" class="modal-details"></p>
+          <p id="modal-details" class.modal-details"></p>
           <a href="order.html" class="btn ripple">Order This</a>
         </div>
       </div>
@@ -196,14 +207,17 @@
           const response = await fetch('menu-data.json');
           const menuData = await response.json();
 
+          // === UPDATED CONTAINER LIST ===
           const containers = {
-            african: document.querySelector("#african .menu-grid"),
-            asian: document.querySelector("#asian .menu-grid"),
-            european: document.querySelector("#european .menu-grid"),
-            american: document.querySelector("#american .menu-grid")
+            appetizers: document.querySelector("#appetizers .menu-grid"),
+            proteins: document.querySelector("#proteins .menu-grid"),
+            pasta: document.querySelector("#pasta .menu-grid"),
+            sides: document.querySelector("#sides .menu-grid"),
+            desserts: document.querySelector("#desserts .menu-grid")
           };
 
-          if (!containers.african || !containers.asian || !containers.european || !containers.american) {
+          // Updated check
+          if (!containers.appetizers || !containers.proteins || !containers.pasta || !containers.sides || !containers.desserts) {
             console.error("One or more menu grid containers are missing from the HTML.");
             return;
           }
@@ -223,6 +237,7 @@
                   </div>
               </div>
             `;
+            // This logic now sorts into your new categories
             if (containers[item.category]) {
               containers[item.category].innerHTML += foodCardHTML;
             }
@@ -239,7 +254,7 @@
         }
       }
 
-      // --- Search Filter Logic (Per-Tab) ---
+      // --- Search Filter Logic (Unchanged) ---
       function setupSearchFilter() {
         searchBar.addEventListener("keyup", (e) => {
             const searchTerm = e.target.value.toLowerCase();
@@ -262,7 +277,7 @@
         });
       }
 
-      // --- NEW MODAL LOGIC ---
+      // --- Modal Logic (Unchanged) ---
       function setupModal() {
         const modal = document.getElementById('menu-modal');
         if (!modal) return; 

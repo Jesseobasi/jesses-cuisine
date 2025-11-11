@@ -1118,23 +1118,3 @@ footer {
     text-align: center;
   }
 }
-/* 22. HERO CATCHLINE (NEW) */
-/* (Add this to the end of your style.css) */
-
-.hero-catchline {
-  font-size: 1.8rem; /* Sized to complement the logo */
-  font-weight: 600;
-  color: var(--color-text-light);
-  letter-spacing: 1px;
-  
-  /* Pulls it up closer to the logo */
-  margin-top: -1rem; 
-  margin-bottom: 2.5rem; /* Pushes the button down */
-}
-
-@media (max-width: 768px) {
-  .hero-catchline {
-    font-size: 1.4rem;
-    margin-top: -0.5rem;
-  }
-}
