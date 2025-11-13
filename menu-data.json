@@ -3,11 +3,13 @@
     "id": "app001",
     "category": "appetizers",
     "image": "images/wings.jpg",
-    "image_large": "images/wings-large.jpg",
     "name": "Chicken Wings",
     "description": "Crispy fried wings tossed in your choice of sauce (BBQ, Hot, Jerk).",
-    "price": "14.99",
-    "details": "Contains: Poultry."
+    "details": "Contains: Poultry.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "40.00"}
+    ]
   },
   {
     "id": "app002",
@@ -15,26 +17,35 @@
     "image": "images/drumsticks.jpg",
     "name": "Chicken Drumsticks",
     "description": "Slow-roasted and glazed, perfect for starting a meal.",
-    "price": "12.99",
-    "details": ""
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "17.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "35.00"}
+    ]
   },
   {
     "id": "app003",
     "category": "appetizers",
     "image": "images/suya.jpg",
-    "name": "Suya",
+    "name": "Suya (Beef Skewers)",
     "description": "Spicy grilled beef skewers, a classic Nigerian street food.",
-    "price": "17.99",
-    "details": "Spicy. Contains: Peanuts."
+    "details": "Spicy. Contains: Peanuts.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "45.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "70.00"}
+    ]
   },
   {
     "id": "app004",
     "category": "appetizers",
     "image": "images/shrimp.jpg",
-    "name": "Fried Shrimp",
+    "name": "Shrimp",
     "description": "Golden crispy shrimp served with a sweet chili dipping sauce.",
-    "price": "16.99",
-    "details": "Contains: Shellfish."
+    "details": "Contains: Shellfish.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "25.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "50.00"}
+    ]
   },
   {
     "id": "app005",
@@ -42,26 +53,23 @@
     "image": "images/sliders.jpg",
     "name": "Sliders",
     "description": "Mini burgers with cheese, pickles, and our special sauce.",
-    "price": "15.99",
-    "details": "Contains: Gluten, Dairy."
-  },
-  {
-    "id": "app006",
-    "category": "appetizers",
-    "image": "images/garlic-bread.jpg",
-    "name": "Garlic Bread/Rolls",
-    "description": "Toasted and buttered with garlic and herbs.",
-    "price": "8.99",
-    "details": "Contains: Gluten, Dairy."
+    "details": "Contains: Gluten, Dairy.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (12 sliders)", "price": "19.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (24 sliders)", "price": "45.00"}
+    ]
   },
   {
     "id": "app007",
     "category": "appetizers",
     "image": "images/meatballs.jpg",
     "name": "Meatballs",
-    "description": "*NEW* A perfect party starter. Tender meatballs in a tangy glaze.",
-    "price": "13.99",
-    "details": ""
+    "description": "Tender meatballs in a sweet & tangy, BBQ, or Swedish sauce.",
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "22.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "35.00"}
+    ]
   },
   {
     "id": "pro001",
@@ -69,35 +77,35 @@
     "image": "images/stew-chicken.jpg",
     "name": "Stew Chicken",
     "description": "Fall-off-the-bone chicken stewed in a rich, savory tomato broth.",
-    "price": "21.99",
-    "details": ""
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
+    ]
   },
   {
     "id": "pro002",
     "category": "proteins",
     "image": "images/jerk-chicken.jpg",
     "name": "Jerk Chicken",
-    "description": "Authentic, spicy, and smoky grilled jerk chicken.",
-    "price": "22.99",
-    "details": "Spicy."
-  },
-  {
-    "id": "pro003",
-    "category": "proteins",
-    "image": "images/shawarma.jpg",
-    "name": "Shawarma (Chicken)",
-    "description": "Thinly sliced, marinated chicken. (Wraps or as a platter).",
-    "price": "19.99",
-    "details": ""
+    "description": "Authentic, spicy, and smoky grilled jerk chicken pieces.",
+    "details": "Spicy.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
+    ]
   },
   {
     "id": "pro004",
     "category": "proteins",
     "image": "images/salmon.jpg",
-    "name": "Salmon (Grilled or Blackened)",
-    "description": "A full salmon fillet, grilled to perfection or blackened with spices.",
-    "price": "25.99",
-    "details": "Contains: Fish."
+    "name": "Salmon",
+    "description": "Full salmon fillets, grilled or blackened with spices.",
+    "details": "Contains: Fish.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "50.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "100.00"}
+    ]
   },
   {
     "id": "pro005",
@@ -105,17 +113,23 @@
     "image": "images/steak.jpg",
     "name": "Steak Tips",
     "description": "Tender beef steak tips in a savory mushroom and onion gravy.",
-    "price": "27.99",
-    "details": ""
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "60.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "110.00"}
+    ]
   },
   {
     "id": "pro006",
     "category": "proteins",
     "image": "images/oxtail.jpg",
     "name": "Braised Oxtail",
-    "description": "*NEW* Rich, tender oxtail slow-cooked in a deep gravy.",
-    "price": "29.99",
-    "details": ""
+    "description": "Rich, tender oxtail slow-cooked in a deep, flavorful gravy.",
+    "details": "Market Price",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "85.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "175.00"}
+    ]
   },
   {
     "id": "rnp001",
@@ -123,8 +137,11 @@
     "image": "images/jollof.jpg",
     "name": "Jollof Rice",
     "description": "Classic smoky West African jollof rice. A crowd favorite.",
-    "price": "17.99",
-    "details": ""
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "52.00"}
+    ]
   },
   {
     "id": "rnp002",
@@ -132,8 +149,11 @@
     "image": "images/fried-rice.jpg",
     "name": "Fried Rice",
     "description": "Classic fried rice with mixed vegetables, egg, and your choice of protein.",
-    "price": "16.99",
-    "details": "Contains: Egg, Soy."
+    "details": "Contains: Egg, Soy.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "22.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "48.00"}
+    ]
   },
   {
     "id": "rnp003",
@@ -141,8 +161,11 @@
     "image": "images/rice-peas.jpg",
     "name": "Rice & Peas",
     "description": "Traditional Caribbean rice and peas cooked with coconut milk.",
-    "price": "16.99",
-    "details": "Vegan."
+    "details": "Vegan.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "49.00"}
+    ]
   },
   {
     "id": "rnp004",
@@ -150,8 +173,11 @@
     "image": "images/rasta-pasta.jpg",
     "name": "Rasta Pasta",
     "description": "Creamy pasta with bell peppers and jerk spices. Add chicken or shrimp.",
-    "price": "19.99",
-    "details": "Spicy. Contains: Dairy, Gluten."
+    "details": "Spicy. Contains: Dairy, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "45.00"}
+    ]
   },
   {
     "id": "rnp005",
@@ -159,8 +185,11 @@
     "image": "images/cajun-pasta.jpg",
     "name": "Cajun Pasta",
     "description": "A creamy, spicy pasta with sausage, shrimp, and Cajun seasoning.",
-    "price": "22.99",
-    "details": "Spicy. Contains: Shellfish, Dairy, Gluten."
+    "details": "Spicy. Contains: Shellfish, Dairy, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "48.00"}
+    ]
   },
   {
     "id": "rnp006",
@@ -168,26 +197,11 @@
     "image": "images/alfredo.jpg",
     "name": "Alfredo Pasta",
     "description": "Rich and creamy parmesan and garlic sauce. Add chicken or shrimp.",
-    "price": "18.99",
-    "details": "Contains: Dairy, Gluten."
-  },
-  {
-    "id": "rnp007",
-    "category": "pasta",
-    "image": "images/spaghetti.jpg",
-    "name": "Spaghetti (with Meat Sauce)",
-    "description": "Classic spaghetti with a rich, slow-cooked beef meat sauce.",
-    "price": "17.99",
-    "details": "Contains: Gluten."
-  },
-  {
-    "id": "rnp008",
-    "category": "pasta",
-    "image": "images/baked-ziti.jpg",
-    "name": "Baked Ziti",
-    "description": "Ziti pasta baked with marinara, ricotta, and mozzarella cheese.",
-    "price": "18.99",
-    "details": "Contains: Dairy, Gluten."
+    "details": "Contains: Dairy, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "46.00"}
+    ]
   },
   {
     "id": "rnp009",
@@ -195,18 +209,11 @@
     "image": "images/lasagna.jpg",
     "name": "Lasagna",
     "description": "Layers of pasta, beef, and cheese, baked to perfection.",
-    "price": "20.99",
-    "details": "Contains: Dairy, Gluten."
-  },
-  {
-    "id": "rnp010",
-    "category": "pasta",
-    "image": "images/pesto-pasta.jpg",
-    "image_large": "images/pesto-pasta-large.jpg",
-    "name": "Pesto Pasta",
-    "description": "A fresh, vibrant pasta with basil pesto. Add chicken for an extra charge.",
-    "price": "18.99",
-    "details": "Contains: Gluten, Dairy, Pine Nuts."
+    "details": "Contains: Dairy, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
+    ]
   },
   {
     "id": "sid001",
@@ -214,8 +221,11 @@
     "image": "images/mac.jpg",
     "name": "Mac and Cheese",
     "description": "Our famous baked mac and cheese, creamy and delicious.",
-    "price": "10.99",
-    "details": "Contains: Dairy, Gluten."
+    "details": "Contains: Dairy, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
+    ]
   },
   {
     "id": "sid002",
@@ -223,8 +233,11 @@
     "image": "images/yams.jpg",
     "name": "Sweet Yams",
     "description": "Candied sweet yams, a sweet and savory delight.",
-    "price": "9.99",
-    "details": "Vegan."
+    "details": "Vegan.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
+    ]
   },
   {
     "id": "sid003",
@@ -232,8 +245,11 @@
     "image": "images/plantains.jpg",
     "name": "Plantains",
     "description": "Sweet, fried plantains, perfectly caramelized.",
-    "price": "8.99",
-    "details": "Vegan."
+    "details": "Vegan.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "14.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "28.00"}
+    ]
   },
   {
     "id": "sid004",
@@ -241,8 +257,11 @@
     "image": "images/coleslaw.jpg",
     "name": "Coleslaw",
     "description": "Creamy, crunchy, and cool coleslaw.",
-    "price": "7.99",
-    "details": "Contains: Egg, Dairy."
+    "details": "Contains: Egg, Dairy.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "20.00"}
+    ]
   },
   {
     "id": "sid005",
@@ -250,8 +269,11 @@
     "image": "images/cabbage.jpg",
     "name": "Steamed Cabbage",
     "description": "Tender steamed cabbage with carrots and onions.",
-    "price": "8.99",
-    "details": "Vegan."
+    "details": "Vegan.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "20.00"}
+    ]
   },
   {
     "id": "sid006",
@@ -259,36 +281,47 @@
     "image": "images/mashed.jpg",
     "name": "Mashed Potatoes",
     "description": "Creamy, buttery garlic mashed potatoes.",
-    "price": "9.99",
-    "details": "Contains: Dairy."
-  },
-  {
-    "id": "sid007",
-    "category": "sides",
-    "image": "images/fruit-tray.jpg",
-    "name": "Fruit Tray",
-    "description": "A fresh assortment of seasonal fruits.",
-    "price": "12.99",
-    "details": "Vegan."
+    "details": "Contains: Dairy.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "20.00"}
+    ]
   },
   {
     "id": "sid008",
     "category": "sides",
     "image": "images/collards.jpg",
     "name": "Collard Greens",
-    "description": "*NEW* Slow-cooked, savory collard greens (with or without turkey).",
-    "price": "10.99",
-    "details": ""
+    "description": "Slow-cooked, savory collard greens (with or without turkey).",
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "12.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "25.00"}
+    ]
   },
   {
     "id": "sid009",
     "category": "sides",
     "image": "images/cornbread.jpg",
-    "image_large": "images/cornbread-large.jpg",
     "name": "Cornbread",
-    "description": "Sweet and savory, baked fresh. Served by the piece or half-pan.",
-    "price": "7.99",
-    "details": "Contains: Gluten, Dairy, Egg."
+    "description": "Sweet and savory, baked fresh.",
+    "details": "Contains: Gluten, Dairy, Egg.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "8.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "15.00"}
+    ]
+  },
+  {
+    "id": "app006",
+    "category": "sides",
+    "image": "images/garlic-bread.jpg",
+    "name": "Garlic Bread/Rolls",
+    "description": "Toasted and buttered with garlic and herbs.",
+    "details": "Contains: Gluten, Dairy.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "8.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "15.00"}
+    ]
   },
   {
     "id": "des001",
@@ -296,26 +329,23 @@
     "image": "images/banana-pudding.jpg",
     "name": "Banana Pudding",
     "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
-    "price": "9.99",
-    "details": "Contains: Dairy, Egg, Gluten."
+    "details": "Contains: Dairy, Egg, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "12.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "25.00"}
+    ]
   },
   {
     "id": "des002",
     "category": "desserts",
     "image": "images/cookies.jpg",
-    "name": "Levain Chocolate Chip Cookies",
+    "name": "Chocolate Chip Cookies",
     "description": "Thick, gooey, and loaded with chocolate chips.",
-    "price": "5.99",
-    "details": "Contains: Dairy, Egg, Gluten."
-  },
-  {
-    "id": "des003",
-    "category": "desserts",
-    "image": "images/cake.jpg",
-    "name": "Cake",
-    "description": "Ask about our cake of the day (e.g., Red Velvet, Chocolate).",
-    "price": "7.99",
-    "details": "Contains: Dairy, Egg, Gluten."
+    "details": "Contains: Dairy, Egg, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (6 Cookies)", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (12 Cookies)", "price": "18.00"}
+    ]
   },
   {
     "id": "des004",
@@ -323,16 +353,22 @@
     "image": "images/brownies.jpg",
     "name": "Brownies",
     "description": "Rich, fudgy chocolate brownies.",
-    "price": "6.99",
-    "details": "Contains: Dairy, Egg, Gluten."
+    "details": "Contains: Dairy, Egg, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "18.00"}
+    ]
   },
   {
-    "id": "des005",
+    "id": "des003",
     "category": "desserts",
-    "image": "images/cheesecake.jpg",
-    "name": "Cheesecake Slice",
-    "description": "*NEW* Creamy New York style cheesecake with a strawberry topping.",
-    "price": "8.99",
-    "details": "Contains: Dairy, Egg, Gluten."
+    "image": "images/cake.jpg",
+    "name": "Cake",
+    "description": "Ask about our cake of the day (e.g., Red Velvet, Chocolate).",
+    "details": "Contains: Dairy, Egg, Gluten.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "14.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "22.00"}
+    ]
   }
 ]

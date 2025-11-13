@@ -27,10 +27,9 @@
             <li><a href="catering.html">Catering</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li class="mobile-cart-link"><a href="cart.html" id="mobile-cart-icon">Cart (0)</a></li>
           </ul>
-          
           <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
-          
           <div class="menu-toggle">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -51,12 +50,41 @@
         <div id="cart-items-container">
           </div>
 
-        <div class="cart-total">
-          <strong>Total:</strong>
-          <span id="cart-total-amount">$<span id="cart-total">0.00</span></span>
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span>$<span id="cart-subtotal">0.00</span></span>
+          </div>
+          <div class="summary-row">
+            <span>Processing Fee</span>
+            <span>$<span id="cart-processing-fee">2.50</span></span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <span>$<span id="cart-delivery-fee">0.00</span></span>
+          </div>
+          <div class="summary-row grand-total">
+            <strong>Grand Total</strong>
+            <strong>$<span id="cart-grand-total">0.00</span></strong>
+          </div>
         </div>
 
-        <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/xpwkwqbl" method="POST">
+        <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/YOUR-UNIQUE-ID" method="POST">
+          
+          <div class="form-group">
+            <label>Delivery Option</label>
+            <div class="form-group-options">
+              <label for="pickup-radio" class="radio-option">
+                <input type="radio" id="pickup-radio" name="delivery-option" value="pickup" checked>
+                <span>Pickup (Free)</span>
+              </label>
+              <label for="delivery-radio" class="radio-option">
+                <input type="radio" id="delivery-radio" name="delivery-option" value="delivery">
+                <span>Delivery ($4.99)</span>
+              </label>
+            </div>
+          </div>
+          
           <h2>Your Information</h2>
           <p>This is an order inquiry, not a payment. We will contact you to confirm payment and pickup details.</p>
 
@@ -82,7 +110,19 @@
             </select>
           </div>
           
-          <input type="hidden" id="cart-data" name="order_summary">
+          <input type="hidden" id="order-items" name="order_items">
+          <input type="hidden" id="order-subtotal" name="order_subtotal">
+          <input type="hidden" id="order-fees" name="order_fees">
+          <input type="hidden" id="order-grand-total" name="order_grand_total">
+          <input type="hidden" id="order-delivery-option" name="order_delivery_option">
+          
+          <div class="form-group-agree">
+            <input type="checkbox" id="agree-policy" name="policy_agreement" value="agreed" required>
+            <label for="agree-policy">
+              I have read, understood, and agree to all the 
+              <a href="index.html#policies" target="_blank">Payment, Cancellation, and Allergy policies</a>.
+            </label>
+          </div>
           
           <button type="submit" class="btn ripple">Submit Order Inquiry</button>
         </form>

@@ -1,37 +1,32 @@
 /* =============================
    CART LOGIC (cart.js)
+   (Built for Formspree with Fees)
 ============================= */
 
-// Runs when the page is fully loaded
+const PROCESSING_FEE = 1.99; // A flat $1.99 processing fee
+const DELIVERY_FEE = 4.99;   // A flat $4.99 delivery fee
+
 document.addEventListener('DOMContentLoaded', () => {
   updateCartIcon();
   
-  // This code only runs if we are on the cart.html page
   if (document.body.id === 'cart-page') {
     displayCartItems();
     setupCartForm();
+    
+    document.querySelectorAll('input[name="delivery-option"]').forEach(radio => {
+      radio.addEventListener('change', updateGrandTotal);
+    });
   }
 });
 
-/**
- * Gets the cart from localStorage.
- * @returns {Array} The cart array.
- */
 function getCart() {
   return JSON.parse(localStorage.getItem('jesseCart')) || [];
 }
 
-/**
- * Saves the cart to localStorage.
- * @param {Array} cart - The cart array to save.
- */
 function saveCart(cart) {
   localStorage.setItem('jesseCart', JSON.stringify(cart));
 }
 
-/**
- * Updates the cart icon in the navbar.
- */
 function updateCartIcon() {
   const cart = getCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
@@ -39,85 +34,92 @@ function updateCartIcon() {
   
   if (cartIcon) {
     cartIcon.textContent = `Cart (${totalItems})`;
+    const mobileCartIcon = document.getElementById('mobile-cart-icon');
+    if (mobileCartIcon) {
+      mobileCartIcon.textContent = `Cart (${totalItems})`;
+    }
   }
 }
 
 /**
- * Adds an item to the cart.
- * (This is called from menu.html)
- * @param {Object} item - The item to add.
+ * === UPDATED: Now receives a complete item object ===
  */
 function addToCart(item) {
   let cart = getCart();
+  // The ID is now unique (e.g., "rnp004-small"), so we check it directly.
   const existingItem = cart.find(cartItem => cartItem.id === item.id);
   
   if (existingItem) {
     existingItem.quantity += 1; // Increase quantity
   } else {
-    // Add new item with quantity 1
-    cart.push({ ...item, quantity: 1 });
+    cart.push({ ...item, quantity: 1 }); // Add new item
   }
   
   saveCart(cart);
   updateCartIcon();
-  
-  // Show a simple confirmation
-  alert(`${item.name} was added to your cart!`);
+  alert(`${item.name} (${item.tray_size}) was added to your cart!`);
 }
 
 /**
- * Displays all cart items on the cart.html page.
+ * === UPDATED: Now displays tray_size ===
  */
 function displayCartItems() {
   const cart = getCart();
   const cartContainer = document.getElementById('cart-items-container');
-  const cartTotalEl = document.getElementById('cart-total');
   
   if (!cartContainer) return;
   
   cartContainer.innerHTML = '';
-  let total = 0;
+  let subtotal = 0;
   
   if (cart.length === 0) {
     cartContainer.innerHTML = '<p style="text-align: center; color: var(--color-text-medium);">Your cart is empty.</p>';
-    cartTotalEl.textContent = '0.00';
     document.getElementById('checkout-form').style.display = 'none';
-    return;
+  } else {
+     cart.forEach(item => {
+      const itemTotal = parseFloat(item.price) * item.quantity;
+      subtotal += itemTotal;
+      
+      const itemEl = document.createElement('div');
+      itemEl.classList.add('cart-item');
+      itemEl.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+        <div class="cart-item-info">
+          <h3>${item.name}</h3>
+          <span class="cart-item-tray-size">${item.tray_size || ''}</span>
+          <span class="cart-item-price">$${parseFloat(item.price).toFixed(2)}</span>
+          <div class="cart-item-quantity">
+            <label for="qty-${item.id}">Qty:</label>
+            <input type="number" id="qty-${item.id}" class="cart-item-qty-input" value="${item.quantity}" min="1" data-id="${item.id}">
+          </div>
+        </div>
+        <div class="cart-item-subtotal">
+          <span>$${itemTotal.toFixed(2)}</span>
+          <button class="cart-item-remove" data-id="${item.id}">&times; Remove</button>
+        </div>
+      `;
+      cartContainer.appendChild(itemEl);
+    });
   }
   
-  cart.forEach(item => {
-    const itemTotal = item.price * item.quantity;
-    total += itemTotal;
-    
-    const itemEl = document.createElement('div');
-    itemEl.classList.add('cart-item');
-    itemEl.innerHTML = `
-      <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-      <div class="cart-item-info">
-        <h3>${item.name}</h3>
-        <span class="cart-item-price">$${parseFloat(item.price).toFixed(2)}</span>
-        <div class="cart-item-quantity">
-          <label for="qty-${item.id}">Qty:</label>
-          <input type="number" id="qty-${item.id}" class="cart-item-qty-input" value="${item.quantity}" min="1" data-id="${item.id}">
-        </div>
-      </div>
-      <div class="cart-item-subtotal">
-        <span>$${itemTotal.toFixed(2)}</span>
-        <button class="cart-item-remove" data-id="${item.id}">&times; Remove</button>
-      </div>
-    `;
-    cartContainer.appendChild(itemEl);
-  });
-  
-  cartTotalEl.textContent = total.toFixed(2);
-  
-  // Add event listeners for remove/update
+  document.getElementById('cart-subtotal').textContent = subtotal.toFixed(2);
   addCartEventListeners();
+  updateGrandTotal();
 }
 
-/**
- * Adds event listeners for cart.html controls (remove, update qty).
- */
+function updateGrandTotal() {
+  const subtotal = parseFloat(document.getElementById('cart-subtotal').textContent) || 0;
+  
+  const isDelivery = document.getElementById('delivery-radio').checked;
+  const deliveryFee = isDelivery ? DELIVERY_FEE : 0;
+  
+  const grandTotal = subtotal + PROCESSING_FEE + deliveryFee;
+  
+  document.getElementById('cart-processing-fee').textContent = PROCESSING_FEE.toFixed(2);
+  document.getElementById('cart-delivery-fee').textContent = deliveryFee.toFixed(2);
+  document.getElementById('cart-grand-total').textContent = grandTotal.toFixed(2);
+}
+
 function addCartEventListeners() {
   // Remove item
   document.querySelectorAll('.cart-item-remove').forEach(button => {
@@ -143,7 +145,6 @@ function addCartEventListeners() {
         if (newQuantity > 0) {
           item.quantity = newQuantity;
         } else {
-          // If qty is 0 or less, remove it
           cart = cart.filter(item => item.id !== idToUpdate);
         }
       }
@@ -156,30 +157,33 @@ function addCartEventListeners() {
 }
 
 /**
- * Sets up the checkout form on cart.html.
+ * === UPDATED: Now sends tray_size in the email ===
  */
 function setupCartForm() {
   const form = document.getElementById('checkout-form');
-  const cartDataInput = document.getElementById('cart-data');
   if (!form) return;
 
   form.addEventListener('submit', () => {
-    // Before submitting, grab the current cart and put it in the hidden field
     const cart = getCart();
     let orderSummary = '';
     
     cart.forEach(item => {
-      orderSummary += `Item: ${item.name} (ID: ${item.id}) - Qty: ${item.quantity} - Price: $${item.price}\n`;
+      // NEW: Added tray_size to the summary
+      orderSummary += `Item: ${item.name} (${item.tray_size}) (Qty: ${item.quantity}) - $${(parseFloat(item.price) * item.quantity).toFixed(2)}\n`;
     });
     
-    const total = cart.reduce((t, item) => t + (item.price * item.quantity), 0);
-    orderSummary += `\nTOTAL: $${total.toFixed(2)}`;
+    const subtotal = document.getElementById('cart-subtotal').textContent;
+    const processingFee = document.getElementById('cart-processing-fee').textContent;
+    const deliveryFee = document.getElementById('cart-delivery-fee').textContent;
+    const grandTotal = document.getElementById('cart-grand-total').textContent;
+    const deliveryOption = document.getElementById('delivery-radio').checked ? 'Delivery' : 'Pickup';
     
-    cartDataInput.value = orderSummary;
+    document.getElementById('order-items').value = orderSummary;
+    document.getElementById('order-subtotal').value = subtotal;
+    document.getElementById('order-fees').value = (parseFloat(processingFee) + parseFloat(deliveryFee)).toFixed(2);
+    document.getElementById('order-grand-total').value = grandTotal;
+    document.getElementById('order-delivery-option').value = deliveryOption;
     
-    // Clear the cart from localStorage *after* submission is successful
-    // Formspree will redirect, so this runs on the "thank you" page
-    // For now, we'll clear it immediately.
     localStorage.removeItem('jesseCart');
   });
 }

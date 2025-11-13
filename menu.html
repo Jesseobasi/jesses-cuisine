@@ -29,10 +29,9 @@
             <li><a href="catering.html">Catering</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li class="mobile-cart-link"><a href="cart.html" id="mobile-cart-icon">Cart (0)</a></li>
           </ul>
-          
           <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
-          
           <div class="menu-toggle">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -46,6 +45,7 @@
       <div class="menu-container">
           
           <h2>Our Full Menu</h2>
+          <p class="social-subtitle" style="margin-top: -2rem;">All items are sold in tray sizes. Click an item for details and to select a size.</p>
 
           <div class="search-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -83,75 +83,24 @@
       </div>
     </main>
 
-    <section id="tray-pricing" class="section">
-      <h2>Price Per Tray</h2>
-      <p class="social-subtitle">Perfect for parties, office events, and family gatherings.</p>
-      
-      <div class="tray-pricing-container">
-        
-        <div class="tray-item reveal-item">
-          <h3>Jollof Rice</h3>
-          <div class="tray-prices">
-            <span class="price-size">Half Tray (13"x9", Serves 8-10)</span>
-            <span class="price-amount">$60</span>
-          </div>
-          <div class="tray-prices">
-            <span class="price-size">Full Tray (Serves 15-20)</span>
-            <span class="price-amount">$110</span>
-          </div>
-        </div>
-
-        <div class="tray-item reveal-item">
-          <h3>Grilled Chicken</h3>
-          <div class="tray-prices">
-            <span class="price-size">Half Tray (13"x9", 25 pcs)</span>
-            <span class="price-amount">$75</span>
-          </div>
-          <div class="tray-prices">
-            <span class="price-size">Full Tray (50 pcs)</span>
-            <span class="price-amount">$140</span>
-          </div>
-        </div>
-
-        <div class="tray-item reveal-item">
-          <h3>Pepper Soup (Goat)</h3>
-          <div class="tray-prices">
-            <span class="price-size">Half Tray (13"x9", Serves 8-10)</span>
-            <span class="price-amount">$80</span>
-          </div>
-          <div class="tray-prices">
-            <span class="price-size">Full Tray (Serves 15-20)</span>
-            <span class="price-amount">$150</span>
-          </div>
-        </div>
-
-        <div class="tray-item reveal-item">
-          <h3>Fried Plantain</h3>
-          <div class="tray-prices">
-            <span class="price-size">Half Tray (13"x9")</span>
-            <span class="price-amount">$45</span>
-          </div>
-          <div class="tray-prices">
-            <span class="price-size">Full Tray</span>
-            <span class="price-amount">$80</span>
-          </div>
-        </div>
-
-        </div>
-      
-      <a href="catering.html" class="btn ripple" style="margin-top: 40px;">Inquire About Catering</a>
-    </section>
-
     <div id="menu-modal" class="modal-overlay">
       <div class="modal-content">
         <button id="modal-close" class="modal-close-btn">&times;</button>
         <img id="modal-image" src="" alt="Menu Item" class="modal-image">
         <div class="modal-info">
           <h2 id="modal-title"></h2>
-          <span id="modal-price" class="modal-price"></span>
+          
           <p id="modal-description"></p>
-          <p id="modal-details" class="modal-details"></p>
-          <button class="btn ripple add-to-cart-btn">Add to Cart</button>
+          
+          <form id="modal-form">
+            <fieldset class="modal-options">
+              <legend>Select a Size</legend>
+              </fieldset>
+            
+            <p id="modal-details" class="modal-details"></p>
+            <button type="submit" class="btn ripple add-to-cart-btn">Add to Cart</button>
+          </form>
+
         </div>
       </div>
     </div>
@@ -191,15 +140,14 @@
               tabContents.forEach(item => item.classList.remove("active"));
               link.classList.add("active");
               document.getElementById(tabId).classList.add("active");
-              
               searchBar.value = ""; 
-              
-              const allFoodCards = document.querySelectorAll(".food-card");
-              allFoodCards.forEach(card => {
-                  card.style.display = "flex";
-              });
+              document.querySelectorAll(".food-card").forEach(card => card.style.display = "flex");
           });
       });
+      
+      
+      // === NEW: Global variable to store menu data ===
+      let allMenuData = [];
 
       // --- Menu Loading Logic ---
       document.addEventListener("DOMContentLoaded", () => {
@@ -210,7 +158,7 @@
       async function loadMenu() {
         try {
           const response = await fetch('menu-data.json');
-          const menuData = await response.json();
+          allMenuData = await response.json(); // Store in global variable
 
           const containers = {
             appetizers: document.querySelector("#appetizers .menu-grid"),
@@ -225,19 +173,21 @@
             return;
           }
 
-          menuData.forEach(item => {
+          allMenuData.forEach(item => {
+            // Get the price of the *first* (smallest) option to display
+            const startingPrice = item.options[0].price;
+            
             const foodCardHTML = `
               <div class="food-card" 
                    data-id="${item.id || ''}"
                    data-name="${item.name || ''}" 
                    data-image="${item.image_large || item.image || ''}" 
-                   data-description="${item.description || ''}" 
-                   data-price="${item.price || ''}" 
+                   data-description="${item.description || ''}"
                    data-details="${item.details || ''}">
                   <img src="${item.image || 'images/test.jpg'}" alt="${item.name || 'Menu item'}">
                   <div class="food-info">
                       <h3>${item.name || 'Menu Item'}</h3>
-                      <p>${item.description || 'Details coming soon.'}</p>
+                      <p class="card-tray-size">Starts at $${parseFloat(startingPrice).toFixed(2)}</p>
                   </div>
               </div>
             `;
@@ -250,10 +200,6 @@
 
         } catch (error) {
           console.error("Failed to load menu data from menu-data.json:", error);
-          const menuContainer = document.querySelector(".menu-container");
-          if(menuContainer) {
-            menuContainer.innerHTML += "<p style='text-align: center; color: var(--color-text-medium);'>Could not load menu. Please check back later.</p>";
-          }
         }
       }
 
@@ -267,9 +213,7 @@
 
             foodCards.forEach(card => {
                 const title = card.querySelector("h3").textContent.toLowerCase();
-                const description = card.querySelector("p").textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                if (title.includes(searchTerm)) {
                     card.style.display = "flex";
                 } else {
                     card.style.display = "none";
@@ -278,10 +222,7 @@
         });
       }
 
-      // --- MODAL LOGIC ---
-      // This now relies on cart.js being loaded first
-      let currentModalItem = {}; 
-
+      // --- MODAL LOGIC (HEAVILY UPDATED) ---
       function setupModal() {
         const modal = document.getElementById('menu-modal');
         if (!modal) return; 
@@ -289,46 +230,82 @@
         const modalOverlay = document.querySelector('.modal-overlay');
         const modalCloseBtn = document.getElementById('modal-close');
         const menuContainer = document.querySelector('.menu-container');
-        const addToCartBtn = modal.querySelector('.add-to-cart-btn');
+        const modalForm = document.getElementById('modal-form');
+        const modalOptionsContainer = modalForm.querySelector('.modal-options');
 
         const modalImage = document.getElementById('modal-image');
         const modalTitle = document.getElementById('modal-title');
-        const modalPrice = document.getElementById('modal-price');
         const modalDescription = document.getElementById('modal-description');
         const modalDetails = document.getElementById('modal-details');
 
+        // Open Modal
         menuContainer.addEventListener('click', function(e) {
           const card = e.target.closest('.food-card');
           if (!card) return; 
 
-          // Store item data for the cart
-          currentModalItem = {
-            id: card.dataset.id,
-            name: card.dataset.name,
-            price: card.dataset.price,
-            image: card.querySelector('img').src // Get the small image for cart
-          };
+          // Find the full item data from our global variable
+          const itemData = allMenuData.find(item => item.id === card.dataset.id);
+          if (!itemData) return;
 
-          // Populate modal
+          // Populate modal with basic info
           modalImage.src = card.dataset.image;
           modalTitle.textContent = card.dataset.name;
           modalDescription.textContent = card.dataset.description;
-
-          const price = card.dataset.price;
-          const details = card.dataset.details;
+          modalDetails.textContent = card.dataset.details;
           
-          modalPrice.textContent = price ? `$${price}` : ''; // Add dollar sign
-          modalDetails.textContent = details;
+          // --- Dynamically create radio buttons ---
+          modalOptionsContainer.innerHTML = '<legend>Select a Size</legend>'; // Clear old options
           
-          modalPrice.style.display = price ? 'block' : 'none';
-          modalDetails.style.display = details ? 'block' : 'none';
+          itemData.options.forEach((option, index) => {
+            const optionId = `option-${itemData.id}-${option.id_suffix}`;
+            const optionHTML = `
+              <label for="${optionId}" class="radio-option modal-radio">
+                <input type
+="radio" 
+                       id="${optionId}" 
+                       name="tray-option" 
+                       value="${option.id_suffix}"
+                       ${index === 0 ? 'checked' : ''}
+                       data-price="${option.price}"
+                       data-tray-size="${option.tray_size}">
+                <span class="option-label">
+                  <span class="option-size">${option.tray_size}</span>
+                  <span class="option-price">$${parseFloat(option.price).toFixed(2)}</span>
+                </span>
+              </label>
+            `;
+            modalOptionsContainer.innerHTML += optionHTML;
+          });
+          
+          // Store the item's base data on the form
+          modalForm.dataset.id = itemData.id;
+          modalForm.dataset.name = itemData.name;
+          modalForm.dataset.image = itemData.image;
 
           modalOverlay.classList.add('modal-open');
         });
         
-        // Add to cart from modal
-        addToCartBtn.addEventListener('click', () => {
-          addToCart(currentModalItem); // This function is in cart.js
+        // Add to cart from modal form submission
+        modalForm.addEventListener('submit', function(e) {
+          e.preventDefault(); // Stop form from submitting
+          
+          const selectedOption = modalForm.querySelector('input[name="tray-option"]:checked');
+          if (!selectedOption) {
+            alert("Please select a size.");
+            return;
+          }
+          
+          // Create the item object to add to the cart
+          const itemToAdd = {
+            id: modalForm.dataset.id + '-' + selectedOption.value, // e.g., "rnp004-small"
+            base_id: modalForm.dataset.id,
+            name: modalForm.dataset.name,
+            price: selectedOption.dataset.price,
+            tray_size: selectedOption.dataset.traySize,
+            image: modalForm.dataset.image
+          };
+          
+          addToCart(itemToAdd); // This function is in cart.js
           closeModal();
         });
 
@@ -337,7 +314,6 @@
         }
 
         modalCloseBtn.addEventListener('click', closeModal);
-
         modalOverlay.addEventListener('click', function(e) {
           if (e.target === modalOverlay) {
             closeModal();
@@ -346,27 +322,6 @@
       }
     </script>
     
-    <script>
-      window.addEventListener("scroll", () => {
-        const reveals = document.querySelectorAll(".reveal-item");
-        const windowHeight = window.innerHeight;
-        const revealPoint = 100;
-        let delays = {};
-        reveals.forEach((el) => {
-          const revealTop = el.getBoundingClientRect().top;
-          const parentSection = el.closest('section').id || 'default-reveal';
-          if (!delays[parentSection]) { delays[parentSection] = 0; }
-          if (revealTop < windowHeight - revealPoint) {
-            if (!el.classList.contains("active")) {
-              el.style.transitionDelay = delays[parentSection] + "ms";
-              el.classList.add("active");
-              delays[parentSection] += 150; 
-            }
-          }
-        });
-      });
-    </script>
-
     <script>
       const preloader = document.getElementById('preloader');
       window.addEventListener('load', () => {

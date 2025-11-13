@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal of the Week - Jesse's Cuisines</title>
+    
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/headshot.jpg" type="image/jpeg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F59E0B">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Jesse's Cuisines">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+</head>
+<body>
+
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <header>
+      <nav id="navbar">
+        <div class="nav-container">
+          <h1 class="logo"><a href="index.html">Jesse's Cuisines</a></h1>
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="catering.html">Catering</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
+          <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="page-header section">
+        <h1>Meal of the Week</h1>
+        <p>Watch the video. Crave the flavor. Reserve your plate.</p>
+    </section>
+
+<main class="section motw-section">
+        <div class="motw-container">
+            
+            <div class="motw-visual">
+                <div class="motw-image-frame">
+                    <img src="images/mealofweek.jpg" alt="Smoky Oxtail & Rice">
+                </div>
+            </div>
+
+            <div class="motw-details">
+                <span class="status-badge status-open">Reservations Open</span>
+                
+                <h2>Smoky Oxtail & Rice</h2>
+                <p class="motw-price">$25.00 / plate</p>
+                
+                <div class="motw-description">
+                    <p>This week, I'm making my signature Smoky Oxtail. It's been marinated for 24 hours in a special house blend and slow-braised until it falls off the bone. Served with fluffy white rice and steamed cabbage.</p>
+                    <ul class="motw-specs">
+                        <li><strong>Pickup Day:</strong> This Friday</li>
+                        <li><strong>Pickup Time:</strong> 4:00 PM - 7:00 PM</li>
+                        <li><strong>Limit:</strong> Max 5 plates per person</li>
+                    </ul>
+                </div>
+
+                <div class="reservation-box">
+                    <p>Secure your spot before we sell out!</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeu8iBMhu7h0YGZ9QgqzW2Kv3iFNpNHC19qntXWy5Y87B70kQ/viewform?usp=dialog" target="_blank" class="btn ripple btn-block">Reserve Your Spot</a>
+                    <small>Payment required upon confirmation.</small>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="section how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+            <div class="step reveal-item">
+                <span>1</span>
+                <h3>Watch & Crave</h3>
+                <p>Every week, I drop a video of a new, exclusive meal I'm cooking.</p>
+            </div>
+            <div class="step reveal-item">
+                <span>2</span>
+                <h3>Reserve</h3>
+                <p>Fill out the form to hold your plates. (Max 5 per person unless specified).</p>
+            </div>
+            <div class="step reveal-item">
+                <span>3</span>
+                <h3>Pick Up</h3>
+                <p>Swing by on Friday, pay for your order, and enjoy your exclusive meal.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
+    </footer>
+
+    <script src="cart.js"></script>
+
+    <script>
+      // Navbar & Animation Scripts
+      window.addEventListener("scroll", function() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        const reveals = document.querySelectorAll(".reveal-item");
+        const windowHeight = window.innerHeight;
+        const revealPoint = 100;
+        let delays = {};
+        reveals.forEach((el) => {
+          const revealTop = el.getBoundingClientRect().top;
+          const parentSection = el.closest('section').id || 'default';
+          if (!delays[parentSection]) delays[parentSection] = 0;
+          if (revealTop < windowHeight - revealPoint) {
+            if (!el.classList.contains("active")) {
+              el.style.transitionDelay = delays[parentSection] + "ms";
+              el.classList.add("active");
+              delays[parentSection] += 150; 
+            }
+          }
+        });
+      });
+
+      const preloader = document.getElementById('preloader');
+      window.addEventListener('load', () => {
+        preloader.classList.add('loaded');
+      });
+    </script>
+</body>
+</html>
