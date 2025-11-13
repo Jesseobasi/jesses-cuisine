@@ -1118,3 +1118,203 @@ footer {
     text-align: center;
   }
 }
+/* 22. CART ICON & PAGE */
+/* (Add this to the end of your style.css) */
+
+/* --- Cart Icon in Navbar --- */
+.btn-cart {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-bg-dark);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 2rem;
+}
+
+.btn-cart:hover {
+  background-color: var(--color-primary-dark);
+  color: #000;
+}
+
+/* Hide cart icon on mobile, it will be in the hamburger menu */
+@media (max-width: 768px) {
+  .btn-cart {
+    display: none; 
+  }
+  
+  /* Add cart to mobile hamburger menu */
+  .nav-links {
+    /* Add a new item for the cart */
+  }
+}
+
+/* --- Cart Page Layout --- */
+.cart-section {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
+.cart-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--color-bg-medium);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/* --- Cart Item Styling --- */
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-bg-dark);
+}
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+.cart-item-info h3 {
+  font-size: 1.2rem;
+  color: var(--color-text-headings);
+  margin-bottom: 0.25rem;
+}
+.cart-item-price {
+  font-size: 1rem;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cart-item-qty-input {
+  width: 60px;
+  padding: 5px 8px;
+  background-color: var(--color-bg-dark);
+  border: 1px solid #333;
+  color: var(--color-text-light);
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+}
+.cart-item-subtotal {
+  text-align: right;
+}
+.cart-item-subtotal span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-headings);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: var(--color-text-medium);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.cart-item-remove:hover {
+  color: var(--color-primary);
+}
+
+/* --- Cart Total --- */
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin-top: 1rem;
+  border-top: 2px solid var(--color-primary);
+}
+.cart-total strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+#cart-total-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+/* --- Checkout Form --- */
+.checkout-form {
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-bg-dark);
+  padding-top: 2rem;
+}
+.checkout-form h2 {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+.checkout-form p {
+  color: var(--color-text-medium);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-light);
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+}
+
+/* Responsive Cart */
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cart-item-image {
+    width: 100%;
+    height: 150px;
+  }
+  .cart-item-subtotal {
+    text-align: left;
+    margin-top: 1rem;
+  }
+}

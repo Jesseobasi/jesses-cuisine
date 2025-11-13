@@ -29,7 +29,11 @@
             <li><a href="catering.html">Catering</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li class="mobile-cart-link"><a href="cart.html" id="mobile-cart-icon">Cart (0)</a></li>
           </ul>
+          
+          <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
+          
           <div class="menu-toggle">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -51,7 +55,7 @@
   
           <nav class="tab-nav">
               <button class="tab-link active" data-tab="appetizers">Appetizers</button>
-              <button class="tab-link" data-tab="proteins">Proteins</button>
+              <button class="tab-link" data-tab="proteins">Proteins (Mains)</button>
               <button class="tab-link" data-tab="pasta">Rice & Pasta</button>
               <button class="tab-link" data-tab="sides">Sides</button>
               <button class="tab-link" data-tab="desserts">Desserts</button>
@@ -147,8 +151,8 @@
           <h2 id="modal-title"></h2>
           <span id="modal-price" class="modal-price"></span>
           <p id="modal-description"></p>
-          <p id="modal-details" class.modal-details"></p>
-          <a href="order.html" class="btn ripple">Order This</a>
+          <p id="modal-details" class="modal-details"></p>
+          <button class="btn ripple add-to-cart-btn">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -157,6 +161,8 @@
     <footer>
       <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
     </footer>
+
+    <script src="cart.js"></script>
 
     <script>
       // --- Navbar shrink and animation ---
@@ -207,7 +213,6 @@
           const response = await fetch('menu-data.json');
           const menuData = await response.json();
 
-          // === UPDATED CONTAINER LIST ===
           const containers = {
             appetizers: document.querySelector("#appetizers .menu-grid"),
             proteins: document.querySelector("#proteins .menu-grid"),
@@ -216,8 +221,7 @@
             desserts: document.querySelector("#desserts .menu-grid")
           };
 
-          // Updated check
-          if (!containers.appetizers || !containers.proteins || !containers.pasta || !containers.sides || !containers.desserts) {
+          if (!containers.appetizers) {
             console.error("One or more menu grid containers are missing from the HTML.");
             return;
           }
@@ -225,6 +229,7 @@
           menuData.forEach(item => {
             const foodCardHTML = `
               <div class="food-card" 
+                   data-id="${item.id || ''}"
                    data-name="${item.name || ''}" 
                    data-image="${item.image_large || item.image || ''}" 
                    data-description="${item.description || ''}" 
@@ -237,7 +242,6 @@
                   </div>
               </div>
             `;
-            // This logic now sorts into your new categories
             if (containers[item.category]) {
               containers[item.category].innerHTML += foodCardHTML;
             }
@@ -254,14 +258,12 @@
         }
       }
 
-      // --- Search Filter Logic (Unchanged) ---
+      // --- Search Filter Logic (Per-Tab) ---
       function setupSearchFilter() {
         searchBar.addEventListener("keyup", (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            
             const activeTab = document.querySelector(".tab-content.active");
             if (!activeTab) return; 
-            
             const foodCards = activeTab.querySelectorAll(".food-card");
 
             foodCards.forEach(card => {
@@ -277,7 +279,10 @@
         });
       }
 
-      // --- Modal Logic (Unchanged) ---
+      // --- MODAL LOGIC ---
+      // This now relies on cart.js being loaded first
+      let currentModalItem = {}; 
+
       function setupModal() {
         const modal = document.getElementById('menu-modal');
         if (!modal) return; 
@@ -285,6 +290,7 @@
         const modalOverlay = document.querySelector('.modal-overlay');
         const modalCloseBtn = document.getElementById('modal-close');
         const menuContainer = document.querySelector('.menu-container');
+        const addToCartBtn = modal.querySelector('.add-to-cart-btn');
 
         const modalImage = document.getElementById('modal-image');
         const modalTitle = document.getElementById('modal-title');
@@ -296,6 +302,15 @@
           const card = e.target.closest('.food-card');
           if (!card) return; 
 
+          // Store item data for the cart
+          currentModalItem = {
+            id: card.dataset.id,
+            name: card.dataset.name,
+            price: card.dataset.price,
+            image: card.querySelector('img').src // Get the small image for cart
+          };
+
+          // Populate modal
           modalImage.src = card.dataset.image;
           modalTitle.textContent = card.dataset.name;
           modalDescription.textContent = card.dataset.description;
@@ -303,13 +318,19 @@
           const price = card.dataset.price;
           const details = card.dataset.details;
           
-          modalPrice.textContent = price;
+          modalPrice.textContent = price ? `$${price}` : ''; // Add dollar sign
           modalDetails.textContent = details;
           
           modalPrice.style.display = price ? 'block' : 'none';
           modalDetails.style.display = details ? 'block' : 'none';
 
           modalOverlay.classList.add('modal-open');
+        });
+        
+        // Add to cart from modal
+        addToCartBtn.addEventListener('click', () => {
+          addToCart(currentModalItem); // This function is in cart.js
+          closeModal();
         });
 
         function closeModal() {
@@ -331,17 +352,11 @@
         const reveals = document.querySelectorAll(".reveal-item");
         const windowHeight = window.innerHeight;
         const revealPoint = 100;
-        
         let delays = {};
-
         reveals.forEach((el) => {
           const revealTop = el.getBoundingClientRect().top;
           const parentSection = el.closest('section').id || 'default-reveal';
-
-          if (!delays[parentSection]) {
-              delays[parentSection] = 0;
-          }
-          
+          if (!delays[parentSection]) { delays[parentSection] = 0; }
           if (revealTop < windowHeight - revealPoint) {
             if (!el.classList.contains("active")) {
               el.style.transitionDelay = delays[parentSection] + "ms";

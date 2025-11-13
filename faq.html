@@ -29,7 +29,10 @@
           <li><a href="catering.html">Catering</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="index.html#contact">Contact</a></li>
+          <li class="mobile-cart-link"><a href="cart.html" id="mobile-cart-icon">Cart (0)</a></li>
         </ul>
+        
+        <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
         
         <div class="menu-toggle">
           <span class="bar"></span>
@@ -47,35 +50,47 @@
       
       <details class="faq-item">
         <summary>How do I place an order?</summary>
-        <p>You can place an order by clicking any "Order Now" button or by visiting our <a href="order.html">Order Page</a>. This will take you to our official order form to fill out your request.</p>
+        <p>You can browse our <a href="menu.html">Full Menu</a>, add items to your cart, and click "Submit Order Inquiry" from the <a href="cart.html">Cart Page</a>. This sends us your order, and we will contact you to confirm payment.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I pay for my order?</summary>
+        <p>After you submit your order inquiry from the cart, we will review it and send you a payment request via your selected method (Zelle, Cash App, etc.). **Your order is not confirmed until payment is received.**</p>
       </details>
       
       <details class="faq-item">
         <summary>How far in advance do I need to order?</summary>
-        <p>For standard menu items, please order at least 24 hours in advance. For large catering orders, we require at least one week's notice.</p>
+        <p>For standard menu items, please place your order at least 24 hours in advance. For large catering orders, we require at least one week's notice.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you deliver?</summary>
+        <p>We currently offer pickup in Baltimore, Maryland. Local delivery is available for large catering orders and may be available for regular orders over $75. Please contact us to confirm.</p>
       </details>
       
       <details class="faq-item">
-        <summary>What are your delivery/pickup options?</summary>
-        <p>We currently offer pickup in Baltimore, Maryland. Local delivery is available for catering orders over $100.</p>
+        <summary>What's your policy on food allergies?</summary>
+        <p>We do our best to accommodate! Please note any allergies (e.g., nuts, dairy, gluten, shellfish) in the "Details" section of the order form, or in the item modal. Our kitchen handles all of these ingredients, so we cannot guarantee zero cross-contamination, but we will take every precaution.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's the difference between a cart order and catering?</summary>
+        <p>Our **Cart** is for ordering individual items from our "Full Menu" (e.g., one tray of Mac & Cheese, one order of Jollof Rice). **Catering** (via our <a href="catering.html">Catering Page</a>) is a full-service inquiry for large events like weddings or office parties, where we build a custom menu package for you.</p>
       </details>
 
       <details class="faq-item">
         <summary>What is your cancellation policy?</summary>
-        <p>As per our policies, a 50% non-refundable deposit is required for catering. Cancellations must be made 72 hours in advance. We do not offer refunds on regular orders, but please contact us if you have an issue.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Can you accommodate dietary restrictions?</summary>
-        <p>We do our best! Please specify any allergies or dietary restrictions (e.g., gluten-free, vegan, nut-free) in the "Notes" section of the order form, and we will contact you to confirm.</p>
+        <p>As per our policies, a 50% non-refundable deposit is required for catering. Cancellations must be made 72 hours in advance. We do not offer refunds on regular cart orders once payment is made, but please contact us if you have an issue.</p>
       </details>
 
     </div>
   </main>
 
   <footer>
-    <p>©  2025 Jesse's Cuisines — Designed with ❤️</p>
+    <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
   </footer>
+
+  <script src="cart.js"></script>
 
   <script>
     // Navbar shrink and animation

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Now - Jesse's Cuisines</title>
+    <title>Your Cart - Jesse's Cuisines</title>
     
     <link rel="stylesheet" href="./style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -15,9 +15,7 @@
     <meta name="apple-mobile-web-app-title" content="Jesse's Cuisines">
     <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
 </head>
-<body>
-
-    <div id="preloader"><div class="spinner"></div></div>
+<body id="cart-page"> <div id="preloader"><div class="spinner"></div></div>
 
     <header>
       <nav id="navbar">
@@ -30,6 +28,9 @@
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="index.html#contact">Contact</a></li>
           </ul>
+          
+          <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
+          
           <div class="menu-toggle">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -40,23 +41,61 @@
     </header>
 
     <section class="page-header section">
-        <h1>Place Your Order</h1>
-        <p>We're excited to cook for you. Please fill out the form below.</p>
-        <p><strong>Be sure to view menu for prices!</strong></p>
+        <h1>Your Cart</h1>
+        <p>Review your items and complete your order inquiry.</p>
     </section>
 
-    <main class="section form-section">
-        <div class="form-wrapper">
-            
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqX7XEgl6e9MSWDVrJVfLTvgGsw193flHzNuQPttMokVljfA/viewform?usp=sf_link" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <main class="section cart-section">
+      <div class="cart-container">
+        
+        <div id="cart-items-container">
+          </div>
 
+        <div class="cart-total">
+          <strong>Total:</strong>
+          <span id="cart-total-amount">$<span id="cart-total">0.00</span></span>
         </div>
+
+        <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/YOUR-UNIQUE-ID" method="POST">
+          <h2>Your Information</h2>
+          <p>This is an order inquiry, not a payment. We will contact you to confirm payment and pickup details.</p>
+
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="payment-method">Preferred Payment</label>
+            <select id="payment-method" name="payment-method" required>
+              <option value="">Select a method...</option>
+              <option value="Zelle">Zelle</option>
+              <option value="Cash App">Cash App</option>
+              <option value="Venmo">Venmo</option>
+            </select>
+          </div>
+          
+          <input type="hidden" id="cart-data" name="order_summary">
+          
+          <button type="submit" class="btn ripple">Submit Order Inquiry</button>
+        </form>
+
+      </div>
     </main>
 
     <footer>
       <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
     </footer>
 
+    <script src="cart.js"></script> 
+    
     <script>
       // --- Navbar shrink and animation ---
       window.addEventListener("scroll", function() {
@@ -72,14 +111,12 @@
         menuToggle.classList.toggle("active");
         navLinks.classList.toggle("active");
       });
-    </script>
 
-    <script>
+      // --- Preloader Script ---
       const preloader = document.getElementById('preloader');
       window.addEventListener('load', () => {
         preloader.classList.add('loaded');
       });
     </script>
-
 </body>
 </html>
