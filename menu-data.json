@@ -76,7 +76,7 @@
     "category": "proteins",
     "image": "images/stew-chicken.jpg",
     "name": "Stew Chicken",
-    "description": "Fall-off-the-bone chicken stewed in a rich, savory tomato broth.",
+    "description": "Chicken stewed in a rich, savory red stew.",
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
