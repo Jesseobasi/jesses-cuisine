@@ -7,6 +7,10 @@
     
     <link rel="stylesheet" href="./style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+    
     <link rel="icon" href="images/headshot.jpg" type="image/jpeg">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#F59E0B">
@@ -47,9 +51,9 @@
     <main class="section cart-section">
       <div class="cart-container">
         
+        <h2>Step 1: Review Your Cart</h2>
         <div id="cart-items-container">
           </div>
-
         <div class="cart-summary">
           <div class="summary-row">
             <span>Subtotal</span>
@@ -57,7 +61,7 @@
           </div>
           <div class="summary-row">
             <span>Processing Fee</span>
-            <span>$<span id="cart-processing-fee">2.50</span></span>
+            <span>$<span id="cart-processing-fee">1.99</span></span>
           </div>
           <div class="summary-row">
             <span>Delivery Fee</span>
@@ -69,8 +73,28 @@
           </div>
         </div>
 
+        <h2 style="margin-top: 3rem;">Step 2: Select Your Pickup/Delivery Slot</h2>
+        <div class="booking-container">
+          
+          <div id="calendar-column">
+            <label>1. Select a Date</label>
+            <div id="calendar-container"></div>
+          </div>
+          
+          <div id="timeslot-column">
+            <label id="timeslot-label">2. Select a Time</label>
+            <div id="timeslot-container">
+              <p class="timeslot-placeholder">Please select a valid date to see available times.</p>
+            </div>
+          </div>
+
+        </div>
+
         <form id="checkout-form" class="checkout-form" action="https://formspree.io/f/YOUR-UNIQUE-ID" method="POST">
           
+          <h2 style="margin-top: 1rem;">Step 3: Your Information</h2>
+          <p>This is an order inquiry, not a payment. We will contact you to confirm payment.</p>
+
           <div class="form-group">
             <label>Delivery Option</label>
             <div class="form-group-options">
@@ -85,9 +109,6 @@
             </div>
           </div>
           
-          <h2>Your Information</h2>
-          <p>This is an order inquiry, not a payment. We will contact you to confirm payment and pickup details.</p>
-
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required>
@@ -115,6 +136,7 @@
           <input type="hidden" id="order-fees" name="order_fees">
           <input type="hidden" id="order-grand-total" name="order_grand_total">
           <input type="hidden" id="order-delivery-option" name="order_delivery_option">
+          <input type="hidden" id="order-pickup-time" name="order_pickup_time">
           
           <div class="form-group-agree">
             <input type="checkbox" id="agree-policy" name="policy_agreement" value="agreed" required>
@@ -135,6 +157,8 @@
     </footer>
 
     <script src="cart.js"></script> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     
     <script>
       // --- Navbar shrink and animation ---

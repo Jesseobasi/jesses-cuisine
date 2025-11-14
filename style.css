@@ -1680,3 +1680,128 @@ footer {
 .modal-radio:has(input:checked) .option-label {
   color: var(--color-primary);
 }
+/* 29. CALENDAR INPUT & THEME */
+/* (Add this to the end of your style.css) */
+
+/* --- Style the new input field --- */
+#pickup-datetime {
+  width: 100%;
+  padding: 14px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#pickup-datetime:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+}
+
+/* --- Overrides for the "dark" theme to match your brand --- */
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+
+.flatpickr-day:hover {
+  background: var(--color-bg-medium);
+}
+
+.flatpickr-time .flatpickr-am-pm:hover, 
+.flatpickr-time .numInput:hover {
+  background: var(--color-bg-medium);
+}
+/* 29. INLINE CALENDAR BOOKING SYSTEM */
+/* (Add this to the end of your style.css) */
+
+.booking-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: var(--color-bg-dark);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+#calendar-column label,
+#timeslot-column label {
+  display: block;
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+/* --- Inline Calendar Styles --- */
+#calendar-container {
+  padding: 0;
+}
+.flatpickr-calendar {
+  width: 100%;
+  box-shadow: none;
+  background: transparent;
+}
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+.flatpickr-day:hover {
+  background: var(--color-bg-medium);
+}
+
+/* --- Time Slot Column Styles --- */
+#timeslot-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px; /* For scrollbar */
+}
+.timeslot-placeholder {
+  color: var(--color-text-medium);
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+}
+.time-slot-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  background-color: var(--color-bg-medium);
+  border: 1px solid #333;
+  color: var(--color-text-light);
+  text-align: center;
+}
+.time-slot-btn:hover {
+  background-color: #2a2a2a;
+  border-color: #555;
+  transform: none; /* Override default btn hover */
+  box-shadow: none; /* Override default btn hover */
+}
+.time-slot-btn.selected {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+
+/* --- Hide Checkout Form Initially --- */
+#checkout-form {
+  display: none;
+}
+
+/* Responsive Booking */
+@media (max-width: 768px) {
+  .booking-container {
+    grid-template-columns: 1fr; /* Stack columns on mobile */
+  }
+  #timeslot-container {
+    max-height: 250px;
+  }
+}
