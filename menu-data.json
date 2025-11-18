@@ -2,31 +2,32 @@
   {
     "id": "app001",
     "category": "appetizers",
-    "image": "images/wings.jpg",
+    "image": "images/food-images/wings.png",
+    "image_large": "images/food-images/wings-large.png",
     "name": "Chicken Wings",
     "description": "Crispy fried wings tossed in your choice of sauce (BBQ, Hot, Jerk).",
     "details": "Contains: Poultry.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "20.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "40.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "40.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "65.00"}
     ]
   },
   {
     "id": "app002",
     "category": "appetizers",
-    "image": "images/drumsticks.jpg",
+    "image": "images/food-images/drumsticks.png",
     "name": "Chicken Drumsticks",
     "description": "Slow-roasted and glazed, perfect for starting a meal.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "17.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "35.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "50.00"}
     ]
   },
   {
     "id": "app003",
     "category": "appetizers",
-    "image": "images/suya.jpg",
+    "image": "images/food-images/suya.png",
     "name": "Suya (Beef Skewers)",
     "description": "Spicy grilled beef skewers, a classic Nigerian street food.",
     "details": "Spicy. Contains: Peanuts.",
@@ -38,7 +39,7 @@
   {
     "id": "app004",
     "category": "appetizers",
-    "image": "images/shrimp.jpg",
+    "image": "images/food-images/shrimp.png",
     "name": "Shrimp",
     "description": "Golden crispy shrimp served with a sweet chili dipping sauce.",
     "details": "Contains: Shellfish.",
@@ -50,7 +51,7 @@
   {
     "id": "app005",
     "category": "appetizers",
-    "image": "images/sliders.jpg",
+    "image": "images/food-images/sliders.png",
     "name": "Sliders",
     "description": "Mini burgers with cheese, pickles, and our special sauce.",
     "details": "Contains: Gluten, Dairy.",
@@ -62,7 +63,7 @@
   {
     "id": "app007",
     "category": "appetizers",
-    "image": "images/meatballs.jpg",
+    "image": "images/food-images/meatballs.png",
     "name": "Meatballs",
     "description": "Tender meatballs in a sweet & tangy, BBQ, or Swedish sauce.",
     "details": "",
@@ -74,9 +75,9 @@
   {
     "id": "pro001",
     "category": "proteins",
-    "image": "images/stew-chicken.jpg",
+    "image": "images/food-images/stew-chicken.png",
     "name": "Stew Chicken",
-    "description": "Chicken stewed in a rich, savory red stew.",
+    "description": "Fall-off-the-bone chicken stewed in a rich, savory tomato broth.",
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
@@ -86,7 +87,7 @@
   {
     "id": "pro002",
     "category": "proteins",
-    "image": "images/jerk-chicken.jpg",
+    "image": "images/food-images/jerk-chicken.png",
     "name": "Jerk Chicken",
     "description": "Authentic, spicy, and smoky grilled jerk chicken pieces.",
     "details": "Spicy.",
@@ -98,7 +99,7 @@
   {
     "id": "pro004",
     "category": "proteins",
-    "image": "images/salmon.jpg",
+    "image": "images/food-images/salmon.png",
     "name": "Salmon",
     "description": "Full salmon fillets, grilled or blackened with spices.",
     "details": "Contains: Fish.",
@@ -110,7 +111,7 @@
   {
     "id": "pro005",
     "category": "proteins",
-    "image": "images/steak.jpg",
+    "image": "images/food-images/steak.png",
     "name": "Steak Tips",
     "description": "Tender beef steak tips in a savory mushroom and onion gravy.",
     "details": "",
@@ -122,7 +123,7 @@
   {
     "id": "pro006",
     "category": "proteins",
-    "image": "images/oxtail.jpg",
+    "image": "images/food-images/oxtail.png",
     "name": "Braised Oxtail",
     "description": "Rich, tender oxtail slow-cooked in a deep, flavorful gravy.",
     "details": "Market Price",
@@ -134,7 +135,7 @@
   {
     "id": "rnp001",
     "category": "pasta",
-    "image": "images/jollof.jpg",
+    "image": "images/food-images/jollof.png",
     "name": "Jollof Rice",
     "description": "Classic smoky West African jollof rice. A crowd favorite.",
     "details": "",
@@ -146,7 +147,7 @@
   {
     "id": "rnp002",
     "category": "pasta",
-    "image": "images/fried-rice.jpg",
+    "image": "images/food-images/fried-rice.png",
     "name": "Fried Rice",
     "description": "Classic fried rice with mixed vegetables, egg, and your choice of protein.",
     "details": "Contains: Egg, Soy.",
@@ -158,7 +159,7 @@
   {
     "id": "rnp003",
     "category": "pasta",
-    "image": "images/rice-peas.jpg",
+    "image": "images/food-images/rice-peas.png",
     "name": "Rice & Peas",
     "description": "Traditional Caribbean rice and peas cooked with coconut milk.",
     "details": "Vegan.",
@@ -170,7 +171,7 @@
   {
     "id": "rnp004",
     "category": "pasta",
-    "image": "images/rasta-pasta.jpg",
+    "image": "images/food-images/rasta-pasta.png",
     "name": "Rasta Pasta",
     "description": "Creamy pasta with bell peppers and jerk spices. Add chicken or shrimp.",
     "details": "Spicy. Contains: Dairy, Gluten.",
@@ -182,7 +183,7 @@
   {
     "id": "rnp005",
     "category": "pasta",
-    "image": "images/cajun-pasta.jpg",
+    "image": "images/food-images/cajun-pasta.png",
     "name": "Cajun Pasta",
     "description": "A creamy, spicy pasta with sausage, shrimp, and Cajun seasoning.",
     "details": "Spicy. Contains: Shellfish, Dairy, Gluten.",
@@ -194,7 +195,7 @@
   {
     "id": "rnp006",
     "category": "pasta",
-    "image": "images/alfredo.jpg",
+    "image": "images/food-images/alfredo.png",
     "name": "Alfredo Pasta",
     "description": "Rich and creamy parmesan and garlic sauce. Add chicken or shrimp.",
     "details": "Contains: Dairy, Gluten.",
@@ -206,7 +207,7 @@
   {
     "id": "rnp009",
     "category": "pasta",
-    "image": "images/lasagna.jpg",
+    "image": "images/food-images/lasagna.png",
     "name": "Lasagna",
     "description": "Layers of pasta, beef, and cheese, baked to perfection.",
     "details": "Contains: Dairy, Gluten.",
@@ -218,7 +219,7 @@
   {
     "id": "sid001",
     "category": "sides",
-    "image": "images/mac.jpg",
+    "image": "images/food-images/mac.png",
     "name": "Mac and Cheese",
     "description": "Our famous baked mac and cheese, creamy and delicious.",
     "details": "Contains: Dairy, Gluten.",
@@ -230,7 +231,7 @@
   {
     "id": "sid002",
     "category": "sides",
-    "image": "images/yams.jpg",
+    "image": "images/food-images/yams.png",
     "name": "Sweet Yams",
     "description": "Candied sweet yams, a sweet and savory delight.",
     "details": "Vegan.",
@@ -242,7 +243,7 @@
   {
     "id": "sid003",
     "category": "sides",
-    "image": "images/plantains.jpg",
+    "image": "images/food-images/plantains.png",
     "name": "Plantains",
     "description": "Sweet, fried plantains, perfectly caramelized.",
     "details": "Vegan.",
@@ -254,7 +255,7 @@
   {
     "id": "sid004",
     "category": "sides",
-    "image": "images/coleslaw.jpg",
+    "image": "images/food-images/coleslaw.png",
     "name": "Coleslaw",
     "description": "Creamy, crunchy, and cool coleslaw.",
     "details": "Contains: Egg, Dairy.",
@@ -266,7 +267,7 @@
   {
     "id": "sid005",
     "category": "sides",
-    "image": "images/cabbage.jpg",
+    "image": "images/food-images/cabbage.png",
     "name": "Steamed Cabbage",
     "description": "Tender steamed cabbage with carrots and onions.",
     "details": "Vegan.",
@@ -278,7 +279,7 @@
   {
     "id": "sid006",
     "category": "sides",
-    "image": "images/mashed.jpg",
+    "image": "images/food-images/mashed.png",
     "name": "Mashed Potatoes",
     "description": "Creamy, buttery garlic mashed potatoes.",
     "details": "Contains: Dairy.",
@@ -290,7 +291,7 @@
   {
     "id": "sid008",
     "category": "sides",
-    "image": "images/collards.jpg",
+    "image": "images/food-images/collards.png",
     "name": "Collard Greens",
     "description": "Slow-cooked, savory collard greens (with or without turkey).",
     "details": "",
@@ -302,7 +303,7 @@
   {
     "id": "sid009",
     "category": "sides",
-    "image": "images/cornbread.jpg",
+    "image": "images/food-images/cornbread.png",
     "name": "Cornbread",
     "description": "Sweet and savory, baked fresh.",
     "details": "Contains: Gluten, Dairy, Egg.",
@@ -314,7 +315,7 @@
   {
     "id": "app006",
     "category": "sides",
-    "image": "images/garlic-bread.jpg",
+    "image": "images/food-images/garlic-bread.png",
     "name": "Garlic Bread/Rolls",
     "description": "Toasted and buttered with garlic and herbs.",
     "details": "Contains: Gluten, Dairy.",
@@ -326,7 +327,7 @@
   {
     "id": "des001",
     "category": "desserts",
-    "image": "images/banana-pudding.jpg",
+    "image": "images/food-images/banana-pudding.png",
     "name": "Banana Pudding",
     "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
     "details": "Contains: Dairy, Egg, Gluten.",
@@ -338,7 +339,7 @@
   {
     "id": "des002",
     "category": "desserts",
-    "image": "images/cookies.jpg",
+    "image": "images/food-images/cookies.png",
     "name": "Chocolate Chip Cookies",
     "description": "Thick, gooey, and loaded with chocolate chips.",
     "details": "Contains: Dairy, Egg, Gluten.",
@@ -350,7 +351,7 @@
   {
     "id": "des004",
     "category": "desserts",
-    "image": "images/brownies.jpg",
+    "image": "images/food-images/brownies.png",
     "name": "Brownies",
     "description": "Rich, fudgy chocolate brownies.",
     "details": "Contains: Dairy, Egg, Gluten.",
@@ -362,13 +363,48 @@
   {
     "id": "des003",
     "category": "desserts",
-    "image": "images/cake.jpg",
+    "image": "images/food-images/cake.png",
     "name": "Cake",
     "description": "Ask about our cake of the day (e.g., Red Velvet, Chocolate).",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
       {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "14.00"},
       {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "22.00"}
+    ]
+  },
+  {
+    "id": "sid007",
+    "category": "sides",
+    "image": "images/food-images/fruit-tray.png",
+    "name": "Fruit Tray",
+    "description": "A fresh assortment of seasonal fruits.",
+    "details": "Vegan.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "15.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
+    ]
+  },
+  {
+    "id": "des005",
+    "category":"desserts",
+    "image": "images/food-images/cheesecake.png",
+    "name": "Cheesecake",
+    "description": "Creamy New York style cheesecake with a strawberry topping.",
+    "details": "Contains: Dairy, Egg, Gluten.",
+    "options": [
+      {"id_suffix": "round", "tray_size": "9-inch Round", "price": "20.00"}
+    ]
+  },
+  {
+    "id": "pro003",
+    "category": "proteins",
+    "image": "images/food-images/shawarma.png",
+    "name": "Shawarma (Chicken)",
+    "description": "Thinly sliced, marinated chicken. Served with pita and sauces.",
+    "details": "",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "40.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "75.00"}
     ]
   }
 ]
