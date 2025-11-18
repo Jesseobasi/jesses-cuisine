@@ -8,8 +8,8 @@
     "description": "Crispy fried wings tossed in your choice of sauce (BBQ, Hot, Jerk).",
     "details": "Contains: Poultry.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "40.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "65.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "60.00"}
     ]
   },
   {
@@ -20,8 +20,8 @@
     "description": "Slow-roasted and glazed, perfect for starting a meal.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "50.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "32.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "55.00"}
     ]
   },
   {
@@ -56,8 +56,8 @@
     "description": "Mini burgers with cheese, pickles, and our special sauce.",
     "details": "Contains: Gluten, Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (12 sliders)", "price": "19.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (24 sliders)", "price": "45.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (12 sliders)", "price": "25.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (24 sliders)", "price": "50.00"}
     ]
   },
   {
@@ -69,7 +69,7 @@
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "22.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "35.00"}
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "40.00"}
     ]
   },
   {
@@ -80,7 +80,7 @@
     "description": "Fall-off-the-bone chicken stewed in a rich, savory tomato broth.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "35.00"},
       {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
     ]
   },
@@ -92,7 +92,7 @@
     "description": "Authentic, spicy, and smoky grilled jerk chicken pieces.",
     "details": "Spicy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "35.00"},
       {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
     ]
   },
@@ -104,7 +104,7 @@
     "description": "Full salmon fillets, grilled or blackened with spices.",
     "details": "Contains: Fish.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "50.00"},
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "55.00"},
       {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "100.00"}
     ]
   },
@@ -116,8 +116,8 @@
     "description": "Tender beef steak tips in a savory mushroom and onion gravy.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "60.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "110.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "65.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "120.00"}
     ]
   },
   {
@@ -140,8 +140,8 @@
     "description": "Classic smoky West African jollof rice. A crowd favorite.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "52.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
     ]
   },
   {
@@ -152,8 +152,8 @@
     "description": "Classic fried rice with mixed vegetables, egg, and your choice of protein.",
     "details": "Contains: Egg, Soy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "22.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "48.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "28.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "55.00"}
     ]
   },
   {
@@ -164,8 +164,8 @@
     "description": "Traditional Caribbean rice and peas cooked with coconut milk.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "49.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "25.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "50.00"}
     ]
   },
   {
@@ -176,8 +176,8 @@
     "description": "Creamy pasta with bell peppers and jerk spices. Add chicken or shrimp.",
     "details": "Spicy. Contains: Dairy, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "45.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "60.00"}
     ]
   },
   {
@@ -188,8 +188,8 @@
     "description": "A creamy, spicy pasta with sausage, shrimp, and Cajun seasoning.",
     "details": "Spicy. Contains: Shellfish, Dairy, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "48.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "28.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "58.00"}
     ]
   },
   {
@@ -200,8 +200,8 @@
     "description": "Rich and creamy parmesan and garlic sauce. Add chicken or shrimp.",
     "details": "Contains: Dairy, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "24.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "46.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "28.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "58.00"}
     ]
   },
   {
@@ -224,8 +224,8 @@
     "description": "Our famous baked mac and cheese, creamy and delicious.",
     "details": "Contains: Dairy, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "32.00"}
     ]
   },
   {
@@ -236,8 +236,8 @@
     "description": "Candied sweet yams, a sweet and savory delight.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "32.00"}
     ]
   },
   {
@@ -248,8 +248,8 @@
     "description": "Sweet, fried plantains, perfectly caramelized.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "14.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "28.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
     ]
   },
   {
@@ -260,8 +260,8 @@
     "description": "Creamy, crunchy, and cool coleslaw.",
     "details": "Contains: Egg, Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "20.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "15.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "25.00"}
     ]
   },
   {
@@ -272,8 +272,8 @@
     "description": "Tender steamed cabbage with carrots and onions.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "20.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "15.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "25.00"}
     ]
   },
   {
@@ -284,8 +284,8 @@
     "description": "Creamy, buttery garlic mashed potatoes.",
     "details": "Contains: Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "20.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "32.00"}
     ]
   },
   {
@@ -296,8 +296,8 @@
     "description": "Slow-cooked, savory collard greens (with or without turkey).",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "12.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "25.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
     ]
   },
   {
@@ -308,8 +308,8 @@
     "description": "Sweet and savory, baked fresh.",
     "details": "Contains: Gluten, Dairy, Egg.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "8.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "15.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "18.00"}
     ]
   },
   {
@@ -320,8 +320,8 @@
     "description": "Toasted and buttered with garlic and herbs.",
     "details": "Contains: Gluten, Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "8.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "15.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "15.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "28.00"}
     ]
   },
   {
@@ -332,8 +332,8 @@
     "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "12.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "25.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "35.00"}
     ]
   },
   {
@@ -344,8 +344,8 @@
     "description": "Thick, gooey, and loaded with chocolate chips.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (6 Cookies)", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (12 Cookies)", "price": "18.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (6 Cookies)", "price": "12.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (12 Cookies)", "price": "24.00"}
     ]
   },
   {
@@ -356,20 +356,8 @@
     "description": "Rich, fudgy chocolate brownies.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "18.00"}
-    ]
-  },
-  {
-    "id": "des003",
-    "category": "desserts",
-    "image": "images/food-images/cake.png",
-    "name": "Cake",
-    "description": "Ask about our cake of the day (e.g., Red Velvet, Chocolate).",
-    "details": "Contains: Dairy, Egg, Gluten.",
-    "options": [
       {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "14.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "22.00"}
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "26.00"}
     ]
   },
   {
@@ -380,8 +368,8 @@
     "description": "A fresh assortment of seasonal fruits.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "15.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "30.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (~9\"x7\")", "price": "18.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (13\"x9\")", "price": "32.00"}
     ]
   },
   {
@@ -392,19 +380,19 @@
     "description": "Creamy New York style cheesecake with a strawberry topping.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "round", "tray_size": "9-inch Round", "price": "20.00"}
+      {"id_suffix": "round", "tray_size": "9-inch Round", "price": "24.00"}
     ]
   },
   {
     "id": "pro003",
     "category": "proteins",
     "image": "images/food-images/shawarma.png",
-    "name": "Shawarma (Chicken)",
-    "description": "Thinly sliced, marinated chicken. Served with pita and sauces.",
+    "name": "Shawarma",
+    "description": "Nigerian Style, authenic shawarma wrap containing suya and chicken.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Tray (13\"x9\")", "price": "40.00"},
-      {"id_suffix": "large", "tray_size": "Large Tray (20\"x12\")", "price": "75.00"}
+      {"id_suffix": "small", "tray_size": "Small Tray (6 wraps)", "price": "45.00"},
+      {"id_suffix": "large", "tray_size": "Large Tray (12 wraps)", "price": "75.00"}
     ]
   }
 ]
