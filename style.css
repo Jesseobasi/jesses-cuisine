@@ -1,19 +1,21 @@
 /*
-  STYLE.CSS for Jesse's Cuisines
-  Theme: Modern, Dark, Gold/Orange
-  Font: Montserrat
+  STYLE.CSS for Simma
+  Theme: Elegant, Charcoal Black, Deep Red/Wine, Golden Yellow
+  Fonts: Playfair Display (Headings), Montserrat (Body)
 */
 
 /* 1. SETUP & VARIABLES */
 :root {
-  --color-primary: #F59E0B; /* Your Orange/Gold color (Amber 500) */
-  --color-primary-dark: #B45309; /* A darker shade for hover */
-  --color-bg-dark: #121212;     /* Almost black */
-  --color-bg-medium: #1f1f1f;   /* Dark gray for cards */
-  --color-text-light: #F3F4F6;  /* Light gray for body text */
-  --color-text-medium: #9CA3AF; /* Medium gray for sub-text */
-  --color-text-headings: #FFFFFF; /* Pure white for main headings */
+  --color-primary: #D1495B;      /* Deep Red / Wine (Accent) */
+  --color-secondary-accent: #F2C57C; /* Golden Yellow (Secondary Accent) */
+  --color-bg-dark: #1C1C1C;     /* Charcoal Black (Background) */
+  --color-bg-medium: #2a2a2a;   /* Slightly lighter for cards/sections */
+  --color-text-light: #EDEDED;  /* Soft White (Primary Text) */
+  --color-text-medium: #AAAAAA; /* Light Gray for sub-text */
+  --color-text-headings: #F2C57C; /* Golden Yellow for main headings */
+  
   --font-primary: 'Montserrat', sans-serif;
+  --font-headings: 'Playfair Display', serif; /* NEW ELEGANT FONT */
 }
 
 * {
@@ -42,12 +44,12 @@ img {
 
 a {
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--color-primary); /* Deep Red */
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-secondary-accent); /* Golden Yellow on hover */
 }
 
 .section {
@@ -55,28 +57,30 @@ a:hover {
   overflow: hidden; /* Contains reveal animations */
 }
 
+/* === TYPOGRAPHY CHANGE: Apply Playfair Display to Headings for Elegance === */
 .section h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: var(--font-headings);
+  font-size: 2.8rem; /* Slightly larger for elegance */
+  font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--color-text-headings);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: var(--color-text-headings); /* Golden Yellow */
+  text-transform: none; /* No forced uppercase */
+  letter-spacing: 0;
 }
 
-/* 2. BUTTONS (Uber Eats / DoorDash Style) */
+/* 2. BUTTONS (Deep Red Primary Color) */
 .btn {
   display: inline-block;
-  background-color: var(--color-primary);
-  color: var(--color-bg-dark);
+  background-color: var(--color-primary); /* Deep Red */
+  color: var(--color-text-light);
   font-family: var(--font-primary);
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 14px 28px;
-  border-radius: 50px; /* Rounded pill shape */
+  border-radius: 50px;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -87,10 +91,10 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: var(--color-primary-dark);
-  color: #000;
+  background-color: var(--color-secondary-accent); /* Golden Yellow hover */
+  color: var(--color-bg-dark);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 6px 20px rgba(242, 197, 124, 0.5); /* Yellow glow */
 }
 
 /* 3. NAVBAR & HERO */
@@ -102,8 +106,7 @@ a:hover {
   z-index: 1000;
   padding: 1rem 5%;
   transition: all 0.4s ease-out;
-  /* Slick frosted glass effect */
-  background-color: rgba(18, 18, 18, 0.7);
+  background-color: rgba(28, 28, 28, 0.8); /* Charcoal Black Blur */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -124,11 +127,12 @@ a:hover {
 }
 
 .logo a {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-primary);
+  font-family: var(--font-headings); /* Elegant Font */
+  font-size: 1.8rem; 
+  font-weight: 900;
+  color: var(--color-primary); /* Deep Red Logo */
   text-decoration: none;
-  letter-spacing: -1px;
+  letter-spacing: 0;
 }
 
 .nav-links {
@@ -159,7 +163,7 @@ a:hover {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary-accent); /* Golden Yellow */
   transition: width 0.3s ease;
 }
 
@@ -200,7 +204,7 @@ a:hover {
   height: 100%;
   z-index: -1;
   /* Dark gradient to make text pop */
-  background: linear-gradient(0deg, rgba(18, 18, 18, 0.9) 0%, rgba(18, 18, 18, 0.7) 30%, rgba(18, 18, 18, 0.4) 100%);
+  background: linear-gradient(0deg, rgba(28, 28, 28, 0.9) 0%, rgba(28, 28, 28, 0.7) 30%, rgba(28, 28, 28, 0.4) 100%);
 }
 
 .hero-content {
@@ -209,10 +213,13 @@ a:hover {
 }
 
 .hero-content h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-family: var(--font-headings); /* Elegant Font */
+  font-size: 2.8rem;
+  font-weight: 400; /* Lighter font weight for elegance */
   margin-bottom: 1.5rem;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: var(--color-text-headings); /* Golden Yellow */
+  text-transform: none;
 }
 
 /* 4. ABOUT SECTION */
@@ -247,7 +254,7 @@ a:hover {
   color: var(--color-text-light);
 }
 .about-content p strong {
-  color: var(--color-primary);
+  color: var(--color-secondary-accent); /* Golden Yellow for emphasis */
   font-weight: 700;
 }
 
@@ -285,7 +292,7 @@ a:hover {
   width: 100%;
   height: 200px;
   object-fit: cover; /* Ensures image covers the area nicely */
-  border-bottom: 3px solid var(--color-primary);
+  border-bottom: 3px solid var(--color-primary); /* Deep Red accent */
 }
 
 .menu-info {
@@ -293,9 +300,10 @@ a:hover {
 }
 
 .menu-info h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-text-headings);
+  font-family: var(--font-headings); /* Elegant Font */
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text-light);
   margin-bottom: 0.5rem;
 }
 
@@ -324,14 +332,15 @@ a:hover {
   padding: 2rem;
   border-radius: 12px;
   /* Accent border */
-  border-left: 4px solid var(--color-primary);
+  border-left: 4px solid var(--color-primary); /* Deep Red accent */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .policy-card h3 {
+  font-family: var(--font-headings); /* Elegant Font */
   font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-primary);
+  font-weight: 600;
+  color: var(--color-secondary-accent); /* Golden Yellow */
   margin-bottom: 0.75rem;
 }
 
@@ -368,7 +377,7 @@ a:hover {
   font-weight: 600;
 }
 .contact-details a:hover {
-  color: var(--color-primary);
+  color: var(--color-secondary-accent);
 }
 
 .social-links {
@@ -392,10 +401,10 @@ a:hover {
 }
 
 .social-icon:hover {
-  color: var(--color-primary);
+  color: var(--color-secondary-accent);
 }
 .social-icon:hover svg {
-  stroke: var(--color-primary);
+  stroke: var(--color-secondary-accent);
 }
 
 .sticky-order-btn {
@@ -403,7 +412,7 @@ a:hover {
   bottom: 20px;
   right: 20px;
   z-index: 999;
-  box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 5px 20px rgba(210, 73, 91, 0.4); /* Red glow */
 }
 
 footer {
@@ -466,6 +475,10 @@ footer {
   transition: all 0.3s ease;
 }
 
+.mobile-cart-link {
+  display: none; /* Hide mobile cart link by default */
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 4rem 5%;
@@ -501,9 +514,24 @@ footer {
   .nav-links a {
     font-size: 1.2rem;
   }
+  
+  /* Show mobile cart link */
+  .mobile-cart-link {
+    display: list-item;
+    border-top: 1px solid var(--color-bg-dark);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .mobile-cart-link a {
+    color: var(--color-primary);
+  }
 
   .menu-toggle {
     display: flex;
+  }
+  
+  .btn-cart {
+    display: none; /* Hide desktop cart button */
   }
 
   /* Hamburger animation */
@@ -564,14 +592,15 @@ footer {
 }
 
 .faq-item:hover {
-  background-color: #2a2a2a;
+  background-color: #333; /* Slightly darker charcoal */
 }
 
 .faq-item summary {
+  font-family: var(--font-headings); /* Elegant Font */
   padding: 1.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text-headings);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-light);
   cursor: pointer;
   list-style: none;
   position: relative;
@@ -590,7 +619,7 @@ footer {
   transform: translateY(-50%);
   font-size: 1.8rem;
   font-weight: 400;
-  color: var(--color-primary);
+  color: var(--color-secondary-accent); /* Golden Yellow */
   transition: transform 0.3s ease;
 }
 
@@ -637,9 +666,9 @@ footer {
   padding: 14px 14px 14px 50px;
   font-family: var(--font-primary);
   font-size: 1rem;
-  background-color: var(--color-bg-medium);
+  background-color: var(--color-bg-dark);
   color: var(--color-text-light);
-  border: 1px solid var(--color-bg-medium);
+  border: 1px solid #333;
   border-radius: 50px;
   transition: all 0.3s ease;
 }
@@ -647,7 +676,7 @@ footer {
 #search-bar:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 0 3px rgba(209, 73, 91, 0.5); /* Red glow */
 }
 
 #search-bar::placeholder {
@@ -678,8 +707,8 @@ footer {
 }
 
 .tab-link:hover {
-  color: var(--color-text-light);
-  background-color: var(--color-bg-medium);
+  color: var(--color-secondary-accent);
+  background-color: #333;
 }
 
 .tab-link.active {
@@ -702,22 +731,19 @@ footer {
 }
 
 .food-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   background-color: var(--color-bg-medium);
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  cursor: pointer; /* Makes card feel clickable */
+  cursor: pointer;
 }
 
 .food-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background-color: #2a2a2a;
+  background-color: #333;
 }
 
 .food-card img {
@@ -733,9 +759,10 @@ footer {
 }
 
 .food-info h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text-headings);
+  font-family: var(--font-headings); /* Elegant Font */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-light);
   margin-bottom: 0.25rem;
 }
 
@@ -773,8 +800,9 @@ footer {
   border-bottom: 1px solid #333;
 }
 .page-header h1 {
+  font-family: var(--font-headings); /* Elegant Font */
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-text-headings);
   margin-bottom: 0.5rem;
 }
@@ -807,10 +835,13 @@ footer {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 .service-card h3 {
+  font-family: var(--font-headings); /* Elegant Font */
   font-size: 1.5rem;
-  color: var(--color-text-headings);
+  font-weight: 600;
+  color: var(--color-secondary-accent);
   margin-bottom: 1rem;
 }
+
 .service-card p {
   color: var(--color-text-medium);
   font-size: 1rem;
@@ -841,6 +872,7 @@ footer {
   margin-bottom: 1rem;
 }
 .step h3 {
+  font-family: var(--font-headings); /* Elegant Font */
   font-size: 1.3rem;
   color: var(--color-text-headings);
   margin-bottom: 0.5rem;
@@ -857,6 +889,7 @@ footer {
   text-align: center;
 }
 .cta-section h2 {
+  font-family: var(--font-headings); /* Elegant Font */
   color: var(--color-primary);
 }
 .cta-section p {
@@ -916,7 +949,7 @@ footer {
   width: 50px;
   height: 50px;
   border: 5px solid var(--color-bg-medium); /* Light gray track */
-  border-top-color: var(--color-primary); /* Gold/orange spinner */
+  border-top-color: var(--color-primary); /* Deep Red spinner */
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -962,7 +995,7 @@ footer {
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   display: flex; /* For side-by-side layout */
   
   /* Animation */
@@ -987,7 +1020,7 @@ footer {
   transition: color 0.3s ease;
 }
 .modal-close-btn:hover {
-  color: var(--color-primary);
+  color: var(--color-secondary-accent);
 }
 
 .modal-image {
@@ -1003,8 +1036,9 @@ footer {
 }
 
 .modal-info h2 {
+  font-family: var(--font-headings); /* Elegant Font */
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-headings);
   margin-bottom: 0.5rem;
   text-align: left; /* Override global h2 */
@@ -1030,7 +1064,7 @@ footer {
 .modal-details {
   font-size: 0.9rem;
   color: var(--color-text-medium);
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--color-bg-dark);
   padding-top: 1rem;
 }
 
@@ -1041,6 +1075,7 @@ footer {
 /* 18. SOCIAL FEED SECTION */
 
 #social-feed {
+  background-color: var(--color-bg-dark); /* Ensure separation from contact section */
   text-align: center;
 }
 
@@ -1057,15 +1092,13 @@ footer {
 #instagram-feed-container {
   max-width: 1200px;
   margin: 0 auto;
-  /* The widget you embed will control its own styles */
-  /* This just gives it a background in case it's slow */
   background-color: var(--color-bg-medium);
   border-radius: 12px;
   padding: 1rem;
   min-height: 200px;
 }
 
-/* 19. MEAL OF THE WEEK SECTION (NEW) */
+/* 19. MEAL OF THE WEEK SECTION */
 
 #meal-of-week {
   background-color: var(--color-bg-dark); 
@@ -1076,7 +1109,7 @@ footer {
   display: block;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-secondary-accent);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
@@ -1084,48 +1117,72 @@ footer {
 
 /* A special h2 override to be left-aligned */
 .section-heading-left {
+  font-family: var(--font-headings); /* Elegant Font */
   text-align: left;
-  /* Resets the global h2 style */
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   color: var(--color-text-headings);
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
 }
 
-/* Responsive modal for mobile */
-@media (max-width: 768px) {
-  .modal-content {
-    flex-direction: column; /* Stack image on top of text */
-    width: 90%;
-    max-height: 85vh;
-  }
-  .modal-image {
-    width: 100%;
-    height: 250px; /* Fixed height for image */
-    border-radius: 12px 12px 0 0; /* Rounded top corners */
-  }
-  .modal-info {
-    width: 100%;
-    padding: 2rem;
-  }
-  .modal-info h2 {
-    font-size: 1.8rem;
-  }
-  
-  .section-heading-left {
-    text-align: center;
-  }
+/* 20. TRAY PRICING SECTION */
+#tray-pricing {
+  background-color: var(--color-bg-medium);
+  text-align: center;
 }
-/* 22. CART ICON & PAGE */
-/* (Add this to the end of your style.css) */
+.tray-pricing-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.tray-item {
+  background-color: var(--color-bg-dark);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.tray-item h3 {
+  font-family: var(--font-headings); /* Elegant Font */
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.tray-prices {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--color-bg-medium);
+}
+.tray-item .tray-prices:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.price-size {
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-align: left;
+}
+.price-amount {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-secondary-accent);
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+/* 21. CART ICON & PAGE */
 
 /* --- Cart Icon in Navbar --- */
 .btn-cart {
   display: inline-block;
   background-color: var(--color-primary);
-  color: var(--color-bg-dark);
+  color: var(--color-text-light);
   font-family: var(--font-primary);
   font-size: 0.9rem;
   font-weight: 700;
@@ -1140,20 +1197,12 @@ footer {
 }
 
 .btn-cart:hover {
-  background-color: var(--color-primary-dark);
-  color: #000;
+  background-color: var(--color-secondary-accent);
+  color: var(--color-bg-dark);
 }
 
-/* Hide cart icon on mobile, it will be in the hamburger menu */
-@media (max-width: 768px) {
-  .btn-cart {
-    display: none; 
-  }
-  
-  /* Add cart to mobile hamburger menu */
-  .nav-links {
-    /* Add a new item for the cart */
-  }
+.mobile-cart-link {
+  display: none; 
 }
 
 /* --- Cart Page Layout --- */
@@ -1193,8 +1242,10 @@ footer {
   flex-grow: 1;
 }
 .cart-item-info h3 {
+  font-family: var(--font-headings); /* Elegant Font */
   font-size: 1.2rem;
-  color: var(--color-text-headings);
+  font-weight: 600;
+  color: var(--color-text-light);
   margin-bottom: 0.25rem;
 }
 .cart-item-price {
@@ -1268,6 +1319,7 @@ footer {
   padding-top: 2rem;
 }
 .checkout-form h2 {
+  font-family: var(--font-headings); /* Elegant Font */
   text-align: left;
   margin-bottom: 0.5rem;
 }
@@ -1300,7 +1352,7 @@ footer {
 .form-group select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 0 3px rgba(209, 73, 91, 0.5);
 }
 
 /* Responsive Cart */
@@ -1316,492 +1368,5 @@ footer {
   .cart-item-subtotal {
     text-align: left;
     margin-top: 1rem;
-  }
-}
-/* 24. MEAL OF THE WEEK PAGE */
-/* (Add this to the end of your style.css) */
-
-.motw-section {
-  background-color: var(--color-bg-dark);
-}
-
-.motw-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-/* Visual/Image Side */
-.motw-image-frame {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  /* 4/5 is a standard, professional portrait ratio for food photos */
-  aspect-ratio: 4 / 5; 
-  width: 100%;
-  max-width: 450px; 
-  margin: 0 auto;
-}
-
-.motw-image-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the photo fills the box perfectly */
-  transition: transform 0.5s ease;
-}
-
-/* Subtle zoom effect when hovering over the image */
-.motw-image-frame:hover img {
-  transform: scale(1.05);
-}
-
-/* Details Side */
-.status-badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.status-open {
-  background-color: #10B981; /* Green */
-  color: #fff;
-}
-
-.status-closed {
-  background-color: #EF4444; /* Red */
-  color: #fff;
-}
-
-.motw-details h2 {
-  text-align: left;
-  margin-bottom: 0.5rem;
-  font-size: 2.5rem;
-}
-
-.motw-price {
-  font-size: 1.5rem;
-  color: var(--color-primary);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.motw-description {
-  font-size: 1.1rem;
-  color: var(--color-text-light);
-  margin-bottom: 2rem;
-  line-height: 1.7;
-}
-
-.motw-specs {
-  list-style: none;
-  margin-top: 1.5rem;
-  border-top: 1px solid var(--color-bg-medium);
-  padding-top: 1.5rem;
-}
-
-.motw-specs li {
-  margin-bottom: 0.5rem;
-  color: var(--color-text-light);
-}
-
-.motw-specs strong {
-  color: var(--color-primary);
-}
-
-.reservation-box {
-  background-color: var(--color-bg-medium);
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid #333;
-}
-
-.reservation-box p {
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.reservation-box small {
-  display: block;
-  margin-top: 0.8rem;
-  color: var(--color-text-medium);
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-/* How It Works Section */
-.how-it-works {
-  background-color: var(--color-bg-medium);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .motw-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .video-placeholder {
-    max-width: 100%; /* Full width on mobile */
-    aspect-ratio: 1 / 1; /* Square on mobile often looks better than tall vertical */
-  }
-  
-  .motw-details h2 {
-    text-align: center;
-  }
-  
-  .motw-price {
-    text-align: center;
-  }
-}
-/* 25. FORM POLICY CHECKBOX */
-/* (Add this to the end of your style.css) */
-
-.form-group-agree {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 1.5rem;
-  background-color: var(--color-bg-dark);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.form-group-agree input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  margin-top: 5px;
-}
-
-.form-group-agree label {
-  font-size: 0.9rem;
-  color: var(--color-text-medium);
-  line-height: 1.5;
-}
-
-.form-group-agree label a {
-  color: var(--color-primary);
-  text-decoration: underline;
-  font-weight: 600;
-}
-/* 26. UPDATED CART TOTALS & RADIO BUTTONS */
-/* (Add this to the end of your style.css) */
-
-/* --- New Cart Summary Box --- */
-.cart-total {
-  /* This class is no longer used, we use .cart-summary */
-  display: none;
-}
-
-.cart-summary {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 8px;
-  background-color: var(--color-bg-dark);
-}
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  color: var(--color-text-light);
-  margin-bottom: 1rem;
-}
-.summary-row span:last-child {
-  font-weight: 600;
-}
-.summary-row.grand-total {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-text-headings);
-  border-top: 2px solid var(--color-primary);
-  padding-top: 1rem;
-  margin-bottom: 0;
-}
-.summary-row.grand-total span:last-child {
-  font-size: 1.8rem;
-  color: var(--color-primary);
-}
-
-
-/* --- New Radio Button Options --- */
-.form-group-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.radio-option {
-  display: block;
-  background-color: var(--color-bg-dark);
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-}
-.radio-option input[type="radio"] {
-  opacity: 0;
-  position: absolute;
-}
-.radio-option span {
-  font-weight: 600;
-  color: var(--color-text-light);
-}
-
-/* "Slick" selected state */
-.radio-option:hover {
-  background-color: #2a2a2a;
-}
-.radio-option input[type="radio"]:checked + span {
-  color: var(--color-primary);
-}
-.radio-option input[type="radio"]:checked + span::before {
-  content: '✔';
-  margin-right: 0.5rem;
-  font-weight: 900;
-}
-.radio-option input[type="radio"]:checked ~ * {
-   border-color: var(--color-primary);
-}
-.radio-option:has(input:checked) { /* Modern selector for the border */
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
-}
-
-/* Fallback for older browsers */
-.radio-option input[type="radio"]:checked + span {
-  /* ... styles from above ... */
-  /* This is just a note, the above styles will work in modern browsers */
-}
-
-@media (max-width: 600px) {
-  .form-group-options {
-    grid-template-columns: 1fr;
-  }
-}
-/* 27. TRAY SIZE STYLING */
-/* (Add this to the end of your style.css) */
-
-/* --- On the Menu Card --- */
-.card-tray-size {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-top: 0.5rem;
-}
-
-/* --- In the Modal --- */
-.modal-tray-size {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text-medium);
-  margin-bottom: 0.5rem;
-}
-
-/* --- In the Cart Page --- */
-.cart-item-tray-size {
-  font-size: 0.9rem;
-  color: var(--color-text-medium);
-  font-style: italic;
-  margin-bottom: 0.5rem;
-}
-/* 28. MODAL SIZE SELECTION */
-/* (Add this to the end of your style.css) */
-
-.modal-info {
-  padding: 1.5rem; /* Make padding smaller for more room */
-}
-
-.modal-options {
-  border: none;
-  padding: 0;
-  margin: 1.5rem 0;
-  border-top: 1px solid var(--color-bg-dark);
-  padding-top: 1.5rem;
-}
-
-.modal-options legend {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text-headings);
-  padding-right: 10px;
-}
-
-/* Re-using the radio option style from cart.html */
-.modal-radio {
-  display: block;
-  background-color: var(--color-bg-dark);
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  margin-bottom: 0.75rem;
-}
-.modal-radio .option-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  color: var(--color-text-light);
-}
-.modal-radio .option-price {
-  font-weight: 700;
-  color: var(--color-primary);
-}
-.modal-radio input[type="radio"] {
-  opacity: 0;
-  position: absolute;
-}
-.modal-radio:hover {
-  background-color: #2a2a2a;
-}
-.modal-radio:has(input:checked) {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
-}
-.modal-radio:has(input:checked) .option-label {
-  color: var(--color-primary);
-}
-/* 29. CALENDAR INPUT & THEME */
-/* (Add this to the end of your style.css) */
-
-/* --- Style the new input field --- */
-#pickup-datetime {
-  width: 100%;
-  padding: 14px;
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  border: 1px solid #333;
-  border-radius: 8px;
-  cursor: pointer;
-}
-#pickup-datetime:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
-}
-
-/* --- Overrides for the "dark" theme to match your brand --- */
-.flatpickr-day.selected, 
-.flatpickr-day.startRange, 
-.flatpickr-day.endRange {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-bg-dark);
-}
-
-.flatpickr-day:hover {
-  background: var(--color-bg-medium);
-}
-
-.flatpickr-time .flatpickr-am-pm:hover, 
-.flatpickr-time .numInput:hover {
-  background: var(--color-bg-medium);
-}
-/* 29. INLINE CALENDAR BOOKING SYSTEM */
-/* (Add this to the end of your style.css) */
-
-.booking-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  background-color: var(--color-bg-dark);
-  padding: 1.5rem;
-  border-radius: 12px;
-}
-
-#calendar-column label,
-#timeslot-column label {
-  display: block;
-  font-weight: 700;
-  color: var(--color-text-light);
-  margin-bottom: 1rem;
-}
-
-/* --- Inline Calendar Styles --- */
-#calendar-container {
-  padding: 0;
-}
-.flatpickr-calendar {
-  width: 100%;
-  box-shadow: none;
-  background: transparent;
-}
-.flatpickr-day.selected, 
-.flatpickr-day.startRange, 
-.flatpickr-day.endRange {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-bg-dark);
-}
-.flatpickr-day:hover {
-  background: var(--color-bg-medium);
-}
-
-/* --- Time Slot Column Styles --- */
-#timeslot-container {
-  max-height: 400px;
-  overflow-y: auto;
-  padding-right: 10px; /* For scrollbar */
-}
-.timeslot-placeholder {
-  color: var(--color-text-medium);
-  text-align: center;
-  margin-top: 2rem;
-  font-style: italic;
-}
-.time-slot-btn {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.75rem;
-  background-color: var(--color-bg-medium);
-  border: 1px solid #333;
-  color: var(--color-text-light);
-  text-align: center;
-}
-.time-slot-btn:hover {
-  background-color: #2a2a2a;
-  border-color: #555;
-  transform: none; /* Override default btn hover */
-  box-shadow: none; /* Override default btn hover */
-}
-.time-slot-btn.selected {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-bg-dark);
-}
-
-/* --- Hide Checkout Form Initially --- */
-#checkout-form {
-  display: none;
-}
-
-/* Responsive Booking */
-@media (max-width: 768px) {
-  .booking-container {
-    grid-template-columns: 1fr; /* Stack columns on mobile */
-  }
-  #timeslot-container {
-    max-height: 250px;
   }
 }

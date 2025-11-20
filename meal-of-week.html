@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal of the Week - Jesse's Cuisines</title>
+    <title>Meal of the Week - Simma</title>
     
     <link rel="stylesheet" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="images/icons/192.png" type="image/jpeg">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#F59E0B">
+    <meta name="theme-color" content="#D1495B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Jesse's Cuisines">
+    <meta name="apple-mobile-web-app-title" content="Simma">
     <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
 </head>
 <body>
@@ -22,7 +23,7 @@
     <header>
       <nav id="navbar">
         <div class="nav-container">
-          <h1 class="logo"><a href="index.html">Jesse's Cuisines</a></h1>
+          <h1 class="logo"><a href="index.html">Simma</a></h1>
           <ul class="nav-links">
             <li><a href="index.html#about">About</a></li>
             <li><a href="menu.html">Menu</a></li>
@@ -49,30 +50,30 @@
     <main class="section motw-section">
         <div class="motw-container">
             
-            <div class="motw-visual">
+            <div class="motw-visual reveal-item">
                 <div class="motw-image-frame">
-                    <img src="images/mealofweek.jpg" alt="Braised Short Rib Pasta">
+                    <img src="images/shortrib-pasta.jpg" alt="Braised Short Rib Pasta">
                 </div>
             </div>
 
-            <div class="motw-details">
+            <div class="motw-details reveal-item">
                 <span class="status-badge status-open">Reservations Open</span>
                 
                 <h2>Braised Short Rib Pasta</h2>
-                <p class="motw-price">$10.00 / plate</p>
+                <p class="motw-price">$25.00 / plate</p>
                 
                 <div class="motw-description">
                     <p>This week features a rich Italian-American comfort dish. Tender short ribs are slow-braised for hours in a savory red wine and tomato sauce, then tossed with fresh pappardelle pasta. It’s an exclusive plate that brings true warmth and flavor.</p>
                     <ul class="motw-specs">
                         <li><strong>Pickup Day:</strong> This Friday</li>
-                        <li><strong>Pickup Time:</strong> 4:00 PM - 9:00 PM</li>
-                        <li><strong>Limit:</strong> Max 5 Reservations</li>
+                        <li><strong>Pickup Time:</strong> 4:00 PM - 7:00 PM</li>
+                        <li><strong>Limit:</strong> Max 5 plates per person</li>
                     </ul>
                 </div>
 
                 <div class="reservation-box">
                     <p>Secure your spot before we sell out!</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeu8iBMhu7h0YGZ9QgqzW2Kv3iFNpNHC19qntXWy5Y87B70kQ/viewform?usp=dialog" target="_blank" class="btn ripple btn-block">Reserve Your Spot</a>
+                    <a href="[PASTE-YOUR-RESERVATION-FORM-LINK-HERE]" target="_blank" class="btn ripple btn-block">Reserve Your Spot</a>
                     <small>Payment required upon confirmation.</small>
                 </div>
             </div>
@@ -86,7 +87,7 @@
             <div class="step reveal-item">
                 <span>1</span>
                 <h3>Watch & Crave</h3>
-                <p>Every week, I drop a video of a new, exclusive meal I'm cooking.</p>
+                <p>Every week, Simma drops a video of a new, exclusive meal being cooked.</p>
             </div>
             <div class="step reveal-item">
                 <span>2</span>
@@ -102,7 +103,7 @@
     </section>
 
     <footer>
-      <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
+      <p>© 2025 Simma — Designed with ❤️</p>
     </footer>
 
     <script src="cart.js"></script>
@@ -146,5 +147,18 @@
         preloader.classList.add('loaded');
       });
     </script>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful');
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+
 </body>
 </html>
