@@ -6,11 +6,11 @@
     <title>Meal of the Week - Simma</title>
     
     <link rel="stylesheet" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="icon" href="images/icons/192.png" type="image/jpeg">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#D1495B">
+    <meta name="theme-color" content="#F59E0B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Simma">
@@ -50,13 +50,13 @@
     <main class="section motw-section">
         <div class="motw-container">
             
-            <div class="motw-visual reveal-item">
+            <div class="motw-visual">
                 <div class="motw-image-frame">
                     <img src="images/shortrib-pasta.jpg" alt="Braised Short Rib Pasta">
                 </div>
             </div>
 
-            <div class="motw-details reveal-item">
+            <div class="motw-details">
                 <span class="status-badge status-open">Reservations Open</span>
                 
                 <h2>Braised Short Rib Pasta</h2>
@@ -73,7 +73,7 @@
 
                 <div class="reservation-box">
                     <p>Secure your spot before we sell out!</p>
-                    <a href="[PASTE-YOUR-RESERVATION-FORM-LINK-HERE]" target="_blank" class="btn ripple btn-block">Reserve Your Spot</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeu8iBMhu7h0YGZ9QgqzW2Kv3iFNpNHC19qntXWy5Y87B70kQ/viewform?usp=dialog" target="_blank" class="btn ripple btn-block">Reserve Your Spot</a>
                     <small>Payment required upon confirmation.</small>
                 </div>
             </div>
@@ -108,6 +108,8 @@
 
     <script src="cart.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
     <script>
       // Navbar & Animation Scripts
       window.addEventListener("scroll", function() {
@@ -126,7 +128,6 @@
       window.addEventListener("scroll", () => {
         const reveals = document.querySelectorAll(".reveal-item");
         const windowHeight = window.innerHeight;
-        const revealPoint = 100;
         let delays = {};
         reveals.forEach((el) => {
           const revealTop = el.getBoundingClientRect().top;

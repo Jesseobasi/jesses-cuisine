@@ -4,7 +4,7 @@
   Font: Montserrat
 */
 
-/* 1. SETUP & VARIABLES (REVERTED TO ORANGE/GOLD) */
+/* 1. SETUP & VARIABLES (FINAL COLOR SCHEME) */
 :root {
   --color-primary: #F59E0B;      /* Orange/Gold color (Accent) */
   --color-primary-dark: #B45309; /* A darker shade for hover */
@@ -106,7 +106,7 @@ a:hover {
   z-index: 1000;
   padding: 1rem 5%;
   transition: all 0.4s ease-out;
-  background-color: rgba(18, 18, 18, 0.7); /* Reverted Dark Blur */
+  background-color: rgba(18, 18, 18, 0.7); /* Dark Blur */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -856,9 +856,6 @@ footer {
   margin-top: 3rem;
   text-align: center;
 }
-.step {
-  padding: 1rem;
-}
 .step span {
   display: inline-flex;
   align-items: center;
@@ -1099,7 +1096,7 @@ footer {
   min-height: 200px;
 }
 
-/* 19. MEAL OF THE WEEK SECTION (NEW) */
+/* 19. MEAL OF THE WEEK SECTION */
 
 #meal-of-week {
   background-color: var(--color-bg-dark); 
@@ -1509,6 +1506,220 @@ footer {
   .motw-price {
     text-align: center;
   }
+}
+/* 25. FORM POLICY CHECKBOX */
+/* (Add this to the end of your style.css) */
+
+.form-group-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  background-color: var(--color-bg-dark);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.form-group-agree input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.form-group-agree label {
+  font-size: 0.9rem;
+  color: var(--color-text-medium);
+  line-height: 1.5;
+}
+
+.form-group-agree label a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+/* 26. UPDATED CART TOTALS & RADIO BUTTONS */
+/* (Add this to the end of your style.css) */
+
+/* --- New Cart Summary Box --- */
+.cart-total {
+  /* This class is no longer used, we use .cart-summary */
+  display: none;
+}
+
+.cart-summary {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--color-bg-dark);
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+.summary-row span:last-child {
+  font-weight: 600;
+}
+.summary-row.grand-total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-headings);
+  border-top: 2px solid var(--color-primary);
+  padding-top: 1rem;
+  margin-bottom: 0;
+}
+.summary-row.grand-total span:last-child {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+
+
+/* --- New Radio Button Options --- */
+.form-group-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.radio-option {
+  display: block;
+  background-color: var(--color-bg-dark);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.radio-option input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+.radio-option span {
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+/* "Slick" selected state */
+.radio-option:hover {
+  background-color: #2a2a2a;
+}
+.radio-option input[type="radio"]:checked + span {
+  color: var(--color-primary);
+}
+.radio-option input[type="radio"]:checked + span::before {
+  content: '✔';
+  margin-right: 0.5rem;
+  font-weight: 900;
+}
+.radio-option input[type="radio"]:checked ~ * {
+   border-color: var(--color-primary);
+}
+.radio-option:has(input:checked) { /* Modern selector for the border */
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+/* Fallback for older browsers */
+.radio-option input[type="radio"]:checked + span {
+  /* ... styles from above ... */
+  /* This is just a note, the above styles will work in modern browsers */
+}
+
+@media (max-width: 600px) {
+  .form-group-options {
+    grid-template-columns: 1fr;
+  }
+}
+/* 27. TRAY SIZE STYLING */
+/* (Add this to the end of your style.css) */
+
+/* --- On the Menu Card --- */
+.card-tray-size {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 0.5rem;
+}
+
+/* --- In the Modal --- */
+.modal-tray-size {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-medium);
+  margin-bottom: 0.5rem;
+}
+
+/* --- In the Cart Page --- */
+.cart-item-tray-size {
+  font-size: 0.9rem;
+  color: var(--color-text-medium);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+/* 28. MODAL SIZE SELECTION */
+/* (Add this to the end of your style.css) */
+
+.modal-info {
+  padding: 1.5rem; /* Make padding smaller for more room */
+}
+
+.modal-options {
+  border: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  border-top: 1px solid var(--color-bg-dark);
+  padding-top: 1.5rem;
+}
+
+.modal-options legend {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-headings);
+  padding-right: 10px;
+}
+
+/* Re-using the radio option style from cart.html */
+.modal-radio {
+  display: block;
+  background-color: var(--color-bg-dark);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+.modal-radio .option-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+.modal-radio .option-price {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.modal-radio input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+.modal-radio:hover {
+  background-color: #2a2a2a;
+}
+.modal-radio:has(input:checked) {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+.modal-radio:has(input:checked) .option-label {
+  color: var(--color-primary);
 }
 /* 29. CALENDAR INPUT & THEME */
 /* (Add this to the end of your style.css) */
