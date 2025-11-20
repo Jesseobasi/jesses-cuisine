@@ -1,21 +1,21 @@
 /*
   STYLE.CSS for Simma
-  Theme: Elegant, Charcoal Black, Deep Red/Wine, Golden Yellow
-  Fonts: Playfair Display (Headings), Montserrat (Body)
+  Theme: Modern, Dark, Orange/Gold
+  Font: Montserrat
 */
 
-/* 1. SETUP & VARIABLES */
+/* 1. SETUP & VARIABLES (REVERTED TO ORANGE/GOLD) */
 :root {
-  --color-primary: #D1495B;      /* Deep Red / Wine (Accent) */
-  --color-secondary-accent: #F2C57C; /* Golden Yellow (Secondary Accent) */
-  --color-bg-dark: #1C1C1C;     /* Charcoal Black (Background) */
-  --color-bg-medium: #2a2a2a;   /* Slightly lighter for cards/sections */
-  --color-text-light: #EDEDED;  /* Soft White (Primary Text) */
-  --color-text-medium: #AAAAAA; /* Light Gray for sub-text */
-  --color-text-headings: #F2C57C; /* Golden Yellow for main headings */
+  --color-primary: #F59E0B;      /* Orange/Gold color (Accent) */
+  --color-primary-dark: #B45309; /* A darker shade for hover */
+  --color-bg-dark: #121212;     /* Almost Black (Background) */
+  --color-bg-medium: #1f1f1f;   /* Dark Gray for cards/sections */
+  --color-text-light: #F3F4F6;  /* Soft White (Primary Text) */
+  --color-text-medium: #9CA3AF; /* Medium gray for sub-text */
+  --color-text-headings: #FFFFFF; /* Pure White */
   
   --font-primary: 'Montserrat', sans-serif;
-  --font-headings: 'Playfair Display', serif; /* NEW ELEGANT FONT */
+  --font-headings: 'Montserrat', sans-serif; /* Reverted to single font */
 }
 
 * {
@@ -44,12 +44,12 @@ img {
 
 a {
   text-decoration: none;
-  color: var(--color-primary); /* Deep Red */
+  color: var(--color-primary); /* Orange/Gold */
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--color-secondary-accent); /* Golden Yellow on hover */
+  color: var(--color-primary-dark);
 }
 
 .section {
@@ -57,30 +57,30 @@ a:hover {
   overflow: hidden; /* Contains reveal animations */
 }
 
-/* === TYPOGRAPHY CHANGE: Apply Playfair Display to Headings for Elegance === */
+/* === TYPOGRAPHY REVERT: Back to Montserrat for Headings === */
 .section h2 {
-  font-family: var(--font-headings);
-  font-size: 2.8rem; /* Slightly larger for elegance */
-  font-weight: 700;
+  font-family: var(--font-primary);
+  font-size: 2.5rem; 
+  font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--color-text-headings); /* Golden Yellow */
-  text-transform: none; /* No forced uppercase */
-  letter-spacing: 0;
+  color: var(--color-text-headings); /* Pure White */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* 2. BUTTONS (Deep Red Primary Color) */
+/* 2. BUTTONS (Orange/Gold Primary Color) */
 .btn {
   display: inline-block;
-  background-color: var(--color-primary); /* Deep Red */
-  color: var(--color-text-light);
+  background-color: var(--color-primary); /* Orange/Gold */
+  color: var(--color-bg-dark); /* Dark Text */
   font-family: var(--font-primary);
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 14px 28px;
-  border-radius: 50px;
+  border-radius: 50px; /* Rounded pill shape */
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -91,10 +91,10 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: var(--color-secondary-accent); /* Golden Yellow hover */
-  color: var(--color-bg-dark);
+  background-color: var(--color-primary-dark);
+  color: #000;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(242, 197, 124, 0.5); /* Yellow glow */
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3); /* Orange glow */
 }
 
 /* 3. NAVBAR & HERO */
@@ -106,7 +106,7 @@ a:hover {
   z-index: 1000;
   padding: 1rem 5%;
   transition: all 0.4s ease-out;
-  background-color: rgba(28, 28, 28, 0.8); /* Charcoal Black Blur */
+  background-color: rgba(18, 18, 18, 0.7); /* Reverted Dark Blur */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -127,12 +127,12 @@ a:hover {
 }
 
 .logo a {
-  font-family: var(--font-headings); /* Elegant Font */
-  font-size: 1.8rem; 
-  font-weight: 900;
-  color: var(--color-primary); /* Deep Red Logo */
+  font-family: var(--font-primary); /* Montserrat */
+  font-size: 1.5rem; 
+  font-weight: 800;
+  color: var(--color-primary); /* Orange/Gold Logo */
   text-decoration: none;
-  letter-spacing: 0;
+  letter-spacing: -1px;
 }
 
 .nav-links {
@@ -163,7 +163,7 @@ a:hover {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-secondary-accent); /* Golden Yellow */
+  background-color: var(--color-primary); /* Orange/Gold */
   transition: width 0.3s ease;
 }
 
@@ -204,7 +204,7 @@ a:hover {
   height: 100%;
   z-index: -1;
   /* Dark gradient to make text pop */
-  background: linear-gradient(0deg, rgba(28, 28, 28, 0.9) 0%, rgba(28, 28, 28, 0.7) 30%, rgba(28, 28, 28, 0.4) 100%);
+  background: linear-gradient(0deg, rgba(18, 18, 18, 0.9) 0%, rgba(18, 18, 18, 0.7) 30%, rgba(18, 18, 18, 0.4) 100%);
 }
 
 .hero-content {
@@ -213,13 +213,11 @@ a:hover {
 }
 
 .hero-content h2 {
-  font-family: var(--font-headings); /* Elegant Font */
-  font-size: 2.8rem;
-  font-weight: 400; /* Lighter font weight for elegance */
+  font-family: var(--font-primary); /* Montserrat */
+  font-size: 2.2rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
-  letter-spacing: 2px;
-  color: var(--color-text-headings); /* Golden Yellow */
-  text-transform: none;
+  letter-spacing: 1px;
 }
 
 /* 4. ABOUT SECTION */
@@ -254,7 +252,7 @@ a:hover {
   color: var(--color-text-light);
 }
 .about-content p strong {
-  color: var(--color-secondary-accent); /* Golden Yellow for emphasis */
+  color: var(--color-primary); /* Orange/Gold for emphasis */
   font-weight: 700;
 }
 
@@ -292,7 +290,7 @@ a:hover {
   width: 100%;
   height: 200px;
   object-fit: cover; /* Ensures image covers the area nicely */
-  border-bottom: 3px solid var(--color-primary); /* Deep Red accent */
+  border-bottom: 3px solid var(--color-primary); /* Orange/Gold accent */
 }
 
 .menu-info {
@@ -300,10 +298,10 @@ a:hover {
 }
 
 .menu-info h3 {
-  font-family: var(--font-headings); /* Elegant Font */
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--color-text-light);
+  font-family: var(--font-primary); /* Montserrat */
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-headings);
   margin-bottom: 0.5rem;
 }
 
@@ -332,15 +330,15 @@ a:hover {
   padding: 2rem;
   border-radius: 12px;
   /* Accent border */
-  border-left: 4px solid var(--color-primary); /* Deep Red accent */
+  border-left: 4px solid var(--color-primary); /* Orange/Gold accent */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .policy-card h3 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--color-secondary-accent); /* Golden Yellow */
+  font-weight: 700;
+  color: var(--color-primary); /* Orange/Gold */
   margin-bottom: 0.75rem;
 }
 
@@ -377,7 +375,7 @@ a:hover {
   font-weight: 600;
 }
 .contact-details a:hover {
-  color: var(--color-secondary-accent);
+  color: var(--color-primary-dark);
 }
 
 .social-links {
@@ -401,10 +399,10 @@ a:hover {
 }
 
 .social-icon:hover {
-  color: var(--color-secondary-accent);
+  color: var(--color-primary);
 }
 .social-icon:hover svg {
-  stroke: var(--color-secondary-accent);
+  stroke: var(--color-primary);
 }
 
 .sticky-order-btn {
@@ -412,7 +410,7 @@ a:hover {
   bottom: 20px;
   right: 20px;
   z-index: 999;
-  box-shadow: 0 5px 20px rgba(210, 73, 91, 0.4); /* Red glow */
+  box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4); /* Orange glow */
 }
 
 footer {
@@ -592,15 +590,15 @@ footer {
 }
 
 .faq-item:hover {
-  background-color: #333; /* Slightly darker charcoal */
+  background-color: #2a2a2a;
 }
 
 .faq-item summary {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   padding: 1.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-text-light);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-headings);
   cursor: pointer;
   list-style: none;
   position: relative;
@@ -619,7 +617,7 @@ footer {
   transform: translateY(-50%);
   font-size: 1.8rem;
   font-weight: 400;
-  color: var(--color-secondary-accent); /* Golden Yellow */
+  color: var(--color-primary);
   transition: transform 0.3s ease;
 }
 
@@ -666,9 +664,9 @@ footer {
   padding: 14px 14px 14px 50px;
   font-family: var(--font-primary);
   font-size: 1rem;
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-bg-medium);
   color: var(--color-text-light);
-  border: 1px solid #333;
+  border: 1px solid var(--color-bg-medium);
   border-radius: 50px;
   transition: all 0.3s ease;
 }
@@ -676,7 +674,7 @@ footer {
 #search-bar:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(209, 73, 91, 0.5); /* Red glow */
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
 }
 
 #search-bar::placeholder {
@@ -707,8 +705,8 @@ footer {
 }
 
 .tab-link:hover {
-  color: var(--color-secondary-accent);
-  background-color: #333;
+  color: var(--color-text-light);
+  background-color: var(--color-bg-medium);
 }
 
 .tab-link.active {
@@ -731,19 +729,22 @@ footer {
 }
 
 .food-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   background-color: var(--color-bg-medium);
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  cursor: pointer;
+  cursor: pointer; /* Makes card feel clickable */
 }
 
 .food-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background-color: #333;
+  background-color: #2a2a2a;
 }
 
 .food-card img {
@@ -759,10 +760,10 @@ footer {
 }
 
 .food-info h3 {
-  font-family: var(--font-headings); /* Elegant Font */
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-text-light);
+  font-family: var(--font-primary); /* Montserrat */
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-headings);
   margin-bottom: 0.25rem;
 }
 
@@ -800,9 +801,9 @@ footer {
   border-bottom: 1px solid #333;
 }
 .page-header h1 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 2.8rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text-headings);
   margin-bottom: 0.5rem;
 }
@@ -835,10 +836,10 @@ footer {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 .service-card h3 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-secondary-accent);
+  font-weight: 700;
+  color: var(--color-primary);
   margin-bottom: 1rem;
 }
 
@@ -872,7 +873,7 @@ footer {
   margin-bottom: 1rem;
 }
 .step h3 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 1.3rem;
   color: var(--color-text-headings);
   margin-bottom: 0.5rem;
@@ -889,7 +890,7 @@ footer {
   text-align: center;
 }
 .cta-section h2 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   color: var(--color-primary);
 }
 .cta-section p {
@@ -949,7 +950,7 @@ footer {
   width: 50px;
   height: 50px;
   border: 5px solid var(--color-bg-medium); /* Light gray track */
-  border-top-color: var(--color-primary); /* Deep Red spinner */
+  border-top-color: var(--color-primary); /* Gold/orange spinner */
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -1020,7 +1021,7 @@ footer {
   transition: color 0.3s ease;
 }
 .modal-close-btn:hover {
-  color: var(--color-secondary-accent);
+  color: var(--color-primary);
 }
 
 .modal-image {
@@ -1036,9 +1037,9 @@ footer {
 }
 
 .modal-info h2 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text-headings);
   margin-bottom: 0.5rem;
   text-align: left; /* Override global h2 */
@@ -1098,7 +1099,7 @@ footer {
   min-height: 200px;
 }
 
-/* 19. MEAL OF THE WEEK SECTION */
+/* 19. MEAL OF THE WEEK SECTION (NEW) */
 
 #meal-of-week {
   background-color: var(--color-bg-dark); 
@@ -1109,7 +1110,7 @@ footer {
   display: block;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-secondary-accent);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
@@ -1117,13 +1118,13 @@ footer {
 
 /* A special h2 override to be left-aligned */
 .section-heading-left {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   text-align: left;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1.5rem;
   color: var(--color-text-headings);
-  text-transform: none;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -1144,7 +1145,7 @@ footer {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 .tray-item h3 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 1.5rem;
   color: var(--color-primary);
   margin-bottom: 1.5rem;
@@ -1171,7 +1172,7 @@ footer {
 .price-amount {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--color-secondary-accent);
+  color: var(--color-primary);
   flex-shrink: 0;
   margin-left: 2rem;
 }
@@ -1180,29 +1181,17 @@ footer {
 
 /* --- Cart Icon in Navbar --- */
 .btn-cart {
-  display: inline-block;
   background-color: var(--color-primary);
-  color: var(--color-text-light);
-  font-family: var(--font-primary);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: 2rem;
-}
-
-.btn-cart:hover {
-  background-color: var(--color-secondary-accent);
   color: var(--color-bg-dark);
 }
 
+.btn-cart:hover {
+  background-color: var(--color-primary-dark);
+  color: #000;
+}
+
 .mobile-cart-link {
-  display: none; 
+  display: none; /* Hide mobile cart link by default */
 }
 
 /* --- Cart Page Layout --- */
@@ -1241,13 +1230,15 @@ footer {
 .cart-item-info {
   flex-grow: 1;
 }
+
 .cart-item-info h3 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--color-text-light);
+  color: var(--color-text-headings);
   margin-bottom: 0.25rem;
 }
+
 .cart-item-price {
   font-size: 1rem;
   color: var(--color-text-medium);
@@ -1319,7 +1310,7 @@ footer {
   padding-top: 2rem;
 }
 .checkout-form h2 {
-  font-family: var(--font-headings); /* Elegant Font */
+  font-family: var(--font-primary); /* Montserrat */
   text-align: left;
   margin-bottom: 0.5rem;
 }
@@ -1352,7 +1343,7 @@ footer {
 .form-group select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(209, 73, 91, 0.5);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
 }
 
 /* Responsive Cart */
@@ -1368,5 +1359,280 @@ footer {
   .cart-item-subtotal {
     text-align: left;
     margin-top: 1rem;
+  }
+}
+/* 24. MEAL OF THE WEEK PAGE */
+/* (Add this to the end of your style.css) */
+
+.motw-section {
+  background-color: var(--color-bg-dark);
+}
+
+.motw-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Visual/Image Side */
+.motw-image-frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  /* 4/5 is a standard, professional portrait ratio for food photos */
+  aspect-ratio: 4 / 5; 
+  width: 100%;
+  max-width: 450px; 
+  margin: 0 auto;
+}
+
+.motw-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the photo fills the box perfectly */
+  transition: transform 0.5s ease;
+}
+
+/* Subtle zoom effect when hovering over the image */
+.motw-image-frame:hover img {
+  transform: scale(1.05);
+}
+
+/* Details Side */
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.status-open {
+  background-color: #10B981; /* Green */
+  color: #fff;
+}
+
+.status-closed {
+  background-color: #EF4444; /* Red */
+  color: #fff;
+}
+
+.motw-details h2 {
+  font-family: var(--font-primary); /* Montserrat */
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.motw-price {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.motw-description {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.motw-specs {
+  list-style: none;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--color-bg-medium);
+  padding-top: 1.5rem;
+}
+
+.motw-specs li {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-light);
+}
+
+.motw-specs strong {
+  color: var(--color-primary);
+}
+
+.reservation-box {
+  background-color: var(--color-bg-medium);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+.reservation-box p {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.reservation-box small {
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--color-text-medium);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* How It Works Section */
+.how-it-works {
+  background-color: var(--color-bg-medium);
+}
+
+/* Responsive Booking */
+@media (max-width: 768px) {
+  .motw-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .video-placeholder {
+    max-width: 100%; /* Full width on mobile */
+    aspect-ratio: 1 / 1; /* Square on mobile often looks better than tall vertical */
+  }
+  
+  .motw-details h2 {
+    text-align: center;
+  }
+  
+  .motw-price {
+    text-align: center;
+  }
+}
+/* 29. CALENDAR INPUT & THEME */
+/* (Add this to the end of your style.css) */
+
+/* --- Style the new input field --- */
+#pickup-datetime {
+  width: 100%;
+  padding: 14px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#pickup-datetime:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+}
+
+/* --- Overrides for the "dark" theme to match your brand --- */
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+
+.flatpickr-day:hover {
+  background: var(--color-bg-medium);
+}
+
+.flatpickr-time .flatpickr-am-pm:hover, 
+.flatpickr-time .numInput:hover {
+  background: var(--color-bg-medium);
+}
+
+/* 29. INLINE CALENDAR BOOKING SYSTEM */
+/* (Add this to the end of your style.css) */
+
+.booking-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: var(--color-bg-dark);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+#calendar-column label,
+#timeslot-column label {
+  display: block;
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+/* --- Inline Calendar Styles --- */
+#calendar-container {
+  padding: 0;
+}
+.flatpickr-calendar {
+  width: 100%;
+  box-shadow: none;
+  background: transparent;
+}
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+.flatpickr-day:hover {
+  background: var(--color-bg-medium);
+}
+
+/* --- Time Slot Column Styles --- */
+#timeslot-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px; /* For scrollbar */
+}
+.timeslot-placeholder {
+  color: var(--color-text-medium);
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+}
+.time-slot-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  background-color: var(--color-bg-medium);
+  border: 1px solid #333;
+  color: var(--color-text-light);
+  text-align: center;
+}
+.time-slot-btn:hover {
+  background-color: #2a2a2a;
+  border-color: #555;
+  transform: none; /* Override default btn hover */
+  box-shadow: none; /* Override default btn hover */
+}
+.time-slot-btn.selected {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+
+/* --- Hide Checkout Form Initially --- */
+#checkout-form {
+  display: none;
+}
+
+/* Responsive Booking */
+@media (max-width: 768px) {
+  .booking-container {
+    grid-template-columns: 1fr; /* Stack columns on mobile */
+  }
+  #timeslot-container {
+    max-height: 250px;
   }
 }
