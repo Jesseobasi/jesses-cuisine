@@ -5,14 +5,14 @@
 
 const PROCESSING_FEE = 1.99; 
 const DELIVERY_FEE = 4.99;   
-let selectedDateTime = null; // NEW: Stores the selected date/time
+let selectedDateTime = null; 
 
 document.addEventListener('DOMContentLoaded', () => {
   updateCartIcon();
   
   if (document.body.id === 'cart-page') {
     displayCartItems();
-    setupBookingSystem(); // NEW: Replaces setupCartForm
+    setupBookingSystem();
     
     document.querySelectorAll('input[name="delivery-option"]').forEach(radio => {
       radio.addEventListener('change', updateGrandTotal);
@@ -28,16 +28,31 @@ function saveCart(cart) {
   localStorage.setItem('jesseCart', JSON.stringify(cart));
 }
 
+/**
+ * === UPDATED: Adds/removes 'cart-active' class ===
+ */
 function updateCartIcon() {
   const cart = getCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   const cartIcon = document.getElementById('cart-icon');
-  
+  const mobileCartIcon = document.getElementById('mobile-cart-icon');
+
   if (cartIcon) {
     cartIcon.textContent = `Cart (${totalItems})`;
-    const mobileCartIcon = document.getElementById('mobile-cart-icon');
-    if (mobileCartIcon) {
-      mobileCartIcon.textContent = `Cart (${totalItems})`;
+    
+    if (totalItems > 0) {
+      cartIcon.classList.add('cart-active');
+    } else {
+      cartIcon.classList.remove('cart-active');
+    }
+  }
+  
+  if (mobileCartIcon) {
+    mobileCartIcon.textContent = `Cart (${totalItems})`;
+    if (totalItems > 0) {
+      mobileCartIcon.classList.add('cart-active');
+    } else {
+      mobileCartIcon.classList.remove('cart-active');
     }
   }
 }
@@ -151,105 +166,14 @@ function addCartEventListeners() {
   });
 }
 
-/**
- * === NEW: CALENDAR & BOOKING SYSTEM ===
- */
-function setupBookingSystem() {
-  const timeslotContainer = document.getElementById('timeslot-container');
-  const checkoutForm = document.getElementById('checkout-form');
-  
-  // --- MANUALLY BLOCK DATES HERE ---
-  // When a day is booked, add it in "YYYY-MM-DD" format.
-  const blockedDates = [
-    "2025-11-27", // Example: Thanksgiving
-    "2025-11-28", // Example: Black Friday
-    "2025-12-24",
-    "2025-12-25"
-  ];
-  
-  // 1. Initialize the Calendar
-  flatpickr("#calendar-container", {
-    inline: true, // Show the calendar on the page
-    minDate: new Date().fp_incr(3), // Rule 1: 3-day lead time
-    
-    // Rule 2: Allowed days (Mon, Tue, Thu, Fri, Sat)
-    disable: [
-      function(date) {
-        // Disable Sundays (0) and Wednesdays (3)
-        return (date.getDay() === 0 || date.getDay() === 3);
-      },
-      ...blockedDates // Disables all dates in your list
-    ],
-    locale: {
-      firstDayOfWeek: 0 
-    },
-    
-    // 3. This runs when a user CLICKS a valid date
-    onChange: function(selectedDates, dateStr, instance) {
-      if (selectedDates.length === 0) return;
-      
-      const selectedDate = selectedDates[0];
-      selectedDateTime = { date: dateStr, time: null }; // Reset time
-      
-      // Hide the form until a time is picked
-      checkoutForm.style.display = 'none'; 
-      
-      // Generate time slots
-      generateTimeSlots(timeslotContainer);
-    }
-  });
-  
-  // 4. Generate the hourly time slot buttons
-  function generateTimeSlots(container) {
-    container.innerHTML = ''; // Clear the placeholder
-    const startTime = 12; // 12 PM
-    const endTime = 20; // 8 PM
-    
-    for (let hour = startTime; hour <= endTime; hour++) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.classList.add('btn', 'time-slot-btn');
-      
-      // Format time (12 PM, 1 PM, 2 PM...)
-      const displayHour = hour > 12 ? hour - 12 : hour;
-      const ampm = hour >= 12 ? 'PM' : 'AM';
-      button.textContent = `${displayHour}:00 ${ampm}`;
-      
-      button.dataset.time = `${hour}:00`; // Store 24-hr time
-      
-      container.appendChild(button);
-    }
-    
-    // Add click listeners to the new buttons
-    addTimeslotListeners();
-  }
+function setupCartForm() {
+  const form = document.getElementById('checkout-form');
+  if (!form) return;
 
-  // 5. Add click listeners to all time slot buttons
-  function addTimeslotListeners() {
-    document.querySelectorAll('.time-slot-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        // Remove 'selected' from all other buttons
-        document.querySelectorAll('.time-slot-btn').forEach(btn => btn.classList.remove('selected'));
-        // Add 'selected' to the clicked one
-        button.classList.add('selected');
-        
-        // Store the selected time
-        selectedDateTime.time = button.textContent; // e.g., "4:00 PM"
-        
-        // Show the checkout form
-        checkoutForm.style.display = 'block';
-        window.scrollTo({ top: checkoutForm.offsetTop - 100, behavior: 'smooth' });
-      });
-    });
-  }
-
-  // 6. Handle the final form submission
-  checkoutForm.addEventListener('submit', () => {
-    // Combine selected date and time
-    const fullPickupTime = `${selectedDateTime.date} at ${selectedDateTime.time}`;
-    
+  form.addEventListener('submit', () => {
     const cart = getCart();
     let orderSummary = '';
+    
     cart.forEach(item => {
       orderSummary += `Item: ${item.name} (${item.tray_size}) (Qty: ${item.quantity}) - $${(parseFloat(item.price) * item.quantity).toFixed(2)}\n`;
     });
@@ -260,14 +184,97 @@ function setupBookingSystem() {
     const grandTotal = document.getElementById('cart-grand-total').textContent;
     const deliveryOption = document.getElementById('delivery-radio').checked ? 'Delivery' : 'Pickup';
     
-    // Populate hidden fields
     document.getElementById('order-items').value = orderSummary;
     document.getElementById('order-subtotal').value = subtotal;
     document.getElementById('order-fees').value = (parseFloat(processingFee) + parseFloat(deliveryFee)).toFixed(2);
     document.getElementById('order-grand-total').value = grandTotal;
     document.getElementById('order-delivery-option').value = deliveryOption;
-    document.getElementById('order-pickup-time').value = fullPickupTime;
+    document.getElementById('order-pickup-time').value = selectedDateTime ? `${selectedDateTime.date} at ${selectedDateTime.time}` : 'Date/Time not selected';
     
     localStorage.removeItem('jesseCart');
   });
+}
+
+// === NEW: CALENDAR & BOOKING SYSTEM (Relies on flatpickr) ===
+function setupBookingSystem() {
+  const timeslotContainer = document.getElementById('timeslot-container');
+  const checkoutForm = document.getElementById('checkout-form');
+  
+  // --- MANUALLY BLOCK DATES HERE ---
+  const blockedDates = [
+    "2025-11-27", 
+    "2025-11-28", 
+    "2025-12-24",
+    "2025-12-25"
+  ];
+  
+  // 1. Initialize the Calendar
+  flatpickr("#calendar-container", {
+    inline: true, 
+    minDate: new Date().fp_incr(3), 
+    
+    disable: [
+      function(date) {
+        return (date.getDay() === 0 || date.getDay() === 3);
+      },
+      ...blockedDates 
+    ],
+    locale: {
+      firstDayOfWeek: 0 
+    },
+    
+    onChange: function(selectedDates, dateStr, instance) {
+      if (selectedDates.length === 0) return;
+      
+      const selectedDate = selectedDates[0];
+      selectedDateTime = { date: dateStr, time: null }; 
+      
+      checkoutForm.style.display = 'none'; 
+      
+      generateTimeSlots(timeslotContainer);
+    }
+  });
+  
+  // 2. Generate the hourly time slot buttons
+  function generateTimeSlots(container) {
+    container.innerHTML = ''; 
+    const startTime = 12; // 12 PM
+    const endTime = 20; // 8 PM
+    
+    for (let hour = startTime; hour <= endTime; hour++) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.classList.add('btn', 'time-slot-btn');
+      
+      const displayHour = hour > 12 ? hour - 12 : hour;
+      const ampm = hour >= 12 ? 'PM' : 'AM';
+      button.textContent = `${displayHour}:00 ${ampm}`;
+      
+      button.dataset.time = `${hour}:00`; 
+      
+      container.appendChild(button);
+    }
+    
+    // Add click listeners to the new buttons
+    addTimeslotListeners();
+  }
+
+  // 3. Add click listeners to all time slot buttons
+  function addTimeslotListeners() {
+    document.querySelectorAll('.time-slot-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove 'selected' from all other buttons
+        document.querySelectorAll('.time-slot-btn').forEach(btn => btn.classList.remove('selected'));
+        // Add 'selected' to the clicked one
+        button.classList.add('selected');
+        
+        // Store the selected time
+        selectedDateTime.time = button.textContent;
+        
+        // Show the checkout form
+        checkoutForm.style.display = 'block';
+        window.scrollTo({ top: checkoutForm.offsetTop - 100, behavior: 'smooth' });
+      });
+    });
+  }
 }

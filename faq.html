@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ - Simma</title> 
-    <link rel="stylesheet" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
-    <link rel="icon" href="images/icons/192.png" type="image/jpeg">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#D1495B"> 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Simma"> 
-    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - JCuisines</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/icons/192.png" type="image/jpeg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="JCuisines">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
 </head>
 <body>
 
   <div id="preloader"><div class="spinner"></div></div>
 
-    <header>
-      <nav id="navbar">
-        <div class="nav-container">
-          <h1 class="logo"><a href="index.html">Simma</a></h1>
-          <ul class="nav-links">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="catering.html">Catering</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-          <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
-          <div class="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
+  <header>
+    <nav id="navbar">
+      <div class="nav-container">
+        <h1 class="logo"><a href="index.html"><span class="highlight">JC</span>uisines</a></h1>
+        
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li class="mobile-cart-link"><a href="cart.html" id="mobile-cart-icon">Cart (0)</a></li>
+        </ul>
+        
+        <a href="cart.html" id="cart-icon" class="btn-cart">Cart (0)</a>
+        
+        <div class="menu-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
   <main class="section faq-section">
     <h2>Frequently Asked Questions</h2>
@@ -62,7 +65,7 @@
 
       <details class="faq-item">
         <summary>Do you deliver?</summary>
-        <p>We currently offer pickup in Baltimore, Maryland. Local delivery is available for large catering orders and may be available for regular orders over $75. Please contact us to confirm.</p>
+        <p>We currently offer pickup at our [Your City/Location] location. Local delivery is available for large catering orders over [Your Price] and may be available for regular orders for an additional fee. Please contact us to confirm.</p>
       </details>
       
       <details class="faq-item">
@@ -79,12 +82,17 @@
         <summary>What is your cancellation policy?</summary>
         <p>As per our policies, a 50% non-refundable deposit is required for catering. Cancellations must be made 72 hours in advance. We do not offer refunds on regular cart orders once payment is made, but please contact us if you have an issue.</p>
       </details>
+      
+      <details class="faq-item">
+        <summary>How should I reheat the food?</summary>
+        <p>For best results, we recommend reheating trays in a preheated oven at 350°F (175°C). Cover with foil to keep food moist. Most trays will be hot in 20-30 minutes. Soups and stews can be reheated on the stovetop over medium-low heat.</p>
+      </details>
 
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Jesse's Cuisines — Designed with ❤️</p>
+    <p>© 2025 JCuisines — Designed with ❤️</p>
   </footer>
 
   <script src="cart.js"></script>
@@ -107,13 +115,6 @@
   </script>
 
   <script>
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-      preloader.classList.add('loaded');
-    });
-  </script>
-
-  <script>
     // PWA Service Worker Registration
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
@@ -124,6 +125,13 @@
         });
       });
     }
+  </script>
+
+  <script>
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      preloader.classList.add('loaded');
+    });
   </script>
 
 </body>

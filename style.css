@@ -1,5 +1,5 @@
 /*
-  STYLE.CSS for Simma
+  STYLE.CSS for JCuisines
   Theme: Modern, Dark, Orange/Gold
   Font: Montserrat
 */
@@ -16,6 +16,19 @@
   
   --font-primary: 'Montserrat', sans-serif;
   --font-headings: 'Montserrat', sans-serif; /* Reverted to single font */
+}
+
+/* New Highlight for Logo */
+.logo a {
+  color: var(--color-text-light); /* Base text color (The 'Cuisines' part) */
+  text-decoration: none;
+  font-size: 1.5rem; 
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-family: var(--font-primary);
+}
+.logo a .highlight {
+  color: var(--color-primary); /* Uses the Orange/Gold accent */
 }
 
 * {
@@ -124,15 +137,6 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo a {
-  font-family: var(--font-primary); /* Montserrat */
-  font-size: 1.5rem; 
-  font-weight: 800;
-  color: var(--color-primary); /* Orange/Gold Logo */
-  text-decoration: none;
-  letter-spacing: -1px;
 }
 
 .nav-links {
@@ -655,7 +659,6 @@ footer {
   font-family: var(--font-primary);
   font-size: 1rem;
   background-color: var(--color-bg-medium);
-  color: var(--color-text-light);
   border: 1px solid var(--color-bg-medium);
   border-radius: 50px;
   transition: all 0.3s ease;
@@ -1109,8 +1112,6 @@ footer {
   text-align: left;
   font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 1.5rem;
-  color: var(--color-text-headings);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1165,21 +1166,29 @@ footer {
 }
 
 /* 21. CART ICON & PAGE */
-
 /* --- Cart Icon in Navbar --- */
 .btn-cart {
+  display: inline-block; /* Ensures padding works */
   background-color: var(--color-primary);
   color: var(--color-bg-dark);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  
+  /* === BUBBLE SHAPING FIX === */
+  padding: 10px 20px; /* Sizing */
+  border-radius: 50px; /* The bubble shape */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 2rem;
 }
-
 .btn-cart:hover {
   background-color: var(--color-primary-dark);
   color: #000;
 }
-
-.mobile-cart-link {
-  display: none; /* Hide mobile cart link by default */
-}
+/* The rest of Section 21 continues below... */
 
 /* --- Cart Page Layout --- */
 .cart-section {
@@ -1238,7 +1247,6 @@ footer {
   padding: 5px 8px;
   background-color: var(--color-bg-dark);
   border: 1px solid #333;
-  color: var(--color-text-light);
   border-radius: 8px;
 }
 .cart-item-subtotal {
@@ -1316,7 +1324,6 @@ footer {
   font-family: var(--font-primary);
   font-size: 1rem;
   background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
   border: 1px solid #333;
   border-radius: 8px;
 }
