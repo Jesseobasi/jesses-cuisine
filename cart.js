@@ -171,31 +171,36 @@ function setupCartForm() {
   if (!form) return;
 
   form.addEventListener('submit', () => {
+    // 1. Get the item summary
     const cart = getCart();
     let orderSummary = '';
-    
     cart.forEach(item => {
       orderSummary += `Item: ${item.name} (${item.tray_size}) (Qty: ${item.quantity}) - $${(parseFloat(item.price) * item.quantity).toFixed(2)}\n`;
     });
     
+    // 2. Get the totals
     const subtotal = document.getElementById('cart-subtotal').textContent;
     const processingFee = document.getElementById('cart-processing-fee').textContent;
     const deliveryFee = document.getElementById('cart-delivery-fee').textContent;
     const grandTotal = document.getElementById('cart-grand-total').textContent;
     const deliveryOption = document.getElementById('delivery-radio').checked ? 'Delivery' : 'Pickup';
     
+    // 3. Get the date/time
+    const pickupDateTime = document.getElementById('pickup-datetime').value;
+
+    // 4. Populate hidden fields
     document.getElementById('order-items').value = orderSummary;
     document.getElementById('order-subtotal').value = subtotal;
     document.getElementById('order-fees').value = (parseFloat(processingFee) + parseFloat(deliveryFee)).toFixed(2);
     document.getElementById('order-grand-total').value = grandTotal;
     document.getElementById('order-delivery-option').value = deliveryOption;
-    document.getElementById('order-pickup-time').value = selectedDateTime ? `${selectedDateTime.date} at ${selectedDateTime.time}` : 'Date/Time not selected';
+    document.getElementById('order-pickup-time').value = pickupDateTime; 
     
     localStorage.removeItem('jesseCart');
   });
 }
 
-// === NEW: CALENDAR & BOOKING SYSTEM (Relies on flatpickr) ===
+// === NEW: CALENDAR & BOOKING SYSTEM ===
 function setupBookingSystem() {
   const timeslotContainer = document.getElementById('timeslot-container');
   const checkoutForm = document.getElementById('checkout-form');
@@ -211,22 +216,29 @@ function setupBookingSystem() {
   // 1. Initialize the Calendar
   flatpickr("#calendar-container", {
     inline: true, 
-    minDate: new Date().fp_incr(3), 
+    // === FIX: Allows booking today or any day in the future ===
+    minDate: "today", 
     
+    // === FIX: Removed the day-of-week blocking logic ===
     disable: [
-      function(date) {
-        return (date.getDay() === 0 || date.getDay() === 3);
-      },
+      // Only keep the manual blocks (e.g., holidays)
       ...blockedDates 
     ],
+    
     locale: {
       firstDayOfWeek: 0 
     },
     
+    // Time Rules
+    enableTime: true,
+    time_24hr: false,
+    minuteIncrement: 60, // Hourly slots
+    minTime: "12:00",    // Starts at 12 PM
+    maxTime: "20:00",    // Ends at 8 PM
+    
     onChange: function(selectedDates, dateStr, instance) {
       if (selectedDates.length === 0) return;
       
-      const selectedDate = selectedDates[0];
       selectedDateTime = { date: dateStr, time: null }; 
       
       checkoutForm.style.display = 'none'; 
