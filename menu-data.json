@@ -244,7 +244,7 @@
     "category": "sides",
     "image": "images/food-images/plantains.png",
     "name": "Plantains",
-    "description": "Sweet, fried plantains, perfectly caramelized.",
+    "description": "Sweet, fried plantains.",
     "details": "Vegan.",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch", "price": "18.00"},
@@ -283,8 +283,8 @@
     "description": "Creamy, buttery garlic mashed potatoes.",
     "details": "Contains: Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "23.00"}
+      {"id_suffix": "small", "tray_size": "Small batch", "price": "13.00"},
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "25.00"}
     ]
   },
   {
@@ -292,11 +292,11 @@
     "category": "sides",
     "image": "images/food-images/collards.png",
     "name": "Collard Greens",
-    "description": "Slow-cooked, savory collard greens (with or without turkey).",
+    "description": "Slow-cooked, savory collard greens.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "12.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "25.00"}
+      {"id_suffix": "small", "tray_size": "Small batch", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "30.00"}
     ]
   },
   {
@@ -331,20 +331,20 @@
     "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "20.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "30.00"}
+      {"id_suffix": "small", "tray_size": "Small batch", "price": "25.00"},
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "40.00"}
     ]
   },
   {
     "id": "des002",
     "category": "desserts",
     "image": "images/food-images/cookies.png",
-    "name": "Chocolate Chip Cookies",
+    "name": "Levain's Chocolate Chip Cookies",
     "description": "Thick, gooey, and loaded with chocolate chips.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch (6 Cookies)", "price": "17.00"},
-      {"id_suffix": "large", "tray_size": "Tray (12 Cookies)", "price": "25.00"}
+      {"id_suffix": "large", "tray_size": "Tray (12 Cookies)", "price": "27.00"}
     ]
   },
   {
@@ -355,8 +355,8 @@
     "description": "Rich, fudgy chocolate brownies.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "17.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "25.00"}
+      {"id_suffix": "small", "tray_size": "Small batch", "price": "13.00"},
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "20.00"}
     ]
   },
   {
@@ -376,7 +376,7 @@
     "category":"desserts",
     "image": "images/food-images/cheesecake.png",
     "name": "Cheesecake",
-    "description": "Creamy New York style cheesecake with a strawberry topping.",
+    "description": "Customizable cheesecake.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
       {"id_suffix": "round", "tray_size": "9-inch Round", "price": "35.00"}
