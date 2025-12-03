@@ -139,8 +139,8 @@
     "description": "Classic smoky West African jollof rice. A crowd favorite.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
+      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "40.00"},
+      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "70.00"}
     ]
   },
   {
@@ -151,8 +151,8 @@
     "description": "Classic fried rice with mixed vegetables, egg, and your choice of protein.",
     "details": "Contains: Egg, Soy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "60.00"}
+      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
     ]
   },
   {
@@ -163,8 +163,8 @@
     "description": "Traditional Caribbean rice and peas cooked with coconut milk.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "60.00"}
+      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
     ]
   },
   {
@@ -175,8 +175,8 @@
     "description": "Creamy pasta with bell peppers and jerk spices. Add chicken or shrimp.",
     "details": "Spicy. Contains: Dairy, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "32.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "64.00"}
+      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
     ]
   },
   {
