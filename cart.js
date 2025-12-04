@@ -256,7 +256,7 @@ function setupBookingSystem() {
   
   flatpickr("#calendar-container", {
     inline: true, 
-    minDate: new Date().fp_incr(3), // 3 Day Lead Time
+    minDate: new Date().fp_incr(4), // 3 Day Lead Time
     disable: [
       function(date) { return (date.getDay() === 5); },
       ...blockedDates 

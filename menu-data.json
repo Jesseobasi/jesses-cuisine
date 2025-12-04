@@ -7,8 +7,8 @@
     "description": "Crispy fried wings tossed in your choice of sauce (BBQ, Hot, Jerk).",
     "details": "Contains: Poultry.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": "Half Tray {9in x 7in}", "price": "60.00"}
+      {"id_suffix": "small", "tray_size": "Small Batch", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch", "price": "60.00"}
     ]
   },
   {
@@ -20,7 +20,7 @@
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch", "price": "28.00"},
-      {"id_suffix": "large", "tray_size": "Half Tray {13in x 9in}", "price": "58.00"}
+      {"id_suffix": "large", "tray_size": "Large Batch", "price": "58.00"}
     ]
   },
   {
@@ -32,7 +32,7 @@
     "details": "Spicy. Contains: Peanuts.",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch", "price": "25.00"},
-      {"id_suffix": "large", "tray_size": "Half Tray {9in x 7in}", "price": "53.00"}
+      {"id_suffix": "large", "tray_size": "Large Batch", "price": "53.00"}
     ]
   },
   {
@@ -44,7 +44,7 @@
     "details": "Contains: Shellfish.",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch", "price": "32.00"},
-      {"id_suffix": "large", "tray_size": "Half Tray {9in x 7in}", "price": "54.00"}
+      {"id_suffix": "large", "tray_size": "Large Batch", "price": "54.00"}
     ]
   },
   {
@@ -68,7 +68,7 @@
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": " Half Tray {9in x 7in}", "price": "50.00"}
+      {"id_suffix": "large", "tray_size": "Large Batch", "price": "50.00"}
     ]
   },
   {
@@ -80,7 +80,7 @@
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "50.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "100.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "100.00"}
     ]
   },
   {
@@ -92,7 +92,7 @@
     "details": "Spicy.",
     "options": [
       {"id_suffix": "Half", "tray_size": "Half Tray {13in x 9in}", "price": "50.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "100.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "100.00"}
     ]
   },
   {
@@ -104,7 +104,7 @@
     "details": "Contains: Fish.",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "60.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "110.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "110.00"}
     ]
   },
   {
@@ -116,7 +116,7 @@
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {9in x 7in}", "price": "75.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {13in x 9in}", "price": "120.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {13in x 9in}", "price": "116.00"}
     ]
   },
   {
@@ -140,7 +140,7 @@
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "40.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "70.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "70.00"}
     ]
   },
   {
@@ -151,8 +151,8 @@
     "description": "Classic fried rice with mixed vegetables, egg, and your choice of protein.",
     "details": "Contains: Egg, Soy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
+      {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "40.00"},
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "70.00"}
     ]
   },
   {
@@ -164,7 +164,7 @@
     "details": "Vegan.",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "65.00"}
     ]
   },
   {
@@ -176,7 +176,7 @@
     "details": "Spicy. Contains: Dairy, Gluten.",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "65.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "65.00"}
     ]
   },
   {
@@ -188,7 +188,7 @@
     "details": "Spicy. Contains: Shellfish, Dairy, Gluten.",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "32.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "64.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "64.00"}
     ]
   },
   {
@@ -200,7 +200,7 @@
     "details": "Contains: Dairy, Gluten.",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "32.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "64.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "64.00"}
     ]
   },
   {
@@ -212,7 +212,7 @@
     "details": "Contains: Dairy, Gluten.",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": "Full Tray {20in x 12in}", "price": "60.00"}
+      {"id_suffix": "large", "tray_size": "Full Tray {16in x 12in}", "price": "60.00"}
     ]
   },
   {
@@ -223,7 +223,7 @@
     "description": "Our famous baked mac and cheese, creamy and delicious.",
     "details": "Contains: Dairy, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "22.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "22.00"},
       {"id_suffix": "large", "tray_size": "Tray {13in x 9in}", "price": "35.00"}
     ]
   },
@@ -235,7 +235,7 @@
     "description": "Candied sweet yams, a sweet and savory delight.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "18.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "18.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "30.00"}
     ]
   },
@@ -247,7 +247,7 @@
     "description": "Sweet, fried plantains.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "18.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "18.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "28.00"}
     ]
   },
@@ -256,10 +256,10 @@
     "category": "sides",
     "image": "images/food-images/coleslaw.png",
     "name": "Coleslaw",
-    "description": "Creamy, crunchy, and cool coleslaw.",
+    "description": "Creamy, crunchy, and cool Nigerian styled coleslaw.",
     "details": "Contains: Egg, Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "12.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "12.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "22.00"}
     ]
   },
@@ -271,7 +271,7 @@
     "description": "Tender steamed cabbage with carrots and onions.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "15.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "15.00"},
       {"id_suffix": "large", "tray_size": "Tray {13in x 9in}", "price": "24.00"}
     ]
   },
@@ -283,7 +283,7 @@
     "description": "Creamy, buttery garlic mashed potatoes.",
     "details": "Contains: Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "13.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "13.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "25.00"}
     ]
   },
@@ -295,7 +295,7 @@
     "description": "Slow-cooked, savory collard greens.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "20.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "16.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "30.00"}
     ]
   },
@@ -307,8 +307,8 @@
     "description": "Sweet and savory, baked fresh.",
     "details": "Contains: Gluten, Dairy, Egg.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "10.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "20.00"}
+      {"id_suffix": "small", "tray_size": "Tray", "price": "10.00"},
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "16.00"}
     ]
   },
   {
@@ -319,8 +319,8 @@
     "description": "Toasted and buttered with garlic and herbs.",
     "details": "Contains: Gluten, Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "12.00"},
-      {"id_suffix": "large", "tray_size": "Tray {13in x 9in}", "price": "20.00"}
+      {"id_suffix": "small", "tray_size": "Small batch (12 Rolls)", "price": "18.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch (24 Rolls)", "price": "24.00"}
     ]
   },
   {
@@ -331,7 +331,7 @@
     "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "25.00"},
+      {"id_suffix": "small", "tray_size": "Tray", "price": "25.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "40.00"}
     ]
   },
@@ -340,11 +340,11 @@
     "category": "desserts",
     "image": "images/food-images/cookies.png",
     "name": "Levain's Chocolate Chip Cookies",
-    "description": "Thick, gooey, and loaded with chocolate chips.",
+    "description": "Thick, gooey, huge, and loaded with chocolate chips.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch (6 Cookies)", "price": "17.00"},
-      {"id_suffix": "large", "tray_size": "Tray (12 Cookies)", "price": "27.00"}
+      {"id_suffix": "small", "tray_size": "Small batch (6 Cookies)", "price": "20.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch (12 Cookies)", "price": "30.00"}
     ]
   },
   {
@@ -355,8 +355,8 @@
     "description": "Rich, fudgy chocolate brownies.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "13.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "20.00"}
+      {"id_suffix": "small", "tray_size": "Tray", "price": "13.00"},
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "16.00"}
     ]
   },
   {
@@ -368,7 +368,7 @@
     "details": "Vegan.",
     "options": [
       {"id_suffix": "small", "tray_size": "Small batch", "price": "15.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "30.00"}
+      {"id_suffix": "large", "tray_size": "Large Batch", "price": "30.00"}
     ]
   },
   {
@@ -392,6 +392,102 @@
     "options": [
       {"id_suffix": "small", "tray_size": "Small Batch {6 Wraps}", "price": "45.00"},
       {"id_suffix": "large", "tray_size": "Large Batch {12 Wraps}", "price": "80.00"}
+    ]
+  },
+{
+    "id": "com001",
+    "category": "combos",
+    "image": "images/food-images/wings.png",
+    "name": "Wings & Mac Combo",
+    "description": "Crispy wings paired with our creamy baked mac and cheese.",
+    "details": "10 Wings + Tray of Mac & Cheese.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "65.00"}
+    ]
+  },
+  {
+    "id": "com002",
+    "category": "combos",
+    "image": "images/food-images/yams.png",
+    "name": "Wings & Yams Combo",
+    "description": "Savory fried wings served alongside candied sweet yams.",
+    "details": "10 Wings + Tray of Yams.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "65.00"}
+    ]
+  },
+  {
+    "id": "com003",
+    "category": "combos",
+    "image": "images/food-images/wings.png",
+    "name": "The Triple Threat",
+    "description": "The ultimate comfort mix: Chicken Wings, Mac & Cheese, and Sweet Yams.",
+    "details": "10 Wings + small tray of Mac & Cheese and Sweet Yams",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split", "price": "50.00"},
+      {"id_suffix": "large", "tray_size": "Large Split", "price": "90.00"}
+    ]
+  },
+  {
+    "id": "com004",
+    "category": "combos",
+    "image": "images/food-images/drumsticks.png",
+    "name": "Sunday Dinner Combo",
+    "description": "Roasted Chicken Drumsticks served over creamy garlic Mashed Potatoes.",
+    "details": "Half Drumsticks / Half Mashed Potatoes.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "55.00"}
+    ]
+  },
+  {
+    "id": "com005",
+    "category": "combos",
+    "image": "images/food-images/jollof.png",
+    "name": "Jollof & Stew Chicken Combo",
+    "description": "The classic West African pairing: Smoky Jollof Rice and rich Stew Chicken.",
+    "details": "Half Rice / Half Stew Chicken.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "50.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "80.00"}
+    ]
+  },
+  {
+    "id": "com005",
+    "category": "combos",
+    "image": "images/food-images/fried-rice.png",
+    "name": "Fried Rice & Stew Chicken Combo",
+    "description": "Fried Rice and rich Stew Chicken.",
+    "details": "Half Rice / Half Stew Chicken.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "50.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "80.00"}
+    ]
+  },
+  {
+    "id": "com006",
+    "category": "combos",
+    "image": "images/food-images/steak.png",
+    "name": "Jerk Chicken & Rasta Pasta",
+    "description": "Jerk Chicken served over spicy, creamy Rasta Pasta.",
+    "details": "Half Chicken / Half Pasta.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "48.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "78.00"}
+    ]
+  },
+    {
+    "id": "com006",
+    "category": "combos",
+    "image": "images/food-images/steak.png",
+    "name": "Rice & Peas with Jerk Chicken",
+    "description": "Jerk Chicken served over sihnature Rice & Peas.",
+    "details": "Half Chicken / Half Rice.",
+    "options": [
+      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "48.00"},
+      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "78.00"}
     ]
   }
 ]
