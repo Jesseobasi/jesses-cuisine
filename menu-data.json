@@ -7,8 +7,8 @@
     "description": "Crispy fried wings tossed in your choice of sauce (BBQ, Hot, Jerk).",
     "details": "Contains: Poultry.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Batch", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": "Large Batch", "price": "60.00"}
+      {"id_suffix": "small", "tray_size": "Small Batch (16 pieces)", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch (32 pieces)", "price": "60.00"}
     ]
   },
   {
@@ -19,8 +19,8 @@
     "description": "Slow-roasted and glazed, perfect for starting a meal.",
     "details": "",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "28.00"},
-      {"id_suffix": "large", "tray_size": "Large Batch", "price": "58.00"}
+      {"id_suffix": "small", "tray_size": "Small batch (12 pieces)", "price": "28.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch (24 pieces)", "price": "58.00"}
     ]
   },
   {
@@ -31,8 +31,8 @@
     "description": "Spicy grilled beef skewers, a classic Nigerian street food.",
     "details": "Spicy. Contains: Peanuts.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "25.00"},
-      {"id_suffix": "large", "tray_size": "Large Batch", "price": "53.00"}
+      {"id_suffix": "small", "tray_size": "Small batch (1 pound)", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch (2 pounds)", "price": "60.00"}
     ]
   },
   {
@@ -43,8 +43,8 @@
     "description": "Golden crispy shrimp served with a sweet chili dipping sauce.",
     "details": "Contains: Shellfish.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small batch", "price": "32.00"},
-      {"id_suffix": "large", "tray_size": "Large Batch", "price": "54.00"}
+      {"id_suffix": "small", "tray_size": "Small batch (1.5 pounds)", "price": "32.00"},
+      {"id_suffix": "large", "tray_size": "Large Batch (3 pounds)", "price": "54.00"}
     ]
   },
   {
@@ -76,7 +76,7 @@
     "category": "proteins",
     "image": "images/food-images/stew-chicken.png",
     "name": "Stew Chicken",
-    "description": "Fall-off-the-bone chicken stewed in a rich, savory tomato broth.",
+    "description": "Chicken stewed in a rich, savory red stew.",
     "details": "",
     "options": [
       {"id_suffix": "small", "tray_size": "Half Tray {13in x 9in}", "price": "50.00"},
@@ -259,7 +259,6 @@
     "description": "Creamy, crunchy, and cool Nigerian styled coleslaw.",
     "details": "Contains: Egg, Dairy.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Tray", "price": "12.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "22.00"}
     ]
   },
@@ -271,7 +270,6 @@
     "description": "Tender steamed cabbage with carrots and onions.",
     "details": "Vegan.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Tray", "price": "15.00"},
       {"id_suffix": "large", "tray_size": "Tray {13in x 9in}", "price": "24.00"}
     ]
   },
@@ -331,8 +329,7 @@
     "description": "Classic, creamy, old-fashioned banana pudding with Nilla wafers.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Tray", "price": "25.00"},
-      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "40.00"}
+      {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "38.00"}
     ]
   },
   {
@@ -355,7 +352,6 @@
     "description": "Rich, fudgy chocolate brownies.",
     "details": "Contains: Dairy, Egg, Gluten.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Tray", "price": "13.00"},
       {"id_suffix": "large", "tray_size": "Tray {9in x 7in}", "price": "16.00"}
     ]
   },
@@ -402,8 +398,8 @@
     "description": "Crispy wings paired with our creamy baked mac and cheese.",
     "details": "10 Wings + Tray of Mac & Cheese.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "65.00"}
+      {"id_suffix": "small", "tray_size": "Small Split ", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "65.00"}
     ]
   },
   {
@@ -414,20 +410,20 @@
     "description": "Savory fried wings served alongside candied sweet yams.",
     "details": "10 Wings + Tray of Yams.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "35.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "65.00"}
+      {"id_suffix": "small", "tray_size": "Small Split ", "price": "35.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "65.00"}
     ]
   },
   {
     "id": "com003",
     "category": "combos",
-    "image": "images/food-images/wings.png",
+    "image": "images/food-images/mac.png",
     "name": "The Triple Threat",
     "description": "The ultimate comfort mix: Chicken Wings, Mac & Cheese, and Sweet Yams.",
     "details": "10 Wings + small tray of Mac & Cheese and Sweet Yams",
     "options": [
       {"id_suffix": "small", "tray_size": "Small Split", "price": "50.00"},
-      {"id_suffix": "large", "tray_size": "Large Split", "price": "90.00"}
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "90.00"}
     ]
   },
   {
@@ -436,10 +432,10 @@
     "image": "images/food-images/drumsticks.png",
     "name": "Sunday Dinner Combo",
     "description": "Roasted Chicken Drumsticks served over creamy garlic Mashed Potatoes.",
-    "details": "Half Drumsticks / Half Mashed Potatoes.",
+    "details": "8 Drumsticks + Mashed Potatoes.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "30.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "55.00"}
+      {"id_suffix": "small", "tray_size": "Small Split ", "price": "30.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "55.00"}
     ]
   },
   {
@@ -450,8 +446,8 @@
     "description": "The classic West African pairing: Smoky Jollof Rice and rich Stew Chicken.",
     "details": "Half Rice / Half Stew Chicken.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "50.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "80.00"}
+      {"id_suffix": "small", "tray_size": "Small Split", "price": "50.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "80.00"}
     ]
   },
   {
@@ -462,32 +458,32 @@
     "description": "Fried Rice and rich Stew Chicken.",
     "details": "Half Rice / Half Stew Chicken.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "50.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "80.00"}
+      {"id_suffix": "small", "tray_size": "Small Split", "price": "50.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "80.00"}
     ]
   },
   {
     "id": "com006",
     "category": "combos",
-    "image": "images/food-images/steak.png",
+    "image": "images/food-images/rasta-pasta.png",
     "name": "Jerk Chicken & Rasta Pasta",
     "description": "Jerk Chicken served over spicy, creamy Rasta Pasta.",
     "details": "Half Chicken / Half Pasta.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "48.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "78.00"}
+      {"id_suffix": "small", "tray_size": "Small Split", "price": "48.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "78.00"}
     ]
   },
     {
     "id": "com006",
     "category": "combos",
-    "image": "images/food-images/steak.png",
+    "image": "images/food-images/jerk-chicken.png",
     "name": "Rice & Peas with Jerk Chicken",
     "description": "Jerk Chicken served over sihnature Rice & Peas.",
     "details": "Half Chicken / Half Rice.",
     "options": [
-      {"id_suffix": "small", "tray_size": "Small Split {9in x 7in}", "price": "48.00"},
-      {"id_suffix": "large", "tray_size": "Large Split {13in x 9in}", "price": "78.00"}
+      {"id_suffix": "small", "tray_size": "Small Split", "price": "48.00"},
+      {"id_suffix": "large", "tray_size": "Large Split (Double portion)", "price": "78.00"}
     ]
   }
 ]
