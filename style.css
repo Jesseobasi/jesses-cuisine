@@ -1882,3 +1882,133 @@ footer {
   object-fit: cover;
   object-position: center;
 }
+/* 32. MOBILE MENU CARD FIX */
+/* (Add this to the end of your style.css) */
+
+@media (max-width: 600px) {
+  /* Force the menu cards to stack vertically */
+  .food-card {
+    flex-direction: column;
+    align-items: flex-start; /* Aligns text to the left */
+    padding: 0; /* Remove padding to let image touch edges if desired, or keep it */
+  }
+
+  /* Make the image big and wide */
+  .food-card img {
+    width: 100%;       /* Full width of the card */
+    height: 200px;     /* Taller height to show off the food */
+    border-radius: 12px 12px 0 0; /* Round only top corners */
+    margin-bottom: 0.5rem;
+  }
+
+  /* Add padding back to the text area since we removed it from the card */
+  .food-info {
+    padding: 1rem; 
+    width: 100%;
+  }
+  
+  /* Make the title slightly bigger on mobile */
+  .food-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Make the "Starts at..." text pop */
+  .card-tray-size {
+    margin-top: 0.5rem;
+    display: inline-block;
+    background-color: var(--color-bg-dark);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+}
+/* 33. MOBILE CART & CALENDAR FIX */
+/* (Add this to the end of your style.css) */
+
+@media (max-width: 600px) {
+  
+  /* --- 1. Cart Items: Compact & Clean --- */
+  .cart-item {
+    display: grid;
+    grid-template-columns: 80px 1fr; /* Fixed Image | Fluid Text */
+    gap: 1rem;
+    align-items: start;
+    padding: 1.5rem 0;
+  }
+
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px; /* Uniform corners */
+    object-fit: cover;
+  }
+
+  .cart-item-info {
+    width: 100%;
+  }
+
+  .cart-item-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .cart-item-tray-size {
+    font-size: 0.85rem;
+    color: var(--color-text-medium);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* Move Quantity, Price, and Remove to a bottom row */
+  .cart-item-subtotal {
+    grid-column: 1 / -1; /* Span full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #333;
+  }
+
+  .cart-item-subtotal span {
+    font-size: 1.2rem; /* Make price big */
+    margin-bottom: 0;
+  }
+
+  .cart-item-remove {
+    background-color: #2a2a2a;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #ff6b6b; /* Red text for remove */
+    font-weight: 600;
+  }
+
+  /* --- 2. Booking Container Fix --- */
+  .booking-container {
+    padding: 1rem 0.5rem; /* Reduce padding to fit calendar */
+  }
+
+  /* Ensure Calendar fits on small screens */
+  .flatpickr-calendar.inline {
+    width: 100% !important;
+    max-width: 300px; /* Prevent overflow */
+    margin: 0 auto;
+  }
+}
+/* 34. MOBILE CENTER FIX FOR ABOUT & MOTW */
+/* (Add this to the end of your style.css) */
+
+@media (max-width: 768px) {
+  /* Force the grid to align items to the center */
+  .about-content {
+    justify-items: center;
+  }
+  
+  /* Force the frame to respect the center alignment */
+  .about-content .image-frame {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 90%; /* A bit of breathing room on small screens */
+    max-width: 350px;
+  }
+}

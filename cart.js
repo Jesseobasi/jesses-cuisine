@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     
-    // === NEW: Attach Click Listener to the Button ===
+    // === Attach Click Listener to the Button ===
     const submitBtn = document.getElementById('submit-btn');
     if(submitBtn) {
         submitBtn.addEventListener('click', handleOrderSubmit);
@@ -48,7 +48,6 @@ function toggleAddressField(value) {
   
   if (value === 'delivery') {
     addressSection.style.display = 'block';
-    // We manually check "Required" fields in the submit function now
   } else {
     addressSection.style.display = 'none';
     if(zipError) zipError.style.display = 'none';
@@ -168,30 +167,24 @@ function addCartEventListeners() {
   });
 }
 
+function setupCartForm() {} 
+
 // === MAIN SUBMISSION LOGIC ===
-function handleOrderSubmit() {
+function handleOrderSubmit(e) {
+  e.preventDefault(); 
+  
   const form = document.getElementById('checkout-form');
   const zipError = document.getElementById('zip-error');
   const isDelivery = document.getElementById('delivery-radio').checked;
   
-  // 1. Check Basic Required Fields (Name, Email, Phone, Checkbox)
-  // Since we removed "type=submit", the browser won't auto-check these.
   if (!form.checkValidity()) {
-      form.reportValidity(); // This shows the browser's default "Please fill out this field" bubbles
-      return; // STOP
+      form.reportValidity(); 
+      return; 
   }
 
-  // 2. Check Zip Code (If Delivery)
   if (isDelivery) {
       const userZip = document.getElementById('zip').value.trim();
-      
-      // Check if empty
-      if (!userZip) {
-          alert("Please enter a zip code.");
-          return;
-      }
-
-      // Check if in allowed list
+      if (!userZip) { alert("Please enter a zip code."); return; }
       if (!ALLOWED_ZIPS.includes(userZip)) {
           if(zipError) {
               zipError.style.display = 'block';
@@ -199,31 +192,29 @@ function handleOrderSubmit() {
           } else {
               alert("Sorry! We do not deliver to this zip code.");
           }
-          return; // STOP: Form will NOT submit
+          return; 
       } else {
           if(zipError) zipError.style.display = 'none';
       }
   }
   
-  // 3. Check Date Selection
   const pickupInput = document.getElementById('pickup-datetime');
-  if(!pickupInput.value) {
-      alert("Please select a pickup/delivery date and time.");
+  if(!selectedDateTime || !selectedDateTime.time) {
+      alert("Please select a time slot from the calendar.");
       return;
   }
 
-  // 4. PREPARE DATA (If we got here, everything is valid)
   const cart = getCart();
   let orderSummary = '';
-  
+    
   if (isDelivery) {
-      const address = document.getElementById('address').value;
-      const city = document.getElementById('city').value;
-      const state = document.getElementById('state').value;
-      const zip = document.getElementById('zip').value;
-      orderSummary += `--- DELIVERY ADDRESS ---\n${address}\n${city}, ${state} ${zip}\n------------------------\n\n`;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+    const zip = document.getElementById('zip').value;
+    orderSummary += `--- DELIVERY ADDRESS ---\n${address}\n${city}, ${state} ${zip}\n------------------------\n\n`;
   } else {
-      orderSummary += `--- PICKUP ORDER ---\n\n`;
+    orderSummary += `--- PICKUP ORDER ---\n\n`;
   }
 
   cart.forEach(item => {
@@ -231,34 +222,33 @@ function handleOrderSubmit() {
   });
   
   const subtotal = document.getElementById('cart-subtotal').textContent;
-  const processingFee = document.getElementById('cart-processing-fee').textContent;
-  const deliveryFee = document.getElementById('cart-delivery-fee').textContent;
   const grandTotal = document.getElementById('cart-grand-total').textContent;
   const deliveryOption = isDelivery ? 'Delivery' : 'Pickup';
   
   document.getElementById('order-items').value = orderSummary;
   document.getElementById('order-subtotal').value = subtotal;
-  document.getElementById('order-fees').value = (parseFloat(processingFee) + parseFloat(deliveryFee)).toFixed(2);
+  document.getElementById('order-fees').value = (parseFloat(PROCESSING_FEE) + parseFloat(isDelivery ? DELIVERY_FEE : 0)).toFixed(2);
   document.getElementById('order-grand-total').value = grandTotal;
   document.getElementById('order-delivery-option').value = deliveryOption;
-  document.getElementById('order-pickup-time').value = selectedDateTime ? `${selectedDateTime.date} at ${selectedDateTime.time}` : pickupInput.value;
+  document.getElementById('order-pickup-time').value = `${selectedDateTime.date} at ${selectedDateTime.time}`;
   
-  // 5. FINAL SUBMISSION
   localStorage.removeItem('jesseCart');
-  form.submit(); // Manually triggers the send to Formspree
+  form.submit(); 
 }
 
-// === CALENDAR SETUP (Kept the same) ===
+// === CALENDAR & BOOKING SYSTEM ===
 function setupBookingSystem() {
   const timeslotContainer = document.getElementById('timeslot-container');
   const checkoutForm = document.getElementById('checkout-form');
+  
+  // Manual Blocked Dates (Holidays)
   const blockedDates = ["2025-11-27", "2025-11-28", "2025-12-24", "2025-12-25", "2026-01-01"];
   
   flatpickr("#calendar-container", {
     inline: true, 
-    minDate: new Date().fp_incr(4), // 3 Day Lead Time
+    minDate: new Date().fp_incr(3), // 3 Day Lead Time Restored
     disable: [
-      function(date) { return (date.getDay() === 5); },
+      function(date) { return (date.getDay() === 5); }, // Fridays Blocked
       ...blockedDates 
     ],
     locale: { firstDayOfWeek: 0 },
@@ -304,5 +294,3 @@ function setupBookingSystem() {
     });
   }
 }
-// Empty setupCartForm since we use the button listener now
-function setupCartForm() {}
