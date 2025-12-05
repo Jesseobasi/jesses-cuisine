@@ -1,10 +1,12 @@
 /* =============================
    CART LOGIC (cart.js)
-   (Strict "Button Click" Version)
+   (Firebase + Strict Validation + Fees)
 ============================= */
 
 const PROCESSING_FEE = 1.99; 
-const DELIVERY_FEE = 4.99;   
+const DELIVERY_FEE = 4.99;
+const ORDER_LIMIT_PER_DAY = 2; // UPDATED: Max 2 orders per day
+
 let selectedDateTime = null; 
 
 // === BALTIMORE AREA ZIP CODES ===
@@ -17,14 +19,29 @@ const ALLOWED_ZIPS = [
   "21060", "21090", "21286", "21122", "21144", "21075", "21044", "21045"
 ];
 
+// Wait for Firebase to load from HTML
+document.addEventListener('firebase-ready', () => {
+  initializePage();
+});
+
+// Fallback if not on cart page
 document.addEventListener('DOMContentLoaded', () => {
+  if(document.body.id !== 'cart-page') {
+     updateCartIcon();
+  }
+});
+
+function initializePage() {
   updateCartIcon();
   
   if (document.body.id === 'cart-page') {
     displayCartItems();
-    setupBookingSystem();
     
-    // Delivery Toggle Listener
+    // Fetch booked dates from DB then setup calendar
+    fetchBlockedDatesFromFirebase().then(serverBlockedDates => {
+        setupBookingSystem(serverBlockedDates);
+    });
+    
     const deliveryRadios = document.querySelectorAll('input[name="delivery-option"]');
     deliveryRadios.forEach(radio => {
       radio.addEventListener('change', (e) => {
@@ -33,14 +50,53 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     
-    // === Attach Click Listener to the Button ===
+    // ATTACH CLICK LISTENER (The Nuclear Option)
     const submitBtn = document.getElementById('submit-btn');
     if(submitBtn) {
         submitBtn.addEventListener('click', handleOrderSubmit);
     }
   }
-});
+}
 
+// --- FIREBASE HELPERS ---
+async function fetchBlockedDatesFromFirebase() {
+  const { collection, getDocs } = window.dbFunctions;
+  const db = window.db;
+  const fullDates = [];
+  
+  try {
+    const querySnapshot = await getDocs(collection(db, "daily_counts"));
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      // Check against the new limit of 2
+      if (data.count >= ORDER_LIMIT_PER_DAY) {
+        fullDates.push(doc.id); 
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching dates:", error);
+  }
+  return fullDates;
+}
+
+async function incrementDateCountInFirebase(dateStr) {
+  const { doc, getDoc, setDoc, updateDoc, increment } = window.dbFunctions;
+  const db = window.db;
+  const dayRef = doc(db, "daily_counts", dateStr);
+  
+  try {
+    const daySnap = await getDoc(dayRef);
+    if (daySnap.exists()) {
+      await updateDoc(dayRef, { count: increment(1) });
+    } else {
+      await setDoc(dayRef, { count: 1 });
+    }
+  } catch (e) {
+    console.error("Error updating DB:", e);
+  }
+}
+
+// --- UI FUNCTIONS ---
 function toggleAddressField(value) {
   const addressSection = document.getElementById('delivery-address-section');
   const inputs = addressSection.querySelectorAll('input');
@@ -54,7 +110,6 @@ function toggleAddressField(value) {
   }
 }
 
-// --- Standard Cart Functions ---
 function getCart() { return JSON.parse(localStorage.getItem('jesseCart')) || []; }
 function saveCart(cart) { localStorage.setItem('jesseCart', JSON.stringify(cart)); }
 
@@ -170,21 +225,20 @@ function addCartEventListeners() {
 function setupCartForm() {} 
 
 // === MAIN SUBMISSION LOGIC ===
-function handleOrderSubmit(e) {
+async function handleOrderSubmit(e) {
   e.preventDefault(); 
   
   const form = document.getElementById('checkout-form');
   const zipError = document.getElementById('zip-error');
   const isDelivery = document.getElementById('delivery-radio').checked;
-  
-  if (!form.checkValidity()) {
-      form.reportValidity(); 
-      return; 
-  }
+  const submitBtn = document.getElementById('submit-btn');
 
+  // 1. Check Validity
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+
+  // 2. Check Zip
   if (isDelivery) {
       const userZip = document.getElementById('zip').value.trim();
-      if (!userZip) { alert("Please enter a zip code."); return; }
       if (!ALLOWED_ZIPS.includes(userZip)) {
           if(zipError) {
               zipError.style.display = 'block';
@@ -198,12 +252,37 @@ function handleOrderSubmit(e) {
       }
   }
   
-  const pickupInput = document.getElementById('pickup-datetime');
   if(!selectedDateTime || !selectedDateTime.time) {
       alert("Please select a time slot from the calendar.");
       return;
   }
 
+  // --- 3. FIREBASE CHECK (Last Defense) ---
+  const { doc, getDoc } = window.dbFunctions;
+  const db = window.db;
+  const dateStr = selectedDateTime.date;
+  
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Processing...";
+
+  try {
+      const daySnap = await getDoc(doc(db, "daily_counts", dateStr));
+      // Check against limit of 2
+      if (daySnap.exists() && daySnap.data().count >= ORDER_LIMIT_PER_DAY) {
+          alert("We apologize! This date just filled up. Please select another date.");
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit Order Inquiry";
+          initializePage(); // Refresh calendar
+          return; 
+      }
+      
+      await incrementDateCountInFirebase(dateStr);
+      
+  } catch(err) {
+      console.error("DB Check Failed", err);
+  }
+
+  // 4. PREPARE FORM DATA & SUBMIT
   const cart = getCart();
   let orderSummary = '';
     
@@ -222,12 +301,14 @@ function handleOrderSubmit(e) {
   });
   
   const subtotal = document.getElementById('cart-subtotal').textContent;
+  const processingFee = document.getElementById('cart-processing-fee').textContent;
+  const deliveryFee = document.getElementById('cart-delivery-fee').textContent;
   const grandTotal = document.getElementById('cart-grand-total').textContent;
   const deliveryOption = isDelivery ? 'Delivery' : 'Pickup';
   
   document.getElementById('order-items').value = orderSummary;
   document.getElementById('order-subtotal').value = subtotal;
-  document.getElementById('order-fees').value = (parseFloat(PROCESSING_FEE) + parseFloat(isDelivery ? DELIVERY_FEE : 0)).toFixed(2);
+  document.getElementById('order-fees').value = (parseFloat(processingFee) + parseFloat(deliveryFee)).toFixed(2);
   document.getElementById('order-grand-total').value = grandTotal;
   document.getElementById('order-delivery-option').value = deliveryOption;
   document.getElementById('order-pickup-time').value = `${selectedDateTime.date} at ${selectedDateTime.time}`;
@@ -236,20 +317,20 @@ function handleOrderSubmit(e) {
   form.submit(); 
 }
 
-// === CALENDAR & BOOKING SYSTEM ===
-function setupBookingSystem() {
+// === CALENDAR SYSTEM ===
+function setupBookingSystem(serverBlockedDates = []) {
   const timeslotContainer = document.getElementById('timeslot-container');
   const checkoutForm = document.getElementById('checkout-form');
   
-  // Manual Blocked Dates (Holidays)
-  const blockedDates = ["2025-11-27", "2025-11-28", "2025-12-24", "2025-12-25", "2026-01-01"];
+  const manualHolidays = ["2025-11-27", "2025-11-28", "2025-12-24", "2025-12-25", "2026-01-01"];
+  const allBlockedDates = [...manualHolidays, ...serverBlockedDates];
   
   flatpickr("#calendar-container", {
     inline: true, 
-    minDate: new Date().fp_incr(3), // 3 Day Lead Time Restored
+    minDate: new Date().fp_incr(3), // 3 day lead time
     disable: [
-      function(date) { return (date.getDay() === 5); }, // Fridays Blocked
-      ...blockedDates 
+      function(date) { return (date.getDay() === 5); }, // Block Fridays
+      ...allBlockedDates 
     ],
     locale: { firstDayOfWeek: 0 },
     enableTime: true,
