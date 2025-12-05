@@ -2012,3 +2012,49 @@ footer {
     max-width: 350px;
   }
 }
+/* 35. MOBILE UI FIXES (Modal & Calendar) */
+/* (Add this to the end of your style.css) */
+
+@media (max-width: 768px) {
+  
+  /* --- FIX 1: MENU MODAL STACKING --- */
+  /* Force the modal to stack: Image on Top, Text on Bottom */
+  .modal-content {
+    flex-direction: column !important;
+    width: 90%;
+    max-height: 85vh; /* Prevents it from being too tall */
+    overflow-y: auto; /* Allows scrolling if content is long */
+  }
+
+  .modal-image {
+    width: 100%;        /* Full width */
+    height: 220px;      /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0; /* Round only top corners */
+  }
+
+  .modal-info {
+    width: 100%;        /* Text takes full width */
+    padding: 1.5rem;
+  }
+
+  /* --- FIX 2: CART CALENDAR SIZING --- */
+  /* Reduce padding so the calendar has room to breathe */
+  .booking-container {
+    padding: 10px 5px; 
+    overflow: hidden; /* Prevents horizontal scrollbars */
+  }
+
+  /* Force the calendar to fit 100% of the container */
+  .flatpickr-calendar.inline {
+    width: 100% !important;
+    max-width: 320px; /* Standard max width for mobile calendars */
+    margin: 0 auto;   /* Center it */
+    box-shadow: none; /* Remove shadow to save space */
+  }
+
+  /* If screen is VERY small (old phones), shrink it slightly */
+  .flatpickr-rContainer {
+    max-width: 100%;
+  }
+}
