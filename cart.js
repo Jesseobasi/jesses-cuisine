@@ -1,13 +1,14 @@
 /* =============================
    CART LOGIC (cart.js)
-   (Firebase + Strict Validation + Fees)
+   (Firebase + Strict Validation + CUSTOM CALENDAR)
 ============================= */
 
 const PROCESSING_FEE = 1.99; 
 const DELIVERY_FEE = 4.99;
-const ORDER_LIMIT_PER_DAY = 2; // UPDATED: Max 2 orders per day
+const ORDER_LIMIT_PER_DAY = 2;
 
 let selectedDateTime = null; 
+let currentCalendarDate = new Date(); // Tracks the month we are looking at
 
 // === BALTIMORE AREA ZIP CODES ===
 const ALLOWED_ZIPS = [
@@ -24,7 +25,7 @@ document.addEventListener('firebase-ready', () => {
   initializePage();
 });
 
-// Fallback if not on cart page
+// Fallback
 document.addEventListener('DOMContentLoaded', () => {
   if(document.body.id !== 'cart-page') {
      updateCartIcon();
@@ -37,9 +38,9 @@ function initializePage() {
   if (document.body.id === 'cart-page') {
     displayCartItems();
     
-    // Fetch booked dates from DB then setup calendar
+    // Fetch booked dates then render calendar
     fetchBlockedDatesFromFirebase().then(serverBlockedDates => {
-        setupBookingSystem(serverBlockedDates);
+        setupCustomCalendar(serverBlockedDates);
     });
     
     const deliveryRadios = document.querySelectorAll('input[name="delivery-option"]');
@@ -50,7 +51,6 @@ function initializePage() {
       });
     });
     
-    // ATTACH CLICK LISTENER (The Nuclear Option)
     const submitBtn = document.getElementById('submit-btn');
     if(submitBtn) {
         submitBtn.addEventListener('click', handleOrderSubmit);
@@ -58,24 +58,20 @@ function initializePage() {
   }
 }
 
-// --- FIREBASE HELPERS ---
+// --- FIREBASE HELPER FUNCTIONS ---
 async function fetchBlockedDatesFromFirebase() {
   const { collection, getDocs } = window.dbFunctions;
   const db = window.db;
   const fullDates = [];
-  
   try {
     const querySnapshot = await getDocs(collection(db, "daily_counts"));
     querySnapshot.forEach((doc) => {
       const data = doc.data();
-      // Check against the new limit of 2
       if (data.count >= ORDER_LIMIT_PER_DAY) {
         fullDates.push(doc.id); 
       }
     });
-  } catch (error) {
-    console.error("Error fetching dates:", error);
-  }
+  } catch (error) { console.error(error); }
   return fullDates;
 }
 
@@ -83,17 +79,11 @@ async function incrementDateCountInFirebase(dateStr) {
   const { doc, getDoc, setDoc, updateDoc, increment } = window.dbFunctions;
   const db = window.db;
   const dayRef = doc(db, "daily_counts", dateStr);
-  
   try {
     const daySnap = await getDoc(dayRef);
-    if (daySnap.exists()) {
-      await updateDoc(dayRef, { count: increment(1) });
-    } else {
-      await setDoc(dayRef, { count: 1 });
-    }
-  } catch (e) {
-    console.error("Error updating DB:", e);
-  }
+    if (daySnap.exists()) { await updateDoc(dayRef, { count: increment(1) }); } 
+    else { await setDoc(dayRef, { count: 1 }); }
+  } catch (e) { console.error(e); }
 }
 
 // --- UI FUNCTIONS ---
@@ -101,7 +91,6 @@ function toggleAddressField(value) {
   const addressSection = document.getElementById('delivery-address-section');
   const inputs = addressSection.querySelectorAll('input');
   const zipError = document.getElementById('zip-error');
-  
   if (value === 'delivery') {
     addressSection.style.display = 'block';
   } else {
@@ -188,7 +177,6 @@ function updateGrandTotal() {
   const isDelivery = document.getElementById('delivery-radio').checked;
   const deliveryFee = isDelivery ? DELIVERY_FEE : 0;
   const grandTotal = subtotal + PROCESSING_FEE + deliveryFee;
-  
   document.getElementById('cart-processing-fee').textContent = PROCESSING_FEE.toFixed(2);
   document.getElementById('cart-delivery-fee').textContent = deliveryFee.toFixed(2);
   document.getElementById('cart-grand-total').textContent = grandTotal.toFixed(2);
@@ -233,23 +221,17 @@ async function handleOrderSubmit(e) {
   const isDelivery = document.getElementById('delivery-radio').checked;
   const submitBtn = document.getElementById('submit-btn');
 
-  // 1. Check Validity
   if (!form.checkValidity()) { form.reportValidity(); return; }
 
-  // 2. Check Zip
   if (isDelivery) {
       const userZip = document.getElementById('zip').value.trim();
       if (!ALLOWED_ZIPS.includes(userZip)) {
           if(zipError) {
               zipError.style.display = 'block';
               zipError.scrollIntoView({ behavior: "smooth", block: "center" });
-          } else {
-              alert("Sorry! We do not deliver to this zip code.");
-          }
+          } else alert("Sorry! We do not deliver to this zip code.");
           return; 
-      } else {
-          if(zipError) zipError.style.display = 'none';
-      }
+      } else if(zipError) zipError.style.display = 'none';
   }
   
   if(!selectedDateTime || !selectedDateTime.time) {
@@ -257,35 +239,27 @@ async function handleOrderSubmit(e) {
       return;
   }
 
-  // --- 3. FIREBASE CHECK (Last Defense) ---
+  // --- FIREBASE CHECK ---
   const { doc, getDoc } = window.dbFunctions;
   const db = window.db;
   const dateStr = selectedDateTime.date;
-  
   submitBtn.disabled = true;
   submitBtn.textContent = "Processing...";
 
   try {
       const daySnap = await getDoc(doc(db, "daily_counts", dateStr));
-      // Check against limit of 2
       if (daySnap.exists() && daySnap.data().count >= ORDER_LIMIT_PER_DAY) {
-          alert("We apologize! This date just filled up. Please select another date.");
+          alert("We apologize! This date just filled up.");
           submitBtn.disabled = false;
           submitBtn.textContent = "Submit Order Inquiry";
-          initializePage(); // Refresh calendar
+          initializePage(); 
           return; 
       }
-      
       await incrementDateCountInFirebase(dateStr);
-      
-  } catch(err) {
-      console.error("DB Check Failed", err);
-  }
+  } catch(err) { console.error("DB Check Failed", err); }
 
-  // 4. PREPARE FORM DATA & SUBMIT
   const cart = getCart();
   let orderSummary = '';
-    
   if (isDelivery) {
     const address = document.getElementById('address').value;
     const city = document.getElementById('city').value;
@@ -301,14 +275,12 @@ async function handleOrderSubmit(e) {
   });
   
   const subtotal = document.getElementById('cart-subtotal').textContent;
-  const processingFee = document.getElementById('cart-processing-fee').textContent;
-  const deliveryFee = document.getElementById('cart-delivery-fee').textContent;
   const grandTotal = document.getElementById('cart-grand-total').textContent;
   const deliveryOption = isDelivery ? 'Delivery' : 'Pickup';
   
   document.getElementById('order-items').value = orderSummary;
   document.getElementById('order-subtotal').value = subtotal;
-  document.getElementById('order-fees').value = (parseFloat(processingFee) + parseFloat(deliveryFee)).toFixed(2);
+  document.getElementById('order-fees').value = (parseFloat(PROCESSING_FEE) + parseFloat(isDelivery ? DELIVERY_FEE : 0)).toFixed(2);
   document.getElementById('order-grand-total').value = grandTotal;
   document.getElementById('order-delivery-option').value = deliveryOption;
   document.getElementById('order-pickup-time').value = `${selectedDateTime.date} at ${selectedDateTime.time}`;
@@ -317,36 +289,87 @@ async function handleOrderSubmit(e) {
   form.submit(); 
 }
 
-// === CALENDAR SYSTEM ===
-function setupBookingSystem(serverBlockedDates = []) {
-  const timeslotContainer = document.getElementById('timeslot-container');
+// === CUSTOM CSS GRID CALENDAR SYSTEM ===
+function setupCustomCalendar(serverBlockedDates = []) {
+  const daysContainer = document.getElementById('calendar-days');
+  const monthYearEl = document.getElementById('month-year');
+  const prevBtn = document.getElementById('prev-month');
+  const nextBtn = document.getElementById('next-month');
   const checkoutForm = document.getElementById('checkout-form');
-  
+  const timeslotContainer = document.getElementById('timeslot-container');
+
+  // Manually blocked holidays
   const manualHolidays = ["2025-11-27", "2025-11-28", "2025-12-24", "2025-12-25", "2026-01-01"];
-  const allBlockedDates = [...manualHolidays, ...serverBlockedDates];
-  
-  flatpickr("#calendar-container", {
-    inline: true, 
-    minDate: new Date().fp_incr(3), // 3 day lead time
-    disable: [
-      function(date) { return (date.getDay() === 5); }, // Block Fridays
-      ...allBlockedDates 
-    ],
-    locale: { firstDayOfWeek: 0 },
-    enableTime: true,
-    time_24hr: false,
-    minuteIncrement: 60, 
-    minTime: "12:00",    
-    maxTime: "20:00",    
-    onChange: function(selectedDates, dateStr, instance) {
-      if (selectedDates.length === 0) return;
-      selectedDateTime = { date: dateStr, time: null }; 
-      checkoutForm.style.display = 'none'; 
-      generateTimeSlots(timeslotContainer);
+  const allBlocked = [...serverBlockedDates, ...manualHolidays];
+
+  function render() {
+    const year = currentCalendarDate.getFullYear();
+    const month = currentCalendarDate.getMonth();
+    const today = new Date();
+    // Lead time: 3 days from now
+    const minDate = new Date();
+    minDate.setDate(today.getDate() + 3);
+    minDate.setHours(0,0,0,0);
+
+    monthYearEl.textContent = currentCalendarDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    daysContainer.innerHTML = "";
+
+    // Days in current month
+    const firstDayIndex = new Date(year, month, 1).getDay();
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    
+    // Empty slots for prev month
+    for (let i = 0; i < firstDayIndex; i++) {
+      const emptyDiv = document.createElement('div');
+      emptyDiv.classList.add('calendar-day', 'empty');
+      daysContainer.appendChild(emptyDiv);
     }
+
+    // Days
+    for (let i = 1; i <= lastDay; i++) {
+      const dayEl = document.createElement('div');
+      dayEl.textContent = i;
+      dayEl.classList.add('calendar-day');
+      
+      const thisDate = new Date(year, month, i);
+      const dateString = thisDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+      // BLOCKS: Past dates, Lead time, Fridays (5), Manually blocked
+      if (
+        thisDate < minDate || 
+        thisDate.getDay() === 5 || 
+        allBlocked.includes(dateString)
+      ) {
+        dayEl.classList.add('disabled');
+      } else {
+        dayEl.addEventListener('click', () => {
+           // Visual select
+           document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+           dayEl.classList.add('selected');
+           
+           // Logic
+           selectedDateTime = { date: dateString, time: null };
+           checkoutForm.style.display = 'none';
+           generateTimeSlots(timeslotContainer);
+        });
+      }
+      daysContainer.appendChild(dayEl);
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
+    render();
   });
-  
-  function generateTimeSlots(container) {
+  nextBtn.addEventListener('click', () => {
+    currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
+    render();
+  });
+
+  render();
+}
+
+function generateTimeSlots(container) {
     container.innerHTML = ''; 
     const startTime = 12; 
     const endTime = 20; 
@@ -357,21 +380,16 @@ function setupBookingSystem(serverBlockedDates = []) {
       const displayHour = hour > 12 ? hour - 12 : hour;
       const ampm = hour >= 12 ? 'PM' : 'AM';
       button.textContent = `${displayHour}:00 ${ampm}`;
-      button.dataset.time = `${hour}:00`; 
       container.appendChild(button);
     }
-    addTimeslotListeners();
-  }
-
-  function addTimeslotListeners() {
+    
     document.querySelectorAll('.time-slot-btn').forEach(button => {
       button.addEventListener('click', () => {
         document.querySelectorAll('.time-slot-btn').forEach(btn => btn.classList.remove('selected'));
         button.classList.add('selected');
         selectedDateTime.time = button.textContent;
-        checkoutForm.style.display = 'block';
-        window.scrollTo({ top: checkoutForm.offsetTop - 100, behavior: 'smooth' });
+        document.getElementById('checkout-form').style.display = 'block';
+        window.scrollTo({ top: document.getElementById('checkout-form').offsetTop - 100, behavior: 'smooth' });
       });
     });
-  }
 }

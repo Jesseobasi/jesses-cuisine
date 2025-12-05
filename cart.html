@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="./style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
-    
     <link rel="icon" href="images/icons/192.png" type="image/jpeg">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#F59E0B">
@@ -54,8 +51,8 @@
       <div class="cart-container">
         
         <h2>Step 1: Review Your Cart</h2>
-        <div id="cart-items-container">
-          </div>
+        <div id="cart-items-container"></div>
+        
         <div class="cart-summary">
           <div class="summary-row">
             <span>Subtotal</span>
@@ -80,7 +77,20 @@
           
           <div id="calendar-column">
             <label>1. Select a Date</label>
-            <div id="calendar-container"></div>
+            <!-- CUSTOM CALENDAR STRUCTURE -->
+            <div class="custom-calendar">
+              <div class="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <span id="month-year">Month Year</span>
+                <button id="next-month">&gt;</button>
+              </div>
+              <div class="calendar-weekdays">
+                <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+              </div>
+              <div class="calendar-days" id="calendar-days">
+                <!-- Days injected by JS -->
+              </div>
+            </div>
           </div>
           
           <div id="timeslot-column">
@@ -200,23 +210,16 @@
 
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
-
-      // Share DB with cart.js
       window.db = db;
       window.dbFunctions = { collection, getDocs, doc, getDoc, setDoc, updateDoc, increment };
       
-      // Tell cart.js we are ready
       document.dispatchEvent(new Event('firebase-ready'));
     </script>
 
-    <!-- 2. MAIN LOGIC -->
+    <!-- 2. MAIN LOGIC (No Flatpickr Script needed) -->
     <script src="cart.js"></script> 
     
-    <!-- 3. UI SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
     <script>
-      // Navbar & Mobile Menu
       window.addEventListener("scroll", function() {
         const navbar = document.getElementById("navbar");
         navbar.classList.toggle("scrolled", window.scrollY > 50);
@@ -230,15 +233,11 @@
         navLinks.classList.toggle("active");
       });
 
-      // Preloader
       const preloader = document.getElementById('preloader');
       window.addEventListener('load', () => {
         preloader.classList.add('loaded');
       });
-    </script>
 
-    <script>
-      // PWA Registration
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/sw.js').then(function(registration) {

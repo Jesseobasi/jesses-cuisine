@@ -2058,3 +2058,93 @@ footer {
     max-width: 100%;
   }
 }
+/* 36. CUSTOM CSS GRID CALENDAR */
+/* (Add this to the end of your style.css) */
+
+.custom-calendar {
+  width: 100%;
+  max-width: 350px; /* Prevents it from getting too wide */
+  margin: 0 auto;
+  background-color: var(--color-bg-medium);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.calendar-header span {
+  font-weight: 700;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  color: var(--color-text-medium);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  aspect-ratio: 1 / 1; /* Perfect squares */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover:not(.disabled) {
+  background-color: #333;
+}
+
+.calendar-day.selected {
+  background-color: var(--color-primary);
+  color: var(--color-bg-dark);
+  font-weight: 700;
+}
+
+.calendar-day.disabled {
+  color: #444;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.calendar-day.empty {
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .booking-container {
+    padding: 0;
+  }
+  .custom-calendar {
+    width: 100%; /* Full width on mobile */
+  }
+}
