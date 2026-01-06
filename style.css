@@ -2148,3 +2148,120 @@ footer {
     width: 100%; /* Full width on mobile */
   }
 }
+
+/* ========================================= */
+/* REVIEWS SECTION (Dark Theme)              */
+/* ========================================= */
+
+.reviews-section {
+  background-color: var(--color-bg-dark); 
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+.section-subtitle {
+  margin-bottom: 3rem;
+  color: var(--color-text-medium);
+  font-size: 1.1rem;
+  margin-top: -2rem; 
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Dark Card Style */
+.review-card {
+  background-color: var(--color-bg-medium); 
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #333;
+  border-top: 4px solid var(--color-primary); 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  background-color: #2a2a2a;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.stars {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.review-header h3 {
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text-headings);
+}
+
+.review-text {
+  color: var(--color-text-light);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.reviewer-info {
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verified-badge {
+  font-size: 0.8rem;
+  color: #10B981; 
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* STAR PICKER (Clickable) */
+.star-rating-picker {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.star-rating-picker input {
+  display: none; 
+}
+
+.star-rating-picker label {
+  font-size: 2rem;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star-rating-picker input:checked ~ label,
+.star-rating-picker label:hover,
+.star-rating-picker label:hover ~ label {
+  color: #F59E0B;
+}
+
+@media (max-width: 768px) {
+  .reviews-container {
+    grid-template-columns: 1fr;
+  }
+}
